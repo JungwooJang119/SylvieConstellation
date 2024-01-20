@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7534027839199188646
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StarBG
-  m_Shader: {fileID: -6465566751694194690, guid: c55a35a045e5be742857c1143b6496c8, type: 3}
+  m_Name: StarBGBack
+  m_Shader: {fileID: -6465566751694194690, guid: 0c03fb58cb99c514ba05be0b34e48620, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -19,7 +32,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _Rotation
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -53,33 +66,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1.47
-    - _BrightnessPower: 3.389
-    - _BrightnessVariationScale: 0.2
+    - _Brightness: 1.02
+    - _BrightnessPower: 1
+    - _BrightnessVariationScale: 0.05
     - _EnableExternalAlpha: 0
-    - _OverallScale: 3.13
+    - _OverallScale: 0.49
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Randomness: 5
     - _Rotation: 0
-    - _StarsScale: 20.8
-    - _Threshold: 0.9691
+    - _StarsScale: 39.7
+    - _Threshold: 0.9807
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 217.27716, g: -46.41952, b: 0, a: 0}
+    - _Offset: {r: 21.727716, g: -4.641952, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &8970722754493895582
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 7
