@@ -61,29 +61,22 @@ public class PlayerController : Singleton<PlayerController>
         }
         if (canMove) {
             inputVector = input.Player.Move.ReadValue<Vector2>();
+
             anim.SetFloat("X", inputVector.x);
             anim.SetFloat("Y", inputVector.y);
-            float targetSpeedX = inputVector.x * speed;
-            float targetSpeedY = inputVector.y * speed;
-            float speedDiffX = targetSpeedX - rb.velocity.x;
-            float speedDiffY = targetSpeedY - rb.velocity.y;
-            float accelRateX = (Mathf.Abs(targetSpeedX) > 0.01f) ? acceleration : decceleration;
-            float accelRateY = (Mathf.Abs(targetSpeedY) > 0.01f) ? acceleration : decceleration;
-            float movementX = Mathf.Pow(Mathf.Abs(speedDiffX) * accelRateX, velPower) * Mathf.Sign(speedDiffX);
-            float movementY = Mathf.Pow(Mathf.Abs(speedDiffY) * accelRateY, velPower) * Mathf.Sign(speedDiffY);
+
+            float movementX = CalculateMovement(inputVector.x, rb.velocity.x);
+            float movementY = CalculateMovement(inputVector.y, rb.velocity.y);
             rb.AddForce(movementX * Vector2.right);
             rb.AddForce(movementY * Vector2.up);
-            bgCloseOffset.x = transform.position.x / transform.localScale.x / parallax;
-            bgCloseOffset.y = transform.position.y / transform.localScale.y / parallax;
-            bgClose.SetVector("_Offset", new Vector2(bgCloseOffset.x, bgCloseOffset.y));
-            bgFarOffset.x = transform.position.x / transform.localScale.x / (parallax * 10);
-            bgFarOffset.y = transform.position.y / transform.localScale.y / (parallax * 10);
-            bgFar.SetVector("_Offset", new Vector2(bgFarOffset.x, bgFarOffset.y));
+
+            SetBGOffset();
+
             if (inputVector.magnitude > 0) {
                 Vector2 normMovement = inputVector.normalized;
                 anim.SetBool("isMoving", true);
                 if (isBoosted) {
-                    //starBits.Play();
+                    //Play Boost Star Particles
                 }
             } else {
                 anim.SetBool("isMoving", false);
@@ -108,6 +101,27 @@ public class PlayerController : Singleton<PlayerController>
     private void OnDisable() {
         movement = input.Player.Move;
         movement.Disable();
+    }
+
+    private float CalculateMovement(float value, float velocityVal) {
+        float targetSpeed = value * speed;
+        float speedDiff = targetSpeed - velocityVal;
+        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
+        float movement = Mathf.Pow(Mathf.Abs(speedDiff) * accelRate, velPower) * Mathf.Sign(speedDiff);
+        return movement;
+    }
+
+    private void SetBGOffset() {
+        //BG stars offset
+        //Close stars
+        bgCloseOffset.x = transform.position.x / transform.localScale.x / parallax;
+        bgCloseOffset.y = transform.position.y / transform.localScale.y / parallax;
+        bgClose.SetVector("_Offset", new Vector2(bgCloseOffset.x, bgCloseOffset.y));
+
+        //Far stars
+        bgFarOffset.x = transform.position.x / transform.localScale.x / (parallax * 10);
+        bgFarOffset.y = transform.position.y / transform.localScale.y / (parallax * 10);
+        bgFar.SetVector("_Offset", new Vector2(bgFarOffset.x, bgFarOffset.y));
     }
    
 }
