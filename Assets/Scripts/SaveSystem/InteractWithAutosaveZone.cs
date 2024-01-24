@@ -36,9 +36,10 @@ public class InteractWithAutosaveZone : MonoBehaviour
 
         // If the autosave timer gets low enough, but the player
         // hasn't touched an autosave trigger, save anyway
-        if (autosaveTimer < -300f)
+        if (autosaveTimer < -120f)
         {
             SaveSystem.SaveGame();
+            IncrementAutosaveTimerTo(45f);
         }
     }
 
