@@ -8,10 +8,14 @@ public class PlayerRecoil : MonoBehaviour
     private Vector2 velocity;
     [SerializeField] private float forceMag = 10f;
     [SerializeField] private float deltat = 5f;
+    [SerializeField] private float rotation = 0.005f;
+    [SerializeField] private GameObject centerPosition;
+    private Vector3 positionAfterCollision;
     // Start is called before the first frame update
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
+        centerPosition = this.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -28,17 +32,35 @@ public class PlayerRecoil : MonoBehaviour
         rb.velocity = velocity;
         //rb.AddForce(forceMag * direction);
         AddForceOverTime(deltat, forceMag * direction);
+        Invoke("StopRotating", deltat * 0.75f);
     }
 
-    public void AddForceOverTime(float time, Vector2 force) {
+    private void AddForceOverTime(float time, Vector2 force) {
         float timer = 0f;
-        Time.timeScale = 0.01f;
-        Debug.Log(Time.timeScale);
+        //Debug.Log(Time.timeScale);
+        rb.freezeRotation = false;
         while(timer < time) {
             rb.AddRelativeForce(force);
+            rb.AddTorque(rotation, ForceMode2D.Force);
+            //rb.angularVelocity = -5f;
             timer += Time.deltaTime;
         }
-        Time.timeScale = 1f;
-        Debug.Log(Time.timeScale);
+        timer = 0f;
+        while(timer < (time * 0.5f)) {
+            rb.AddTorque(-rotation * 0.5f, ForceMode2D.Force);
+            timer += Time.deltaTime;
+        }
+        //positionAfterCollision = centerPosition.gameObject.transform.position;
+        //rb.freezeRotation = true;
+        
+        //Debug.Log(Time.timeScale);
+    }
+
+    private void StopRotating() {
+        Debug.Log("Player position: " + rb.gameObject.transform.position);
+        rb.gameObject.transform.rotation = Quaternion.identity;
+        rb.gameObject.transform.position = centerPosition.gameObject.transform.position;
+        Debug.Log("Player position: " + rb.gameObject.transform.position);
+        rb.freezeRotation = true;
     }
 }

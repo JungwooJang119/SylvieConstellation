@@ -745,6 +745,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &351646258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351646259}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &351646259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351646258}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1768198632}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &362015934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2626,6 +2657,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceMag: 11
   deltat: 10
+  rotation: 0.1
+  centerPosition: {fileID: 0}
 --- !u!1 &1828606139
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,7 +3236,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8835112654290279075, guid: 8aa31d23db44abf4d8a45e70050abf8d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 351646259}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3289613599486868265, guid: 8aa31d23db44abf4d8a45e70050abf8d, type: 3}
       insertIndex: -1
