@@ -5,18 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
-    path: Assets/Scenes/Jung/TestLovers.unity
-    guid: 67ec4f87f7fa5014e8707b8dcfa760e4
-  - enabled: 1
-    path: Assets/Scenes/Test.unity
-    guid: aa3151e9f44a19447847e15133292899
-  - enabled: 1
-    path: Assets/Scenes/TestLovers.unity
-    guid: 7c858c6fc1f31bb48ba7c812378befbd
   - enabled: 1
     path: Assets/Scenes/Aiden/TestSavePoints.unity
     guid: 3cb97a9130694874d9cca08b394881b5
