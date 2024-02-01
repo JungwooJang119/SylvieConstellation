@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Aiden/TestSavePoints.unity
+    guid: 3cb97a9130694874d9cca08b394881b5
   - enabled: 1
-    path: Assets/Scenes/Jung/TestLovers.unity
-    guid: 67ec4f87f7fa5014e8707b8dcfa760e4
+    path: Assets/Scenes/Jonathan/Test.unity
+    guid: 5bb62c4d1d50e1140a8d56ea87ef6141
+  - enabled: 1
+    path: Assets/Scenes/Jonathan/TestLovers.unity
+    guid: d05df82b2d43c2e46bba11fae3177471
   m_configObjects: {}

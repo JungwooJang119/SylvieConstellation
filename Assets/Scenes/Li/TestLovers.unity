@@ -725,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26469535c44a110469b6c3abd30cb3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
   dialogueRunner: {fileID: 2098771125}
 --- !u!58 &362015936
 CircleCollider2D:
