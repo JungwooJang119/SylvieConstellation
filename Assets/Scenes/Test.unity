@@ -2655,9 +2655,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c14a0d71af7364498ce1163be843dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMag: 11
+  forceMag: 8
   deltat: 10
-  rotation: 0.1
+  rotation: 0.5
   centerPosition: {fileID: 0}
 --- !u!1 &1828606139
 GameObject:

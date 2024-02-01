@@ -6,9 +6,9 @@ public class PlayerRecoil : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Vector2 velocity;
-    [SerializeField] private float forceMag = 10f;
-    [SerializeField] private float deltat = 5f;
-    [SerializeField] private float rotation = 0.005f;
+    [SerializeField] private float forceMag = 8f;
+    [SerializeField] private float deltat = 10f;
+    [SerializeField] private float rotation = 0.03f;
     [SerializeField] private GameObject centerPosition;
     private Vector3 positionAfterCollision;
 
@@ -16,6 +16,7 @@ public class PlayerRecoil : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //getting components
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         centerPosition = this.transform.GetChild(0).gameObject;
         pc = this.gameObject.GetComponent<PlayerController>();
@@ -24,48 +25,54 @@ public class PlayerRecoil : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //saving the velocity right before collision
+        //necessary because velocity at collision == 0
        velocity = rb.velocity;
     }
 
+    //when slyvie collides with anything
     public void OnCollisionEnter2D(Collision2D col) {
-        Debug.Log("Collision detected!");
-        Debug.Log("Player velocity: " + velocity);
+
+        //store the opposite direction
         Vector2 direction = -1f * velocity.normalized;
-        Debug.Log("direction: " + direction);
+        
+        //set her current velocity to her last velocity 
+        //prevents AddForce on a 0 vector
         rb.velocity = velocity;
-        //rb.AddForce(forceMag * direction);
-        AddForceOverTime(deltat, forceMag * direction);
-        Invoke("StopRotating", deltat * 0.75f);
+
+        //add the force
+        AddForceOverTime(deltat, forceMag * direction * velocity.magnitude * 0.5f);
+
+        //cause her to stop rotating after a specific amount of time
+        Invoke("StopRotating", deltat * 0.5f);
     }
 
+    //this method adds the force to Sylvie
     private void AddForceOverTime(float time, Vector2 force) {
         float timer = 0f;
-        //Debug.Log(Time.timeScale);
-        pc.canMove = false;
+        //unfreeze rotation so that she can spin
         rb.freezeRotation = false;
+
+        //add the initial spin force
+        rb.AddTorque(rotation * velocity.magnitude * 0.5f, ForceMode2D.Impulse);
+
+        //for a specific duration of time
         while(timer < time) {
+            //add the force
             rb.AddRelativeForce(force);
-            rb.AddTorque(rotation, ForceMode2D.Force);
-            //rb.angularVelocity = -5f;
             timer += Time.deltaTime;
         }
-        timer = 0f;
-        // while(timer < (time * 0.5f)) {
-        //     rb.AddTorque(-rotation * 0.5f, ForceMode2D.Force);
-        //     timer += Time.deltaTime;
-        // }
-        //positionAfterCollision = centerPosition.gameObject.transform.position;
-        //rb.freezeRotation = true;
-        
-        //Debug.Log(Time.timeScale);
     }
 
+    //stops her rotation
     private void StopRotating() {
-        Debug.Log("Player position: " + rb.gameObject.transform.position);
+        //reset her rotation to 0
         rb.gameObject.transform.rotation = Quaternion.identity;
+
+        //REMOVE WHEN HER SPRITE IS FINALIZED!
         rb.gameObject.transform.position = centerPosition.gameObject.transform.position;
-        Debug.Log("Player position: " + rb.gameObject.transform.position);
+
+        //refreeze her rotation so that she doesn't spin constantly
         rb.freezeRotation = true;
-        pc.canMove = true;
     }
 }
