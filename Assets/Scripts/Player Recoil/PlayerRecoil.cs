@@ -11,11 +11,14 @@ public class PlayerRecoil : MonoBehaviour
     [SerializeField] private float rotation = 0.005f;
     [SerializeField] private GameObject centerPosition;
     private Vector3 positionAfterCollision;
+
+    private PlayerController pc;
     // Start is called before the first frame update
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         centerPosition = this.transform.GetChild(0).gameObject;
+        pc = this.gameObject.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public class PlayerRecoil : MonoBehaviour
     private void AddForceOverTime(float time, Vector2 force) {
         float timer = 0f;
         //Debug.Log(Time.timeScale);
+        pc.canMove = false;
         rb.freezeRotation = false;
         while(timer < time) {
             rb.AddRelativeForce(force);
@@ -46,10 +50,10 @@ public class PlayerRecoil : MonoBehaviour
             timer += Time.deltaTime;
         }
         timer = 0f;
-        while(timer < (time * 0.5f)) {
-            rb.AddTorque(-rotation * 0.5f, ForceMode2D.Force);
-            timer += Time.deltaTime;
-        }
+        // while(timer < (time * 0.5f)) {
+        //     rb.AddTorque(-rotation * 0.5f, ForceMode2D.Force);
+        //     timer += Time.deltaTime;
+        // }
         //positionAfterCollision = centerPosition.gameObject.transform.position;
         //rb.freezeRotation = true;
         
@@ -62,5 +66,6 @@ public class PlayerRecoil : MonoBehaviour
         rb.gameObject.transform.position = centerPosition.gameObject.transform.position;
         Debug.Log("Player position: " + rb.gameObject.transform.position);
         rb.freezeRotation = true;
+        pc.canMove = true;
     }
 }
