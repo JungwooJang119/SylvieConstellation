@@ -16,5 +16,13 @@ public class NPCDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            dialogueRunner.StartDialogue("LoversNPC");
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }
