@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Projectile2D : MonoBehaviour
 {
-    [SerializeField] protected Vector2 m_constantVelocity;
+    [SerializeField] protected float m_speed;
     [SerializeField] protected int m_dmg;
     [SerializeField] protected int m_hp = 1;
     [SerializeField] protected bool m_destroyOnHit;
@@ -14,15 +14,15 @@ public class Projectile2D : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         gameObject.SetActive(false);
     }
-    public void Spawn(Vector2 position, Vector2 velocity)
+    public void Spawn(Vector2 spawnPosition, Vector2 direction, float speed)
     {
         gameObject.SetActive(true);
-        transform.position = position;
-        m_rb.velocity = velocity;
+        transform.position = spawnPosition;
+        m_rb.velocity = direction * speed;
     }
-    public void Spawn(Vector2 position)
+    public void Spawn(Vector2 spawnPosition, Vector2 direction)
     {
-        Spawn(position, m_constantVelocity);
+        Spawn(spawnPosition, direction * m_speed);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
