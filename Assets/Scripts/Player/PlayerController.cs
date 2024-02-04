@@ -8,6 +8,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private float speed = 7f;
 
     public bool canMove = true;
+    
 
     private Vector2 inputVector;
     private Rigidbody2D rb;
@@ -108,6 +109,11 @@ public class PlayerController : Singleton<PlayerController>
     private void OnDisable() {
         movement = input.Player.Move;
         movement.Disable();
+    }
+
+    private void OnOrbitControl()
+    {
+        
     }
    
 }
