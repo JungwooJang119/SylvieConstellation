@@ -16,7 +16,7 @@ public class Pooler : Singleton<Pooler>
 
     private void Start()
     {
-        if (m_pooledObjects == null)
+        if (m_poolerObjects == null)
         {
             Debug.LogWarning("Pooler requires pooler objects to be defined before playtime.");
             return;
@@ -41,7 +41,9 @@ public class Pooler : Singleton<Pooler>
                     Debug.LogError("Pooler Cannot Initialize Null Prefabs");
                     return;
                 }
-                m_pooledObjects[m_poolerObjects[i].PoolerType][j] = Instantiate(m_poolerObjects[i].ProjectilePrefab).GetComponent<Projectile2D>();
+                GameObject go = Instantiate(m_poolerObjects[i].ProjectilePrefab);
+                go.transform.SetParent(transform, false);
+                m_pooledObjects[m_poolerObjects[i].PoolerType][j] = go.GetComponent<Projectile2D>();
             }
         }
     }
@@ -69,7 +71,7 @@ public class Pooler : Singleton<Pooler>
 
         // Logic
         m_pooledObjects[type][m_pooledIdx[type]].Spawn(spawnPosition, direction, speed);
-        m_pooledIdx[type] = ++m_pooledIdx[type] % m_pooledObjects[type].Length;
+        m_pooledIdx[type] = (m_pooledIdx[type] + 1) % m_pooledObjects[type].Length;
     }
     /// <summary>
     /// Indexes active or non-active projectiles of a given type and spawns it 
@@ -95,7 +97,7 @@ public class Pooler : Singleton<Pooler>
 
         // Logic
         m_pooledObjects[type][m_pooledIdx[type]].Spawn(spawnPosition, direction);
-        m_pooledIdx[type] = ++m_pooledIdx[type] % m_pooledObjects[type].Length;
+        m_pooledIdx[type] = (m_pooledIdx[type] + 1) % m_pooledObjects[type].Length;
     }
 }
 
