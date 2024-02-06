@@ -76,6 +76,7 @@ public class PlayerController : Singleton<PlayerController>
                 Vector2 normMovement = inputVector.normalized;
                 anim.SetBool("isMoving", true);
                 if (isBoosted) {
+                    starBits.Play();
                     //Play Boost Star Particles
                 }
             } else {
