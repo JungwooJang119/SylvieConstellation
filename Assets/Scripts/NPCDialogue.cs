@@ -7,10 +7,13 @@ using UnityEngine.SceneManagement;
 public class NPCDialogue : MonoBehaviour
 {
     public DialogueRunner dialogueRunner;
+
+    public List<State> states;
     // Start is called before the first frame update
     void Start()
     {
-        
+        states = new List<State>();
+
     }
 
     // Update is called once per frame
