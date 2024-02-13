@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
-public class AllFinishedState : MonoBehaviour, IState
+public class AllFinishedState : State
 {
-    public void OnEnterState()
+
+    public AllFinishedState(DialogueRunner dialogueRunner) : base(dialogueRunner)
     {
 
     }
 
-    public void OnExecuteState()
+    public override void OnEnterState(NPCDialogue npcDialogue)
     {
 
     }
 
-    public void OnExitState()
+    public override void OnExecuteState(NPCDialogue npcDialogue)
+    {
+
+    }
+
+    public override void OnExitState(NPCDialogue npcDialogue)
     {
 
     }
