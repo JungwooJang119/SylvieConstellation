@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StarBGFront
-  m_Shader: {fileID: -6465566751694194690, guid: c55a35a045e5be742857c1143b6496c8, type: 3}
+  m_Name: LineMat
+  m_Shader: {fileID: -6465566751694194690, guid: 2ec09b56768f9214ca2d2b87a3c53b51, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,19 +23,7 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -53,24 +41,21 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1.47
-    - _BrightnessPower: 3.389
-    - _BrightnessVariationScale: 0.2
-    - _EnableExternalAlpha: 0
-    - _OverallScale: 3.13
+    - _DistClampMax: 0.74
+    - _DistMult: 4.7
+    - _FalloffFactor: 0.2
+    - _NoiseFactor: 0.86
+    - _NoiseScale: 4.21
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Randomness: 5
-    - _Rotation: 0
-    - _StarsScale: 20.8
-    - _Threshold: 0.9691
+    - _TimeScale: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 137.27802, g: -148.72897, b: 0, a: 0}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _InsideColor: {r: 0.12228539, g: 0.86415094, b: 0.51192987, a: 1}
+    - _OutsideColor: {r: 0.2903453, g: 0.5361716, b: 0.7433963, a: 0}
+    - _Point1: {r: 117.6, g: -14.7, b: 0, a: 0}
+    - _Point2: {r: 131.4, g: -23.98, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &8970722754493895582
+--- !u!114 &1696987585801163560
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
