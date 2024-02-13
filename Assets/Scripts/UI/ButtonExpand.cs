@@ -39,6 +39,7 @@ public class ButtonExpand : MonoBehaviour
         StartCoroutine(Grow(false));;
     }
 
+    //coroutine handeling button scaling
     public IEnumerator Grow(bool growing) {
         if (growing)
         {
@@ -46,7 +47,6 @@ public class ButtonExpand : MonoBehaviour
             {
                 transform.localScale += movement;
                 yield return null;
-                Debug.Log("big");
             }
 
         } else {
@@ -54,7 +54,6 @@ public class ButtonExpand : MonoBehaviour
             {
                 transform.localScale -= movement;
                 yield return null;
-                Debug.Log("small");
             }
 
         }
