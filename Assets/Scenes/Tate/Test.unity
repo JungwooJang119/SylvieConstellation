@@ -1121,7 +1121,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2060604077130060411, guid: 1cc410574389d034a842cc167b77b336, type: 3}
       propertyPath: buttonSpeed
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4889664208519090515, guid: 1cc410574389d034a842cc167b77b336, type: 3}
       propertyPath: m_text
@@ -1330,8 +1330,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 586828308}
     m_Modifications:
     - target: {fileID: 2060604077130060411, guid: 1cc410574389d034a842cc167b77b336, type: 3}
+      propertyPath: buttonSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060604077130060411, guid: 1cc410574389d034a842cc167b77b336, type: 3}
       propertyPath: buttonScaler
-      value: 1.2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4889664208519090515, guid: 1cc410574389d034a842cc167b77b336, type: 3}
       propertyPath: m_text
