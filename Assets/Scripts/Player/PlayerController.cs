@@ -50,6 +50,7 @@ public class PlayerController : Singleton<PlayerController>
         canMove = true;
         holdSpeed = speed;
         lastPosition = transform.position;
+        SetBGOffset();
     }
 
     // Update is called once per frame
