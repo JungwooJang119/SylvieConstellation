@@ -34,6 +34,7 @@ public class GravitationalObject : MonoBehaviour {
         other.transform.GetComponent<GravitationResponder>()?.Gravitate(transform.position, mass);
     }
 
+#if UNITY_EDITOR
     #region GIZMOS
     void OnDrawGizmos()
     {
@@ -42,5 +43,6 @@ public class GravitationalObject : MonoBehaviour {
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(transform.position, Vector3.forward, influenceRadius);
     }
-    #endregion GISMOS
+    #endregion GIZMOS
+#endif
 }

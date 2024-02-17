@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Aiden/TestSavePoints.unity
     guid: 3cb97a9130694874d9cca08b394881b5
+  - enabled: 1
+    path: Assets/Scenes/Aiden/TestConstellationLines.unity
+    guid: 2293c4c6a092a7b45983729a4d239030
   m_configObjects: {}

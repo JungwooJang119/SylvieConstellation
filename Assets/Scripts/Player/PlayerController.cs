@@ -8,6 +8,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private float speed = 7f;
 
     public bool canMove = true;
+    
 
     private Vector2 inputVector;
     private Rigidbody2D rb;
@@ -33,6 +34,7 @@ public class PlayerController : Singleton<PlayerController>
     public float currTime;
     private bool isBoosted;
     public ParticleSystem starBits;
+    private Vector3 lastPosition;
 
     private void Awake() {
         InitializeSingleton();
@@ -47,6 +49,8 @@ public class PlayerController : Singleton<PlayerController>
         anim = GetComponent<Animator>();
         canMove = true;
         holdSpeed = speed;
+        lastPosition = transform.position;
+        SetBGOffset();
     }
 
     // Update is called once per frame
@@ -70,8 +74,6 @@ public class PlayerController : Singleton<PlayerController>
             rb.AddForce(movementX * Vector2.right);
             rb.AddForce(movementY * Vector2.up);
 
-            SetBGOffset();
-
             if (inputVector.magnitude > 0) {
                 Vector2 normMovement = inputVector.normalized;
                 anim.SetBool("isMoving", true);
@@ -82,6 +84,16 @@ public class PlayerController : Singleton<PlayerController>
                 anim.SetBool("isMoving", false);
             }
         }
+    }
+
+    void Update() {
+        
+        var currentPosition = transform.position;
+        if (currentPosition != lastPosition)
+        {
+            SetBGOffset();
+        }
+        lastPosition = currentPosition;
     }
 
     private void OnMove(InputValue movementValue) {
@@ -102,7 +114,7 @@ public class PlayerController : Singleton<PlayerController>
         movement = input.Player.Move;
         movement.Disable();
     }
-
+    
     private float CalculateMovement(float value, float velocityVal) {
         float targetSpeed = value * speed;
         float speedDiff = targetSpeed - velocityVal;
