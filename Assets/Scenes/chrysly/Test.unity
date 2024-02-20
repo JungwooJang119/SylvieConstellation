@@ -3109,6 +3109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc076ea94c1d5654d9992cc064236f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  linePrefab: {fileID: 0}
+  regularInsideColor: {r: 0, g: 0, b: 0, a: 0}
+  badInsideColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1968973137
 GameObject:
   m_ObjectHideFlags: 0
