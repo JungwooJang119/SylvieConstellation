@@ -2648,9 +2648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d272e0a7f3a432b7aeeb815ea257c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 1
-  axisScaler: 10
-  rotateAround: {fileID: 1768198632}
 --- !u!114 &1768198646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2926,6 +2923,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc076ea94c1d5654d9992cc064236f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  linePrefab: {fileID: 0}
+  regularInsideColor: {r: 0, g: 0, b: 0, a: 0}
+  badInsideColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1968973137
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,7 +3218,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c2abd179b1c05544fa199ed79a48f00b, type: 2}
     - target: {fileID: 1241950359696296195, guid: 8aa31d23db44abf4d8a45e70050abf8d, type: 3}
       propertyPath: speed
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1241950359696296195, guid: 8aa31d23db44abf4d8a45e70050abf8d, type: 3}
       propertyPath: bgClose
