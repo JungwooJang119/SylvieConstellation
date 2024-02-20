@@ -10,12 +10,6 @@
             "m_Id": "350bd6806d2a42c0923619d4af45e85d"
         },
         {
-            "m_Id": "758b761020da4936b3d2e8efe77552b3"
-        },
-        {
-            "m_Id": "1618fed33f374a07a93add79f8353a34"
-        },
-        {
             "m_Id": "f88efb93eacf4e0bb4d7b35c34cabcd5"
         },
         {
@@ -1115,34 +1109,6 @@
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
-    }
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector2ShaderProperty",
-    "m_ObjectId": "1618fed33f374a07a93add79f8353a34",
-    "m_Guid": {
-        "m_GuidSerialized": "1ae08374-8481-40cf-a1f8-9f963857847f"
-    },
-    "m_Name": "Strength",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Strength",
-    "m_DefaultReferenceName": "Strength",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 0.0,
-        "w": 0.0
     }
 }
 
@@ -2929,34 +2895,6 @@
     "m_DefaultValue": {
         "x": 0.0,
         "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
-    }
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector2ShaderProperty",
-    "m_ObjectId": "758b761020da4936b3d2e8efe77552b3",
-    "m_Guid": {
-        "m_GuidSerialized": "e96c82d2-aaeb-4845-b21f-9850f98615e8"
-    },
-    "m_Name": "Velocity",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Velocity",
-    "m_DefaultReferenceName": "Velocity",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "x": 0.0,
-        "y": -0.30000001192092898,
         "z": 0.0,
         "w": 0.0
     }
@@ -5263,12 +5201,6 @@
         },
         {
             "m_Id": "350bd6806d2a42c0923619d4af45e85d"
-        },
-        {
-            "m_Id": "758b761020da4936b3d2e8efe77552b3"
-        },
-        {
-            "m_Id": "1618fed33f374a07a93add79f8353a34"
         },
         {
             "m_Id": "f88efb93eacf4e0bb4d7b35c34cabcd5"
