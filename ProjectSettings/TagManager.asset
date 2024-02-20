@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - AutosaveZone
+  - BoostCircle
   layers:
   - Default
   - TransparentFX
