@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7534027839199188646
+--- !u!114 &-8005001049531982419
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StarBGBack
-  m_Shader: {fileID: -6465566751694194690, guid: 0c03fb58cb99c514ba05be0b34e48620, type: 3}
+  m_Name: Inner2
+  m_Shader: {fileID: -6465566751694194690, guid: 8757de352086b6b4ea3084b6c8cf5726, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -32,23 +32,11 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: _Rotation
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -66,20 +54,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1.02
-    - _BrightnessPower: 1
-    - _BrightnessVariationScale: 0.05
-    - _EnableExternalAlpha: 0
-    - _OverallScale: 0.49
+    - _Power: 3.15
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Randomness: 5
-    - _Rotation: 0
-    - _StarsScale: 39.7
-    - _Threshold: 0.9807
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 5.6677794, g: -6.6773005, b: 0, a: 0}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Ring_Color: {r: 14.512114, g: 1.9527998, b: 1.0678709, a: 0}
   m_BuildTextureStacks: []

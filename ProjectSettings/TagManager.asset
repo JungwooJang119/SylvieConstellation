@@ -10,7 +10,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Overlay
   - Water
   - UI
   - 
@@ -45,4 +45,7 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3209875969
+    locked: 0
+  - name: Overlay
+    uniqueID: 1758554563
     locked: 0
