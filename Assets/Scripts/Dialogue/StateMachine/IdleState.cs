@@ -19,7 +19,8 @@ public class IdleState : State
 
     public override void OnExecuteState(NPCDialogue npcDialogue)
     {
-
+        dialogueRunner.StartDialogue("LoversNPC");
+        npcDialogue.ChangeDialogueState(new FirstMeetingState(dialogueRunner));
     }
 
     public override void OnExitState(NPCDialogue npcDialogue)

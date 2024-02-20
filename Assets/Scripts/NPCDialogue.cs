@@ -9,18 +9,10 @@ public class NPCDialogue : MonoBehaviour
     private State currentState;
 
     public DialogueRunner dialogueRunner;
-    public List<State> states;
     // Start is called before the first frame update
     void Start()
     {
-        // AG: Hard-coding the list seems to be the best solution so far.
-        states.Add(new IdleState(dialogueRunner));
-        states.Add(new FirstMeetingState(dialogueRunner));
-        states.Add(new IncompleteTaskState(dialogueRunner));
-        states.Add(new CompletedTaskState(dialogueRunner));
-        states.Add(new AllFinishedState(dialogueRunner));
-
-        currentState = states[0];
+        currentState = new IdleState(dialogueRunner);
         currentState.OnEnterState(this);
     }
 
@@ -30,6 +22,17 @@ public class NPCDialogue : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //dialogueRunner.StartDialogue("LoversNPC");
+            string dialogueAnswer;
+            dialogueRunner.VariableStorage.TryGetValue("$LoversNPCState", out dialogueAnswer);
+            Debug.Log($"LoversNPCState: {dialogueAnswer}");
+            if (dialogueAnswer.Equals("Affirmative"))
+            {
+                ChangeDialogueState(new IncompleteTaskState(dialogueRunner));
+            }
+            else
+            {
+                ChangeDialogueState(new IdleState(dialogueRunner));
+            }
             currentState.OnExecuteState(this);
         }
         if (Input.GetKeyDown(KeyCode.E))
@@ -42,6 +45,7 @@ public class NPCDialogue : MonoBehaviour
     {
         currentState.OnExitState(this);
         currentState = newState;
-        currentState.OnEnterState(this);
+        newState.OnEnterState(this);
+        Debug.Log($"STATE: {currentState.GetType()}");
     }
 }
