@@ -13,17 +13,18 @@ public class IncompleteTaskState : State
 
     public override void OnEnterState(NPCDialogue npcDialogue)
     {
+        Debug.Log("Entered Start Incomplete Task State");
 
     }
 
     public override void OnExecuteState(NPCDialogue npcDialogue)
     {
         dialogueRunner.StartDialogue("DefaultSecondState");
-        npcDialogue.ChangeDialogueState(new IdleState(dialogueRunner));
+        //npcDialogue.ChangeDialogueState(new IdleState(dialogueRunner));
     }
 
     public override void OnExitState(NPCDialogue npcDialogue)
     {
-
+        dialogueRunner.Stop();
     }
 }

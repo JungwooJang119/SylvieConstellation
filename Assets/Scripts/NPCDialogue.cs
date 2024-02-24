@@ -7,6 +7,13 @@ using UnityEngine.SceneManagement;
 public class NPCDialogue : MonoBehaviour
 {
     private State currentState;
+    public State CurrentState
+    {
+        get
+        {
+            return currentState;
+        }
+    }
 
     public DialogueRunner dialogueRunner;
     // Start is called before the first frame update
@@ -29,7 +36,15 @@ public class NPCDialogue : MonoBehaviour
             {
                 ChangeDialogueState(new IncompleteTaskState(dialogueRunner));
             }
-            else
+            else if (dialogueAnswer.Equals("TalkToNPCAgain"))
+            {
+                ChangeDialogueState(new CompletedTaskState(dialogueRunner));
+            }
+            else if (dialogueAnswer.Equals("FinalState"))
+            {
+                ChangeDialogueState(new AllFinishedState(dialogueRunner));
+            }
+            else if (dialogueAnswer.Equals("Beginning"))
             {
                 ChangeDialogueState(new IdleState(dialogueRunner));
             }

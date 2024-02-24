@@ -13,11 +13,14 @@ public class AllFinishedState : State
 
     public override void OnEnterState(NPCDialogue npcDialogue)
     {
+        Debug.Log("Entered Final State");
 
     }
 
     public override void OnExecuteState(NPCDialogue npcDialogue)
     {
+
+        dialogueRunner.StartDialogue("DefaultFinalState");
 
     }
 

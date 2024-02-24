@@ -13,7 +13,7 @@ public class FirstMeetingState : State
 
     public override void OnEnterState(NPCDialogue npcDialogue)
     {
-
+        Debug.Log("Entered First Meeting State");
     }
 
     public override void OnExecuteState(NPCDialogue npcDialogue)
