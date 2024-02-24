@@ -51,6 +51,9 @@ public class PlayerController : Singleton<PlayerController>
         holdSpeed = speed;
         lastPosition = transform.position;
         SetBGOffset();
+
+        boostTime = 0;
+        isBoosted = false;
     }
 
     // Update is called once per frame
@@ -62,6 +65,7 @@ public class PlayerController : Singleton<PlayerController>
         if (currTime >= boostTime) {
             speed = holdSpeed;
             isBoosted = false;
+            boostTime = 0;
         }
         if (canMove) {
             inputVector = input.Player.Move.ReadValue<Vector2>();
@@ -99,10 +103,11 @@ public class PlayerController : Singleton<PlayerController>
     private void OnMove(InputValue movementValue) {
     }
 
-    private void OnBoost() {
+    private void OnBoost(int duration) {
         isBoosted = true;
         currTime = 0;
         speed = holdSpeed * 3;
+        boostTime = duration;
     }
 
     private void OnEnable() {
@@ -135,5 +140,19 @@ public class PlayerController : Singleton<PlayerController>
         bgFarOffset.y = transform.position.y / transform.localScale.y / (parallax * 10);
         bgFar.SetVector("_Offset", new Vector2(bgFarOffset.x, bgFarOffset.y));
     }
-   
+
+    private IEnumerator OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "BoostCircle")
+        {
+            if (!isBoosted)
+            {
+                OnBoost(3);
+            }
+            //allow Sylvie to move through the rings then destroy them
+            yield return new WaitForSeconds(.2f);
+            Destroy(collision.gameObject);
+        }
+    }
+
 }
