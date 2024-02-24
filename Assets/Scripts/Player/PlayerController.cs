@@ -8,6 +8,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private float speed = 7f;
 
     public bool canMove = true;
+    
 
     private Vector2 inputVector;
     private Rigidbody2D rb;
@@ -33,6 +34,7 @@ public class PlayerController : Singleton<PlayerController>
     public float currTime;
     private bool isBoosted;
     public ParticleSystem starBits;
+    private Vector3 lastPosition;
 
     private void Awake() {
         InitializeSingleton();
@@ -47,6 +49,11 @@ public class PlayerController : Singleton<PlayerController>
         anim = GetComponent<Animator>();
         canMove = true;
         holdSpeed = speed;
+        lastPosition = transform.position;
+        SetBGOffset();
+
+        boostTime = 0;
+        isBoosted = false;
     }
 
     // Update is called once per frame
@@ -58,6 +65,7 @@ public class PlayerController : Singleton<PlayerController>
         if (currTime >= boostTime) {
             speed = holdSpeed;
             isBoosted = false;
+            boostTime = 0;
         }
         if (canMove) {
             inputVector = input.Player.Move.ReadValue<Vector2>();
@@ -69,8 +77,6 @@ public class PlayerController : Singleton<PlayerController>
             float movementY = CalculateMovement(inputVector.y, rb.velocity.y);
             rb.AddForce(movementX * Vector2.right);
             rb.AddForce(movementY * Vector2.up);
-
-            SetBGOffset();
 
             if (inputVector.magnitude > 0) {
                 Vector2 normMovement = inputVector.normalized;
@@ -84,13 +90,24 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
+    void Update() {
+        
+        var currentPosition = transform.position;
+        if (currentPosition != lastPosition)
+        {
+            SetBGOffset();
+        }
+        lastPosition = currentPosition;
+    }
+
     private void OnMove(InputValue movementValue) {
     }
 
-    private void OnBoost() {
+    private void OnBoost(int duration) {
         isBoosted = true;
         currTime = 0;
         speed = holdSpeed * 3;
+        boostTime = duration;
     }
 
     private void OnEnable() {
@@ -102,7 +119,7 @@ public class PlayerController : Singleton<PlayerController>
         movement = input.Player.Move;
         movement.Disable();
     }
-
+    
     private float CalculateMovement(float value, float velocityVal) {
         float targetSpeed = value * speed;
         float speedDiff = targetSpeed - velocityVal;
@@ -123,5 +140,19 @@ public class PlayerController : Singleton<PlayerController>
         bgFarOffset.y = transform.position.y / transform.localScale.y / (parallax * 10);
         bgFar.SetVector("_Offset", new Vector2(bgFarOffset.x, bgFarOffset.y));
     }
-   
+
+    private IEnumerator OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "BoostCircle")
+        {
+            if (!isBoosted)
+            {
+                OnBoost(3);
+            }
+            //allow Sylvie to move through the rings then destroy them
+            yield return new WaitForSeconds(.2f);
+            Destroy(collision.gameObject);
+        }
+    }
+
 }
