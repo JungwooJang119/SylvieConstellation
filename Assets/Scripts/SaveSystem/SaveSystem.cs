@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ public class SaveSystem : Singleton<SaveSystem>
     {
         public string pathName;
         public SerializableVector3 sylviePosition;
+        public HashSet<string> visitedAreas;
     }
 
     public const string DUMMY_FILE_NAME = "save0";
@@ -34,12 +36,13 @@ public class SaveSystem : Singleton<SaveSystem>
     /// <returns>A save file representing the state of the world</returns>
     public static Save GenerateSave()
     {
+        GameObject sylvie = GameObject.FindWithTag("Player");
         Save save = new()
         {
-            pathName = DUMMY_FILE_NAME
+            pathName = DUMMY_FILE_NAME,
+            sylviePosition = sylvie.transform.position.ToSerializable(),
+            visitedAreas = VisitedAreaManager.visitedAreas,
         };
-        GameObject sylvie = GameObject.FindWithTag("Player");
-        save.sylviePosition = sylvie.transform.position.ToSerializable();
 
         return save;
     }
@@ -108,6 +111,7 @@ public class SaveSystem : Singleton<SaveSystem>
     {
         GameObject sylvie = GameObject.FindWithTag("Player");
         sylvie.transform.position = save.sylviePosition.ToVector3();
+        VisitedAreaManager.visitedAreas = save.visitedAreas;
     }
 
     /// <summary>
