@@ -40,7 +40,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void MainMenu() {
-        Debug.Log("Main Menu");
+        TransitionManager.Instance.GoToScene(0);
     }
 
     public void Options() {

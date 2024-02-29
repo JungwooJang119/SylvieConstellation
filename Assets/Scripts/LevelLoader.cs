@@ -19,6 +19,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        AudioManager.Instance.FadeMusic(false, false);
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 

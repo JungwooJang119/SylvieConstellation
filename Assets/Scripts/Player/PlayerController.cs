@@ -8,7 +8,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private float speed = 7f;
 
     public bool canMove = true;
-    
+    public Transform spawn;
 
     private Vector2 inputVector;
     private Rigidbody2D rb;
@@ -39,6 +39,7 @@ public class PlayerController : Singleton<PlayerController>
     private void Awake() {
         InitializeSingleton();
         input = new PlayerInput();
+        input.Player.Boost.performed += ctx => OnBoost(3); // Adjust duration as needed
         input.Player.Enable();
     }
 
@@ -153,6 +154,17 @@ public class PlayerController : Singleton<PlayerController>
             yield return new WaitForSeconds(.2f);
             Destroy(collision.gameObject);
         }
+    }
+
+    public void DeathSequence() {
+        StartCoroutine(Die());
+    }
+
+    IEnumerator Die() {
+		canMove = false;
+        yield return new WaitForSeconds(1.0f);
+        transform.position = spawn.transform.position;
+        canMove = true;
     }
 
 }
