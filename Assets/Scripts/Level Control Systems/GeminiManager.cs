@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using PuzzleManagement;
 
 public class GeminiManager : MonoBehaviour
 {
@@ -170,14 +171,21 @@ public class GeminiManager : MonoBehaviour
         if (curCastorR == targetPositionr1 && curCastorC == targetPositionc1) {
             if (curPollusR == targetPositionr2 && curPollusC == targetPositionc2) {
                 //insert ending sequence here
-                Debug.Log("you win!");
+                StartCoroutine(Completed());
             }
         }
         if (curPollusR == targetPositionr1 && curPollusC == targetPositionc1) {
             if (curCastorR == targetPositionr2 && curCastorC == targetPositionc2) {
                 //insert ending sequence here
-                Debug.Log("you win!");
+                StartCoroutine(Completed());
             }
         }
+    }
+    IEnumerator Completed()
+    {
+        AudioManager.Instance.FadeMusic(true, true);
+        NotificationManager.Instance.TestPuzzleCompleteNotification();
+        yield return new WaitForSeconds(4f);
+        TransitionManager.Instance.GoToScene(1);
     }
 }

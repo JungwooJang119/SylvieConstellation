@@ -35,7 +35,16 @@ public class AudioManager : Singleton<AudioManager> {
 				PlayMusic("MainTheme");
 				break;
 			case 1:
-				StartCoroutine(LoadMusic());
+				PlayMusic("WorldTheme");
+				break;
+			case 2:
+				PlayMusic("PuzzleTheme1");
+				break;
+			case 3:
+				PlayMusic("PuzzleTheme1");
+				break;
+			case 4:
+				PlayMusic("PuzzleTheme1");
 				break;
         }
 	}

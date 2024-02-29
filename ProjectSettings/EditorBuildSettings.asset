@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/M2/WorldM2.unity
     guid: 70d96fe01f3f67040b8cb72cae26c1cf
+  - enabled: 1
+    path: Assets/Scenes/M2/Puzzle Scenes/Perseus.unity
+    guid: 7756fbca3e02957478a42575c9ed407e
+  - enabled: 0
+    path: Assets/Scenes/M2/Puzzle Scenes/Lovers.unity
+    guid: 356c85048f88e8148bd001d14945ddb7
+  - enabled: 1
+    path: Assets/Scenes/M2/Puzzle Scenes/Gemini.unity
+    guid: 5a5eb5aee4f8d1d4c81760657e291bba
   m_configObjects: {}

@@ -61,7 +61,8 @@ public class StarDrawLogic : Singleton<StarDrawLogic>
         else if(activePattern && inputNum == endNode) {
             EndPattern();
         }
-        else if(activePattern && !pattern.Contains(inputNum)) {
+        // else if(activePattern && !pattern.Contains(inputNum)) {
+        else if(activePattern) {
             AddToPattern(inputNum);
         }
         else {
@@ -107,12 +108,21 @@ public class StarDrawLogic : Singleton<StarDrawLogic>
         foreach (SpellData sd in spellData) {
             if(sd.unlocked && patternString.Equals(sd.pattern)) 
             {
-                OnSpellCast?.Invoke(this, new OnSpellCastArgs(sd.spellType, pattern));
+                //OnSpellCast?.Invoke(this, new OnSpellCastArgs(sd.spellType, pattern));
+                StartCoroutine(Completed());
                 BlockClicks();
                 return;
             }
         }
         OnInvalidPattern();
+    }
+
+    IEnumerator Completed()
+    {
+        AudioManager.Instance.FadeMusic(true, true);
+        NotificationManager.Instance.TestPuzzleCompleteNotification();
+        yield return new WaitForSeconds(4f);
+        TransitionManager.Instance.GoToScene(1);
     }
 
     private void OnInvalidPattern()

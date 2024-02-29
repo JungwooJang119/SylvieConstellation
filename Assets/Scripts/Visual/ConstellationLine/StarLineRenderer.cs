@@ -56,7 +56,7 @@ public class StarLineRenderer : MonoBehaviour
 
     private IEnumerator DelayLRReset()
     {
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(1f);
         ResetLR();
     }
 
