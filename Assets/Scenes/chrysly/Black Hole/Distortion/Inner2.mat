@@ -58,5 +58,5 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Ring_Color: {r: 14.512114, g: 1.9527998, b: 1.0678709, a: 0}
+    - _Ring_Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

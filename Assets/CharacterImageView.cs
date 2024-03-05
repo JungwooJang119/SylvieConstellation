@@ -25,16 +25,16 @@ public class CharacterImageView : MonoBehaviour
         
     }
 
-    void Update()
-    {
-        if (characterNameText != null && nameToSpritePath.ContainsKey(characterNameText.text))
-        {
+    // void Update()
+    // {
+    //     if (characterNameText != null && nameToSpritePath.ContainsKey(characterNameText.text))
+    //     {
 
-            string spritePath = nameToSpritePath[characterNameText.text];
-            Debug.Log($"SPRITE PATH: {spritePath}");
-            characterDialogueImage.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath);
-            Debug.Log($"SPRITE: {characterDialogueImage.sprite}");
+    //         string spritePath = nameToSpritePath[characterNameText.text];
+    //         Debug.Log($"SPRITE PATH: {spritePath}");
+    //         characterDialogueImage.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath);
+    //         Debug.Log($"SPRITE: {characterDialogueImage.sprite}");
 
-        }
-    }
+    //     }
+    // }
 }

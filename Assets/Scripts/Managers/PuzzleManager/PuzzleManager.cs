@@ -7,14 +7,16 @@ namespace PuzzleManagement {
     /// <summary> Enumeration associating each puzzle with its corresponding scene; 
     /// <br></br> Each integer value corresponds to a scene build index
     /// <br></br> i.e. 'Lovers' is set to 1, and thus points at scene index 1; </summary>
+
+    
     public enum PuzzleID {
         GentleLady = 1,
         HotDude = 2,
-        AnotherHotDude = 3,
+        Gemini = 3,
         DragonHotDude = 4,
         ImMeltingDude = 5,
     }
-
+ 
     /// <summary>
     /// Singleton class. Keeps track of puzzle completion;
     /// </summary>

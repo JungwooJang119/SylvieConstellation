@@ -211,7 +211,7 @@ public class NotificationManager : Singleton<NotificationManager>
     /// <summary>
     /// Create a random "puzzle complete" notification and show it
     /// </summary>
-    private void TestPuzzleCompleteNotification()
+    public void TestPuzzleCompleteNotification()
     {
         Notification pc = Notification.PuzzleComplete;
         notifQueue.Add(pc);

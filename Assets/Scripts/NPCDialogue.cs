@@ -4,6 +4,11 @@ using UnityEngine;
 using Yarn.Unity;
 using UnityEngine.SceneManagement;
 
+// public enum NPCID {
+//     Lovers = "$LoversNPCState",
+//     Perseus = "",
+// }
+
 public class NPCDialogue : MonoBehaviour
 {
     private State currentState;
@@ -14,6 +19,8 @@ public class NPCDialogue : MonoBehaviour
             return currentState;
         }
     }
+
+    private bool canTalk;
 
     public DialogueRunner dialogueRunner;
     // Start is called before the first frame update
@@ -26,7 +33,7 @@ public class NPCDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (canTalk && Input.GetKeyDown(KeyCode.Space))
         {
             //dialogueRunner.StartDialogue("LoversNPC");
             string dialogueAnswer;
@@ -50,7 +57,7 @@ public class NPCDialogue : MonoBehaviour
             }
             currentState.OnExecuteState(this);
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (canTalk && Input.GetKeyDown(KeyCode.E))
         {
             SceneManager.LoadScene(1);
         }
@@ -62,5 +69,24 @@ public class NPCDialogue : MonoBehaviour
         currentState = newState;
         newState.OnEnterState(this);
         Debug.Log($"STATE: {currentState.GetType()}");
+    }
+
+    /// <summary>
+    /// Sent when another object enters a trigger collider attached to this
+    /// object (2D physics only).
+    /// </summary>
+    /// <param name="other">The other Collider2D involved in this collision.</param>
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player") {
+            canTalk = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player") {
+            canTalk = false;   
+        }
     }
 }

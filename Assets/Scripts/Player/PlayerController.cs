@@ -55,6 +55,7 @@ public class PlayerController : Singleton<PlayerController>
 
         boostTime = 0;
         isBoosted = false;
+        transform.position = spawn.transform.position;
     }
 
     // Update is called once per frame
@@ -99,6 +100,10 @@ public class PlayerController : Singleton<PlayerController>
             SetBGOffset();
         }
         lastPosition = currentPosition;
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            transform.position = spawn.transform.position;
+        }
     }
 
     private void OnMove(InputValue movementValue) {
@@ -162,7 +167,7 @@ public class PlayerController : Singleton<PlayerController>
 
     IEnumerator Die() {
 		canMove = false;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0f);
         transform.position = spawn.transform.position;
         canMove = true;
     }
