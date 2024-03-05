@@ -43,23 +43,27 @@ public class GeminiManager : MonoBehaviour
         pollusPos = pollus.GetComponent<Transform>();
         sylviePos = sylvie.GetComponent<Transform>();
 
+        Debug.Log("hello");
         //add every star to the array
         for (int i = 0; i < constellationController.transform.childCount; i++) {
             int childCount = 0;
             for (int j = 0; j < 7; j++) {
                 //extra childCount variable to account for gaps
                 if (childCount >= constellationController.transform.GetChild(i).childCount) {
+                    Debug.Log("broke");
                     break;
                 }
                 //add the child to the array
                 int curY = int.Parse(constellationController.transform.GetChild(i).GetChild(childCount).name.Substring(3,1));
                 constellationArr[i,curY] = constellationController.transform.GetChild(i).GetChild(childCount);
                 childCount++;
+                Debug.Log("child");
                 //button disabling
                 if (!((i == curSylvieR && (curY == curSylvieC - 1 ||curY == curSylvieC + 1))
                     || (curY == curSylvieC && (i == curSylvieR - 1 ||i == curSylvieR + 1)))) {
                     constellationArr[i,curY].gameObject.GetComponent<Button>().interactable = false ;
-                } 
+                    Debug.Log("disable");
+                }
             }
         }
         
