@@ -42,18 +42,19 @@ public class Simon : MonoBehaviour
     public void AddToPlayerSequenceList(int buttonId)
     {
         playerSequenceList.Add(buttonId);
-        for(int i = 0; i < playerSequenceList.Count; i++)
+        for (int i = 0; i < playerSequenceList.Count; i++)
         {
-            if (playerTaskList[i] == playerSequenceList[i]) { 
-                continue; 
+            if (playerTaskList[i] == playerSequenceList[i])
+            {
+                continue;
             }
-            else 
+            else
             {
                 StartCoroutine(PlayerLost());
                 return;
             }
         }
-        if(playerSequenceList.Count == playerTaskList.Count)
+        if (playerSequenceList.Count == playerTaskList.Count)
         {
             StartCoroutine(StartNextRound());
         }
@@ -64,7 +65,7 @@ public class Simon : MonoBehaviour
         startButton.SetActive(false);
     }
 
-    public IEnumerator PlayerLost() 
+    public IEnumerator PlayerLost()
     {
         audioSource.PlayOneShot(loseSound);
         playerSequenceList.Clear();
@@ -85,7 +86,7 @@ public class Simon : MonoBehaviour
         buttons.interactable = false;
         yield return new WaitForSeconds(1);
         playerTaskList.Add(Random.Range(0, 8));
-        foreach(int index in playerTaskList)
+        foreach (int index in playerTaskList)
         {
             yield return StartCoroutine(HighlightButton(index));
         }
@@ -93,4 +94,3 @@ public class Simon : MonoBehaviour
         yield return null;
     }
 }
-
