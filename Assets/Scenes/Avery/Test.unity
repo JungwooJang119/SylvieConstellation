@@ -1043,6 +1043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 2098771125}
+  statusVar: LoversNPCState
   idleStateDialogueTitle: LoversNPC
   taskInProgressStateDialogueTitle: DefaultSecondState
   taskCompleteDialogueTitle: DefaultTaskCompletedState
@@ -1788,7 +1789,7 @@ GameObject:
   - component: {fileID: 849722300}
   - component: {fileID: 849722301}
   m_Layer: 0
-  m_Name: ExampleScrambledDialogueNPC
+  m_Name: ExampleAltDialogueNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1807,10 +1808,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 2098771125}
-  idleStateDialogueTitle: LoversNPC
-  taskInProgressStateDialogueTitle: DefaultSecondState
-  taskCompleteDialogueTitle: DefaultTaskCompletedState
-  postCompletionDialogueTitle: DefaultFinalState
+  statusVar: ExampleStateVar
+  idleStateDialogueTitle: Alt1
+  taskInProgressStateDialogueTitle: Alt2
+  taskCompleteDialogueTitle: Alt3
+  postCompletionDialogueTitle: Alt4
 --- !u!58 &849722301
 CircleCollider2D:
   m_ObjectHideFlags: 0

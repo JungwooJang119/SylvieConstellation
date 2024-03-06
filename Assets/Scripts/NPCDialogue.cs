@@ -24,6 +24,9 @@ public class NPCDialogue : MonoBehaviour
 
     public DialogueRunner dialogueRunner;
 
+    // Name of status variable to get from Dialog scripts
+    [SerializeField] public string statusVar;
+
     // File names of the yarn spinner scripts (ex. LoversNPC)
     [SerializeField] public string idleStateDialogueTitle;
     [SerializeField] public string taskInProgressStateDialogueTitle;
@@ -44,8 +47,8 @@ public class NPCDialogue : MonoBehaviour
         {
             //dialogueRunner.StartDialogue("LoversNPC");
             string dialogueAnswer;
-            dialogueRunner.VariableStorage.TryGetValue("$LoversNPCState", out dialogueAnswer);
-            Debug.Log($"LoversNPCState: {dialogueAnswer}");
+            dialogueRunner.VariableStorage.TryGetValue($"${statusVar}", out dialogueAnswer);
+
             if (dialogueAnswer.Equals("Affirmative"))
             {
                 ChangeDialogueState(new IncompleteTaskState(dialogueRunner, taskInProgressStateDialogueTitle));

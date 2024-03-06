@@ -14,7 +14,7 @@ public class CompletedTaskState : State
 
     public override void OnEnterState(NPCDialogue npcDialogue)
     {
-        dialogueRunner.VariableStorage.SetValue("$LoversNPCState", "TalkToNPCAgain");
+        dialogueRunner.VariableStorage.SetValue($"${npcDialogue.statusVar}", "TalkToNPCAgain");
         Debug.Log("Entered Second Meeting/Task Complete State");
 
     }
