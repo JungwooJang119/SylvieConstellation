@@ -23,11 +23,11 @@ public class FirstMeetingState : State
         Debug.Log($"LoversNPCState: {dialogueAnswer}");
         if (dialogueAnswer.Equals("Affirmative"))
         {
-            npcDialogue.ChangeDialogueState(new IncompleteTaskState(dialogueRunner));
+            npcDialogue.ChangeDialogueState(new IncompleteTaskState(dialogueRunner, npcDialogue.taskInProgressStateDialogueTitle));
         }
         else
         {
-            npcDialogue.ChangeDialogueState(new IdleState(dialogueRunner));
+            npcDialogue.ChangeDialogueState(new IdleState(dialogueRunner, npcDialogue.idleStateDialogueTitle));
         }
     }
 
