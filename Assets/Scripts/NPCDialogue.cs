@@ -25,8 +25,10 @@ public class NPCDialogue : MonoBehaviour
     public DialogueRunner dialogueRunner;
 
     // Name of status variable to get from Dialog scripts
+    [Header("Dialogue Script Status Variable")]
     [SerializeField] public string statusVar;
 
+    [Header("Dialogue Script names")]
     // File names of the yarn spinner scripts (ex. LoversNPC)
     [SerializeField] public string idleStateDialogueTitle;
     [SerializeField] public string taskInProgressStateDialogueTitle;
