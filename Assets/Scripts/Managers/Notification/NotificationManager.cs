@@ -122,9 +122,8 @@ public class NotificationManager : Singleton<NotificationManager>
             {
                 AudioClip[] sounds = Instance.puzzleCompleteSounds;
                 return new Notification("Puzzle Complete!",
-                    Style.SIDEBAR,
-                    sounds[Random.Range(0, sounds.Length)],
-                    description: "You completed the puzzle.");
+                    Style.HEADER,
+                    sounds[Random.Range(0, sounds.Length)]);
             }
         }
 
