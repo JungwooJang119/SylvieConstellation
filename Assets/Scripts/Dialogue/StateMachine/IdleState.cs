@@ -7,9 +7,10 @@ using Yarn.Unity;
 public class IdleState : State
 {
 
-    public IdleState(DialogueRunner dialogueRunner) : base(dialogueRunner)
+    private string dialogScriptTitle;
+    public IdleState(DialogueRunner dialogueRunner, string dialogScriptTitle) : base(dialogueRunner)
     {
-
+        this.dialogScriptTitle = dialogScriptTitle;
     }
 
     public override void OnEnterState(NPCDialogue npcDialogue)
@@ -19,7 +20,7 @@ public class IdleState : State
 
     public override void OnExecuteState(NPCDialogue npcDialogue)
     {
-        dialogueRunner.StartDialogue("LoversNPC");
+        dialogueRunner.StartDialogue(dialogScriptTitle);
         npcDialogue.ChangeDialogueState(new FirstMeetingState(dialogueRunner));
     }
 

@@ -5,10 +5,10 @@ using Yarn.Unity;
 
 public class AllFinishedState : State
 {
-
-    public AllFinishedState(DialogueRunner dialogueRunner) : base(dialogueRunner)
+    private string dialogScriptTitle;
+    public AllFinishedState(DialogueRunner dialogueRunner, string dialogScriptTitle) : base(dialogueRunner)
     {
-
+        this.dialogScriptTitle = dialogScriptTitle;
     }
 
     public override void OnEnterState(NPCDialogue npcDialogue)
@@ -20,7 +20,7 @@ public class AllFinishedState : State
     public override void OnExecuteState(NPCDialogue npcDialogue)
     {
 
-        dialogueRunner.StartDialogue("DefaultFinalState");
+        dialogueRunner.StartDialogue(dialogScriptTitle);
 
     }
 

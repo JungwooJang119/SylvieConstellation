@@ -23,10 +23,22 @@ public class NPCDialogue : MonoBehaviour
     private bool canTalk;
 
     public DialogueRunner dialogueRunner;
+
+    // Name of status variable to get from Dialog scripts
+    [Header("Dialogue Script Status Variable")]
+    [SerializeField] public string statusVar;
+
+    [Header("Dialogue Script names")]
+    // File names of the yarn spinner scripts (ex. LoversNPC)
+    [SerializeField] public string idleStateDialogueTitle;
+    [SerializeField] public string taskInProgressStateDialogueTitle;
+    [SerializeField] public string taskCompleteDialogueTitle;
+    [SerializeField] public string postCompletionDialogueTitle;
+
     // Start is called before the first frame update
     void Start()
     {
-        currentState = new IdleState(dialogueRunner);
+        currentState = new IdleState(dialogueRunner, idleStateDialogueTitle);
         currentState.OnEnterState(this);
     }
 
@@ -37,23 +49,23 @@ public class NPCDialogue : MonoBehaviour
         {
             //dialogueRunner.StartDialogue("LoversNPC");
             string dialogueAnswer;
-            dialogueRunner.VariableStorage.TryGetValue("$LoversNPCState", out dialogueAnswer);
-            Debug.Log($"LoversNPCState: {dialogueAnswer}");
+            dialogueRunner.VariableStorage.TryGetValue($"${statusVar}", out dialogueAnswer);
+
             if (dialogueAnswer.Equals("Affirmative"))
             {
-                ChangeDialogueState(new IncompleteTaskState(dialogueRunner));
+                ChangeDialogueState(new IncompleteTaskState(dialogueRunner, taskInProgressStateDialogueTitle));
             }
             else if (dialogueAnswer.Equals("TalkToNPCAgain"))
             {
-                ChangeDialogueState(new CompletedTaskState(dialogueRunner));
+                ChangeDialogueState(new CompletedTaskState(dialogueRunner, taskCompleteDialogueTitle));
             }
             else if (dialogueAnswer.Equals("FinalState"))
             {
-                ChangeDialogueState(new AllFinishedState(dialogueRunner));
+                ChangeDialogueState(new AllFinishedState(dialogueRunner, postCompletionDialogueTitle));
             }
             else if (dialogueAnswer.Equals("Beginning"))
             {
-                ChangeDialogueState(new IdleState(dialogueRunner));
+                ChangeDialogueState(new IdleState(dialogueRunner, idleStateDialogueTitle));
             }
             currentState.OnExecuteState(this);
         }

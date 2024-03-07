@@ -6,21 +6,22 @@ using Yarn.Unity;
 public class CompletedTaskState : State
 {
 
-    public CompletedTaskState(DialogueRunner dialogueRunner) : base(dialogueRunner)
+    public string dialogScriptTitle;
+    public CompletedTaskState(DialogueRunner dialogueRunner, string dialogScriptTitle) : base(dialogueRunner)
     {
-
+        this.dialogScriptTitle = dialogScriptTitle;
     }
 
     public override void OnEnterState(NPCDialogue npcDialogue)
     {
-        dialogueRunner.VariableStorage.SetValue("$LoversNPCState", "TalkToNPCAgain");
+        dialogueRunner.VariableStorage.SetValue($"${npcDialogue.statusVar}", "TalkToNPCAgain");
         Debug.Log("Entered Second Meeting/Task Complete State");
 
     }
 
     public override void OnExecuteState(NPCDialogue npcDialogue)
     {
-        dialogueRunner.StartDialogue("DefaultTaskCompletedState");
+        dialogueRunner.StartDialogue(dialogScriptTitle);
         //npcDialogue.ChangeDialogueState(new AllFinishedState(dialogueRunner));
 
     }

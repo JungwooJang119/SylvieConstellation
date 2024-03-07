@@ -19,15 +19,14 @@ public class FirstMeetingState : State
     public override void OnExecuteState(NPCDialogue npcDialogue)
     {
         string dialogueAnswer;
-        dialogueRunner.VariableStorage.TryGetValue("$LoversNPCState", out dialogueAnswer);
-        Debug.Log($"LoversNPCState: {dialogueAnswer}");
+        dialogueRunner.VariableStorage.TryGetValue($"${npcDialogue.statusVar}", out dialogueAnswer);
         if (dialogueAnswer.Equals("Affirmative"))
         {
-            npcDialogue.ChangeDialogueState(new IncompleteTaskState(dialogueRunner));
+            npcDialogue.ChangeDialogueState(new IncompleteTaskState(dialogueRunner, npcDialogue.taskInProgressStateDialogueTitle));
         }
         else
         {
-            npcDialogue.ChangeDialogueState(new IdleState(dialogueRunner));
+            npcDialogue.ChangeDialogueState(new IdleState(dialogueRunner, npcDialogue.idleStateDialogueTitle));
         }
     }
 
