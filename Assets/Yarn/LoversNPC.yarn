@@ -2,6 +2,8 @@
 tags:
 position: -39,-61
 ---
+/// State of the LoversNPC dialogue, used for the State Machine
+<<declare $LoversNPCState = "Beginning">>
 Lyra: ~crying~
 
 Sylvie: What's wrong?
@@ -9,6 +11,7 @@ Sylvie: What's wrong?
 Lyra: I can't find my lover. Can you help me?
 
 -> Sure thing. Let me help!
+    <<set $LoversNPCState to "Affirmative">>
     <<jump AffirmativeResponse>>
 -> Sorry. Not right now.
     <<jump NegativeResponse>>
@@ -18,6 +21,7 @@ Lyra: I can't find my lover. Can you help me?
 title: AffirmativeResponse
 position: -227,156
 ---
+
 Lyra: Oh thank you! Our connection was cut by the asteroids.
 Lyra: If you can somehow reconnect them, we can contact him!
 ===

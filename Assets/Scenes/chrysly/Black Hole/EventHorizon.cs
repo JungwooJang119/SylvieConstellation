@@ -13,6 +13,7 @@ public class EventHorizon : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other) {
         Debug.Log("Sylvie got wrecked by black hole");
-        Destroy(other.gameObject);  //TODO: Replace this with whatever u guys want to happen when Sylvie ded
+        // Destroy(other.gameObject);  //TODO: Replace this with whatever u guys want to happen when Sylvie ded
+        PlayerController.Instance.DeathSequence();
     }
 }
