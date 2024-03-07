@@ -56,12 +56,28 @@ public class StarLineRenderer : MonoBehaviour
 
     private IEnumerator DelayLRReset()
     {
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(1f);
         ResetLR();
     }
 
     private void ResetLR()
     {
         lineRenderer.positionCount = 0;
+    }
+
+    private void UndoLR() 
+    {
+        if (lineRenderer.positionCount > 0)
+        {
+            lineRenderer.positionCount--;
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            UndoLR();
+        }
     }
 }
