@@ -10,8 +10,9 @@ namespace PuzzleManagement {
 
     
     public enum PuzzleID {
-        GentleLady = 1,
-        HotDude = 2,
+        Perseus = 2,
+        // GentleLady = 1,
+        // HotDude = 2,
         Gemini = 3,
         DragonHotDude = 4,
         ImMeltingDude = 5,
