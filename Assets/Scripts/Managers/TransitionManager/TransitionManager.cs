@@ -11,12 +11,21 @@ public class TransitionManager : MonoBehaviour {
 
     [SerializeField]  CanvasGroup canvasGroup;
     private Coroutine transition;
+    public Vector2 holdPos;
+    private int counter;
+    public Vector2 targetPosition;
+    
+    public Vector2 consPos1;
+    public Vector2 consPos2;
+    public Vector2 consPos3;
+    public Vector2 consPos4;
 
     void Awake() {
         if (Instance == null) {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         } else Destroy(gameObject);
+        targetPosition = consPos1; 
     }
 
     /// <summary>
@@ -37,7 +46,22 @@ public class TransitionManager : MonoBehaviour {
     /// </summary>
     private IEnumerator _GoToScene(int sceneIndex) {
         transition = Fade(1);
-        while (transition != null) yield return null;
+        if (sceneIndex == 1) {
+            counter++;
+            if (counter == 1) {
+                targetPosition = consPos2;
+                holdPos = consPos1;
+            } else if (counter == 2) {
+                targetPosition = consPos3;
+                holdPos = consPos2;
+            } else if (counter == 3) {
+                targetPosition = consPos4;
+                holdPos = consPos3;
+            }
+        }
+        while (transition != null) {
+            yield return null;
+        }
         SceneManager.LoadScene(sceneIndex);
         Fade(0);
     }

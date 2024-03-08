@@ -4,10 +4,18 @@ using UnityEngine;
 using Yarn.Unity;
 using UnityEngine.SceneManagement;
 
-// public enum NPCID {
-//     Lovers = "$LoversNPCState",
-//     Perseus = "",
-// }
+
+public enum PlayerConstellationState {
+    PERSEUS,
+    LOVERS,
+    TRICKSTER,
+    DIONYSUS,
+    DRACO,
+    CASSIOPEIA,
+    GUN,
+    MINOR1,
+    MINOR2
+}
 
 public class NPCDialogue : MonoBehaviour
 {
@@ -34,7 +42,6 @@ public class NPCDialogue : MonoBehaviour
     [SerializeField] public string taskInProgressStateDialogueTitle;
     [SerializeField] public string taskCompleteDialogueTitle;
     [SerializeField] public string postCompletionDialogueTitle;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -68,10 +75,6 @@ public class NPCDialogue : MonoBehaviour
                 ChangeDialogueState(new IdleState(dialogueRunner, idleStateDialogueTitle));
             }
             currentState.OnExecuteState(this);
-        }
-        if (canTalk && Input.GetKeyDown(KeyCode.E))
-        {
-            SceneManager.LoadScene(1);
         }
     }
 

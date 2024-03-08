@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class TargetIndicator : MonoBehaviour
 {
-    public Transform target;
+    public Vector2 target;
     public GameObject pointer;
     public float HideDistance;
+    void Start() {
+        target = TransitionManager.Instance.targetPosition;
+    }
 
     void Update()
     {
-        var dir = target.position - transform.position;
+        target = TransitionManager.Instance.targetPosition;
+        var dir = target - (Vector2)transform.position;
 
         if (dir.magnitude <= HideDistance)
         {

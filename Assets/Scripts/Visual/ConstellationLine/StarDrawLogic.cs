@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using PuzzleManagement;
 
 public class StarDrawLogic : Singleton<StarDrawLogic>
 {
     //Responsible for handling all logic related to casting spells
     public static event System.EventHandler<int> OnNodeSelected;
+
+    public GameObject proc;
 
     [Serializable]
     public struct OnSpellCastArgs
@@ -122,7 +125,7 @@ public class StarDrawLogic : Singleton<StarDrawLogic>
         AudioManager.Instance.FadeMusic(true, true);
         NotificationManager.Instance.TestPuzzleCompleteNotification();
         yield return new WaitForSeconds(4f);
-        TransitionManager.Instance.GoToScene(1);
+        proc.GetComponent<PuzzleProc>().PuzzleInit();
     }
 
     private void OnInvalidPattern()

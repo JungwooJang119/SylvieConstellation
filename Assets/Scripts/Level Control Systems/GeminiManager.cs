@@ -6,6 +6,11 @@ using PuzzleManagement;
 
 public class GeminiManager : MonoBehaviour
 {
+    public GameObject proc;
+    private bool hasDone;
+    public static int moveCount;
+
+
     [SerializeField] private static Transform[,] constellationArr;
     [SerializeField] GameObject constellationController;
     private static int curPollusR;
@@ -73,6 +78,7 @@ public class GeminiManager : MonoBehaviour
                 }
             }
         }
+        moveCount = 0;
         
     }
 
@@ -190,7 +196,12 @@ public class GeminiManager : MonoBehaviour
             curCastorR = castorR;
             curCastorC = castorC;
         }
+        IncrementMoveCount();
         
+    }
+
+    public static void IncrementMoveCount() {
+        moveCount++;
     }
 
     public static void undo() {
@@ -249,7 +260,6 @@ public class GeminiManager : MonoBehaviour
             prevCastorC = -1;
         }
         
-        
     }
     void Update()
     {
@@ -259,9 +269,10 @@ public class GeminiManager : MonoBehaviour
                 StartCoroutine(Completed());
             }
         }
-        if (curPollusR == targetPositionr1 && curPollusC == targetPositionc1) {
+        if (curPollusR == targetPositionr1 && curPollusC == targetPositionc1 && !hasDone) {
             if (curCastorR == targetPositionr2 && curCastorC == targetPositionc2) {
                 //insert ending sequence here
+                hasDone = true;
                 StartCoroutine(Completed());
             }
         }
@@ -271,6 +282,6 @@ public class GeminiManager : MonoBehaviour
         AudioManager.Instance.FadeMusic(true, true);
         NotificationManager.Instance.TestPuzzleCompleteNotification();
         yield return new WaitForSeconds(4f);
-        TransitionManager.Instance.GoToScene(1);
+        proc.GetComponent<PuzzleProc>().PuzzleInit();
     }
 }

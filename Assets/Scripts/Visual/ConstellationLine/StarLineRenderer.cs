@@ -65,19 +65,19 @@ public class StarLineRenderer : MonoBehaviour
         lineRenderer.positionCount = 0;
     }
 
-    private void UndoLR() 
-    {
-        if (lineRenderer.positionCount > 0)
-        {
-            lineRenderer.positionCount--;
-        }
-    }
+    // private void UndoLR() 
+    // {
+    //     if (lineRenderer.positionCount > 0)
+    //     {
+    //         lineRenderer.positionCount--;
+    //     }
+    // }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            UndoLR();
-        }
-    }
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.U))
+    //     {
+    //         UndoLR();
+    //     }
+    // }
 }
