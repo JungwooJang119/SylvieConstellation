@@ -37,6 +37,8 @@ public class PlayerController : Singleton<PlayerController>
     public ParticleSystem starBits;
     private Vector3 lastPosition;
 
+    public int ConstellationSceneTransfer = 2;
+
     private void Awake() {
         InitializeSingleton();
         input = new PlayerInput();
@@ -55,7 +57,7 @@ public class PlayerController : Singleton<PlayerController>
 
         boostTime = 0;
         isBoosted = false;
-        transform.position = spawn.transform.position;
+        transform.position = TransitionManager.Instance.holdPos;
     }
 
     // Update is called once per frame
@@ -79,8 +81,6 @@ public class PlayerController : Singleton<PlayerController>
             float movementY = CalculateMovement(inputVector.y, rb.velocity.y);
             rb.AddForce(movementX * Vector2.right);
             rb.AddForce(movementY * Vector2.up);
-
-            print(inputVector.magnitude);
             if (inputVector.magnitude > 0) {
                 Vector2 normMovement = inputVector.normalized;
                 anim.SetBool("isMoving", true);
@@ -181,6 +181,14 @@ public class PlayerController : Singleton<PlayerController>
         yield return new WaitForSeconds(0f);
         transform.position = spawn.transform.position;
         canMove = true;
+    }
+
+    public Vector2 GetPosition() {
+        return this.gameObject.transform.position;
+    }
+
+    public void SetPosition(Vector2 yes) {
+        this.gameObject.transform.position = yes;
     }
 
 }

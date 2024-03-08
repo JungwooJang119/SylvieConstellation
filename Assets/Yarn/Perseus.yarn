@@ -1,8 +1,8 @@
-﻿title: LoversNPC
+﻿title: Perseus
 tags:
 position: -39,-61
 ---
-/// State of the LoversNPC dialogue, used for the State Machine
+/// State of the Perseus dialogue, used for the State Machine
 <<declare $PerseusNPCState = "Beginning">>
 Perseus: Ah... This hurts quite badly...
 
@@ -13,3 +13,8 @@ Sylvie: Hi!
 Perseus: Oh, hello little one. Don't mind me. I'm just- *sigh* a little injured.
 
 Perseus: (I shouldn't involve this little one. It's too dangerous.)
+
+-> Try to help this constellation!
+<<set $PerseusNPCState = "TalkToNPCAgain">>
+<<sceneChange 2>>
+===

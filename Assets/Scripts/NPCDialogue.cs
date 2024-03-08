@@ -42,7 +42,6 @@ public class NPCDialogue : MonoBehaviour
     [SerializeField] public string taskInProgressStateDialogueTitle;
     [SerializeField] public string taskCompleteDialogueTitle;
     [SerializeField] public string postCompletionDialogueTitle;
-
     // Start is called before the first frame update
     void Start()
     {
