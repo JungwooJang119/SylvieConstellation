@@ -14,11 +14,11 @@ public class NotePlacement : MonoBehaviour
         notesCorrect = 0;
     }
 
-    public void OnCollisionEnter2D(Collision2D col) {
-        Debug.Log("Collision detected!");
-        if (col.gameObject.name == childNote.name) {
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject == childNote) {
             childNote.transform.position = new Vector3(slot.transform.position.x, slot.transform.position.y, slot.transform.position.z);
             childNote.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+            childNote.GetComponent<ChildNoteScript>().setCorrect(true);
             notesCorrect++;
         }
     }
