@@ -8,21 +8,20 @@ public class CollectNote : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5;
     [SerializeField] private int axisScaler = 10;
     [SerializeField] private Transform rotateAround;
+    [SerializeField] private GameObject currentNote = null;
 
     void OnTriggerStay2D(Collider2D col) {
-        if (col.gameObject.name.Contains("note") && !col.gameObject.GetComponent<ChildNoteScript>().getCorrect()) {
-            // inputValue = input.Player.OrbitControl.triggered;
-            if (Input.GetKey(KeyCode.Q))
-            {
-                col.transform.RotateAround(rotateAround.position, Vector3.forward * axisScaler, rotationSpeed);
-            }
-
-            // When button releases, push object. TODO
-            if (Input.GetKeyUp(KeyCode.Q))
-            {
-                col.attachedRigidbody.AddForce(Vector3.forward * 1000000);
-            }
-            
+        
+        if (col.gameObject.name.Contains("note") && !col.gameObject.GetComponent<ChildNoteScript>().getCorrect() && currentNote == null) {
+            currentNote = col.gameObject;
+            currentNote.GetComponent<ChildNoteScript>().setSelected(true);
+            currentNote.GetComponent<ChildNoteScript>().setGot(false);
+        }
+    }
+    void Update() {
+        if (currentNote != null && currentNote.GetComponent<ChildNoteScript>().getCorrect()) {
+            currentNote.GetComponent<ChildNoteScript>().setSelected(false);
+            currentNote = null;
         }
     }
 }

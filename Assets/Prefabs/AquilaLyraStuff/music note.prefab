@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8412215494475111909}
   - component: {fileID: 9080254996217226884}
   - component: {fileID: 2040407838558645355}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: music note
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2040407838558645355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +161,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765deb9c9d7055f4ab0380b6df6cba1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCorrect: 0
+  isSelected: 0
+  target: {fileID: 0}
+  accelerationTime: 0.5
+  moveSpeed: 5
+  rotationSpeed: 5
+  timeLeft: 0
+  rb: {fileID: 0}

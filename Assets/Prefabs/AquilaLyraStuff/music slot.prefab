@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4677026106168283038}
   m_Layer: 0
   m_Name: music slot
-  m_TagString: Untagged
+  m_TagString: MusicSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
