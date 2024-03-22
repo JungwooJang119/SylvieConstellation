@@ -99,6 +99,23 @@ public class Pooler : Singleton<Pooler>
         m_pooledObjects[type][m_pooledIdx[type]].Spawn(spawnPosition, direction);
         m_pooledIdx[type] = (m_pooledIdx[type] + 1) % m_pooledObjects[type].Length;
     }
+    /// <summary>
+    /// O(n) checker o7
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    public bool IsParticleMaximallyPooled(PoolerType type)
+    {
+        foreach (Projectile2D projectile in m_pooledObjects[type])
+        {
+            // If any projectile is destroyed then pooler did not pool all projectiles
+            if (projectile.IsDestroyed)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 public enum PoolerType

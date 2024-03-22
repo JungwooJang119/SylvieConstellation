@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_dmg: 0
-  m_hp: 1
+  m_hp: 3
   m_defaultSpeed: 3
   m_destroyOnHit: 0
-  m_spawnOnStart: 1
+  m_spawnOnStart: 0
   m_velocityDirection: {x: -1, y: 0}

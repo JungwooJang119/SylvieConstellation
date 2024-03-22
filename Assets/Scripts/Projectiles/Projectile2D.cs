@@ -14,6 +14,10 @@ public class Projectile2D : MonoBehaviour
     [SerializeField] protected bool m_spawnOnStart;
     [SerializeField] protected Vector2 m_velocityDirection;
     
+    // Projectile States
+    public bool IsDestroyed => isDestroyed;
+    private bool isDestroyed;
+
     // Attached Components 
     private Rigidbody2D m_rb;
     private void Awake()
@@ -22,13 +26,16 @@ public class Projectile2D : MonoBehaviour
 
         if (m_spawnOnStart)
         {
+            isDestroyed = false;
             m_rb.velocity = m_velocityDirection * m_defaultSpeed;
             return;
         }
+        isDestroyed = true;
         gameObject.SetActive(false);
     }
     public void Spawn(Vector2 spawnPosition, Vector2 direction, float speed)
     {
+        isDestroyed = false;
         gameObject.SetActive(true);
         transform.position = spawnPosition;
         m_rb.velocity = direction * speed;
@@ -51,6 +58,7 @@ public class Projectile2D : MonoBehaviour
         }
         if (m_destroyOnHit)
         {
+            isDestroyed = true;
             gameObject.SetActive(false);
         }
     }
@@ -63,6 +71,7 @@ public class Projectile2D : MonoBehaviour
         }
         if (m_destroyOnHit)
         {
+            isDestroyed = true;
             gameObject.SetActive(false);
         }
     }
