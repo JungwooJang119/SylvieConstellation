@@ -8,7 +8,7 @@ public class CollectNote : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5;
     [SerializeField] private int axisScaler = 10;
     [SerializeField] private Transform rotateAround;
-    [SerializeField] private GameObject currentNote = null;
+    [SerializeField] public GameObject currentNote = null;
 
     void OnTriggerStay2D(Collider2D col) {
         

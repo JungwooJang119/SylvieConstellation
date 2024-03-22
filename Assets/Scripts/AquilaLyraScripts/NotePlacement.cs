@@ -17,6 +17,8 @@ public class NotePlacement : MonoBehaviour
     void Update() {
         if (notesCorrect == 10) {
             Debug.Log("You win!");
+            //REMOVE LATER
+            Time.timeScale = 0f;
         }
     }
     void OnTriggerEnter2D(Collider2D other) {
@@ -26,10 +28,6 @@ public class NotePlacement : MonoBehaviour
             childNote.GetComponent<ChildNoteScript>().setCorrect(true);
             notesCorrect++;
             ChildNoteScript.correctNotes.Enqueue(childNote);
-            Debug.Log("notes correct: " + ChildNoteScript.correctNotes.Count);
-            foreach(GameObject note in ChildNoteScript.correctNotes) {
-                Debug.Log(note.name);
-            }
         }
     }
 }

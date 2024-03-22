@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2040407838558645355}
   m_Layer: 6
   m_Name: music note
-  m_TagString: Untagged
+  m_TagString: MusicNote
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,9 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   isSelected: 0
-  target: {fileID: 0}
-  accelerationTime: 0.5
-  moveSpeed: 5
-  rotationSpeed: 5
-  timeLeft: 0
+  isGot: 0
+  player: {fileID: 0}
+  aquilla: {fileID: 0}
   rb: {fileID: 0}

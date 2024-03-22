@@ -47,7 +47,6 @@ public class ChildNoteScript : MonoBehaviour
         if (isCorrect) {
 
         } else if (isSelected && !isGot) {
-            Debug.Log("following player");
             follow(player);
         } else if (isGot) {
             follow(aquilla);

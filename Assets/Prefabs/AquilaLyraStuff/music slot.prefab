@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 852617034821647921}
   - component: {fileID: 2460119396124874528}
   - component: {fileID: 4677026106168283038}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: music slot
   m_TagString: MusicSlots
   m_Icon: {fileID: 0}

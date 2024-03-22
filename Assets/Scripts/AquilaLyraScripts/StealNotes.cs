@@ -4,59 +4,61 @@ using UnityEngine;
 
 public class StealNotes : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    [SerializeField] private float accelerationTime = 3f;
+    //targeting a note
+    [SerializeField] private Transform target;
     [SerializeField] private float moveSpeed = 5f;
-    private Vector2 movement;
-    [SerializeField] private float timeLeft = 0f;
+
+    //random patrolling
+    [SerializeField] private float minX;
+    [SerializeField] private float maxX;
+    [SerializeField] private float minY;
+    [SerializeField] private float maxY;
+
     private bool isFollowing = false;
-    private GameObject current = null;
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
+    [SerializeField] private GameObject current;
+
+    void Start() {
+        target.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        timeLeft -= Time.deltaTime;
-        if (ChildNoteScript.correctNotes.Count != 0) {
+    void Update() {
+        if(!isFollowing && ChildNoteScript.correctNotes.Count != 0 && current == null) {
+            target.position = ChildNoteScript.correctNotes.Dequeue().GetComponent<Transform>().position;
+            isFollowing = true;
+        } 
+        if (isFollowing) {
             follow();
-        } else if (!isFollowing) {
-            if(timeLeft <= 0)
-            {
-                movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-                timeLeft += Random.Range(1, accelerationTime);
-            }
-            random(movement);
+        } else {
+           target.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+           isFollowing = true;
         }
     }
 
-    private void follow() {
-        if (!isFollowing) {
-            current = ChildNoteScript.correctNotes.Dequeue();
-        }
-        transform.position = Vector3.MoveTowards(transform.position, current.transform.position, moveSpeed);
+    void follow() {
+        transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
         isFollowing = true;
+        if(Vector2.Distance(transform.position, target.position) < 0.2f) {
+           isFollowing = false;
+        }
     }
-    private void random(Vector2 movement) {
-        rb.velocity = movement * moveSpeed;
-    }
+    // private void random(Vector2 movement) {
+    //     rb.velocity = movement * moveSpeed;
+    // }
 
     void OnTriggerEnter2D(Collider2D col) {
-        if (!col.gameObject.name.Contains("note")) {
-            return;
-        }
-        if (isFollowing && col.gameObject == current) {
+        if (col.gameObject.tag == "MusicNote" && current == null) {
             col.gameObject.GetComponent<ChildNoteScript>().setGot(true);
             col.gameObject.GetComponent<ChildNoteScript>().setCorrect(false);
-            isFollowing = false;
-        } else if (current == null) {
+            col.gameObject.GetComponent<ChildNoteScript>().setSelected(false);
             current = col.gameObject;
-            col.gameObject.GetComponent<ChildNoteScript>().setGot(true);
-            col.gameObject.GetComponent<ChildNoteScript>().setCorrect(false);
+            isFollowing = false;
+        } else if (col.gameObject.tag == "Player" && current != null && col.gameObject.GetComponent<CollectNote>().currentNote == null) {
+            current.gameObject.GetComponent<ChildNoteScript>().setGot(false);
+            current.gameObject.GetComponent<ChildNoteScript>().setCorrect(false);
+            current.gameObject.GetComponent<ChildNoteScript>().setSelected(true);
+            current = null;
             isFollowing = false;
         }
+            
     }
 }
