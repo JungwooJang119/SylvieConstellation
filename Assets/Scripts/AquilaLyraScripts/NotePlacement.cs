@@ -6,19 +6,16 @@ public class NotePlacement : MonoBehaviour
 {
     [SerializeField] private GameObject childNote;
     [SerializeField] private GameObject slot;
-    [SerializeField] public static int notesCorrect = 0;
     // Start is called before the first frame update
     void Start()
     {
         childNote = slot.transform.GetChild(0).gameObject;
-        notesCorrect = 0;
     }
 
     void Update() {
-        if (notesCorrect == 10) {
+        //ISSUE: sometimes the game ends prematurely -> fix!!!
+        if (ChildNoteScript.correctNotes.Count == 10) {
             Debug.Log("You win!");
-            //REMOVE LATER
-            Time.timeScale = 0f;
         }
     }
     void OnTriggerEnter2D(Collider2D other) {
@@ -26,7 +23,6 @@ public class NotePlacement : MonoBehaviour
             childNote.transform.position = new Vector3(slot.transform.position.x, slot.transform.position.y, slot.transform.position.z);
             childNote.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
             childNote.GetComponent<ChildNoteScript>().setCorrect(true);
-            notesCorrect++;
             ChildNoteScript.correctNotes.Enqueue(childNote);
         }
     }

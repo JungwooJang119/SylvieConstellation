@@ -18,10 +18,16 @@ public class CollectNote : MonoBehaviour
             currentNote.GetComponent<ChildNoteScript>().setGot(false);
         }
     }
-    void Update() {
-        if (currentNote != null && currentNote.GetComponent<ChildNoteScript>().getCorrect()) {
-            currentNote.GetComponent<ChildNoteScript>().setSelected(false);
-            currentNote = null;
+    void FixedUpdate() {
+        updateCurrent();
+    }
+
+    void updateCurrent() {
+        if(currentNote != null) {
+            if (currentNote.GetComponent<ChildNoteScript>().getGot() || currentNote.GetComponent<ChildNoteScript>().getCorrect()) {
+                currentNote.GetComponent<ChildNoteScript>().setSelected(false);
+                currentNote = null;
+            }
         }
     }
 }

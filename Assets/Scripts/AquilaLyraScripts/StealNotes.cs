@@ -5,7 +5,7 @@ using UnityEngine;
 public class StealNotes : MonoBehaviour
 {
     //targeting a note
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform randomTarget;
     [SerializeField] private float moveSpeed = 5f;
 
     //random patrolling
@@ -13,52 +13,69 @@ public class StealNotes : MonoBehaviour
     [SerializeField] private float maxX;
     [SerializeField] private float minY;
     [SerializeField] private float maxY;
-
+    [SerializeField] private float range;
     private bool isFollowing = false;
     [SerializeField] private GameObject current;
+    [SerializeField] private GameObject stolenNote;
+
+    [SerializeField] private float timeLeft;
 
     void Start() {
-        target.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        randomTarget.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        current = null;
+        stolenNote = null;
+        timeLeft = 3f;
     }
 
-    void Update() {
-        if(!isFollowing && ChildNoteScript.correctNotes.Count != 0 && current == null) {
-            target.position = ChildNoteScript.correctNotes.Dequeue().GetComponent<Transform>().position;
+    void FixedUpdate() {
+        if(ChildNoteScript.correctNotes.Count != 0 && stolenNote == null && current == null) {
+            current = ChildNoteScript.correctNotes.Dequeue();
             isFollowing = true;
         } 
-        if (isFollowing) {
-            follow();
+        if (current != null && stolenNote == null) {
+            chaseNote();
         } else {
-           target.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-           isFollowing = true;
+            timeLeft -= Time.deltaTime;
+            if (timeLeft < 0) {
+                randomTarget.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+                timeLeft = 3f;
+            }
+           randomMovement();
         }
     }
 
-    void follow() {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
+    void randomMovement() {
+        transform.position = Vector2.MoveTowards(transform.position, randomTarget.position, Time.deltaTime * moveSpeed);
         isFollowing = true;
-        if(Vector2.Distance(transform.position, target.position) < 0.2f) {
+        if(Vector2.Distance(transform.position, randomTarget.position) < 0.2f) {
+            timeLeft = 0;
            isFollowing = false;
         }
     }
-    // private void random(Vector2 movement) {
-    //     rb.velocity = movement * moveSpeed;
-    // }
-
-    void OnTriggerEnter2D(Collider2D col) {
-        if (col.gameObject.tag == "MusicNote" && current == null) {
-            col.gameObject.GetComponent<ChildNoteScript>().setGot(true);
-            col.gameObject.GetComponent<ChildNoteScript>().setCorrect(false);
-            col.gameObject.GetComponent<ChildNoteScript>().setSelected(false);
-            current = col.gameObject;
-            isFollowing = false;
-        } else if (col.gameObject.tag == "Player" && current != null && col.gameObject.GetComponent<CollectNote>().currentNote == null) {
-            current.gameObject.GetComponent<ChildNoteScript>().setGot(false);
-            current.gameObject.GetComponent<ChildNoteScript>().setCorrect(false);
-            current.gameObject.GetComponent<ChildNoteScript>().setSelected(true);
-            current = null;
-            isFollowing = false;
+    void chaseNote() {
+        transform.position = Vector2.MoveTowards(transform.position, current.transform.position, Time.deltaTime * moveSpeed);
+        if(Vector2.Distance(transform.position, current.transform.position) < 0.2f) {
+           isFollowing = false;
         }
-            
     }
+    void updateCurrent() {
+        if(stolenNote != null) {
+            if (stolenNote.GetComponent<ChildNoteScript>().getSelected()) {
+                stolenNote = null;
+            }
+        }
+    }
+    void OnTriggerStay2D(Collider2D col) {
+        if (col.gameObject.name.Contains("note") && stolenNote == null) {
+            stolenNote = col.gameObject;
+            current = null;
+            stolenNote.GetComponent<ChildNoteScript>().setSelected(false);
+            stolenNote.GetComponent<ChildNoteScript>().setGot(true);
+            stolenNote.GetComponent<ChildNoteScript>().setCorrect(false);
+        }
+        updateCurrent();
+    }
+
+    
+
 }

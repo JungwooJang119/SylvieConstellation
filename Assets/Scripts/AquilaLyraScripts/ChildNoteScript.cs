@@ -42,7 +42,7 @@ public class ChildNoteScript : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         correctNotes = new Queue<GameObject>();
     }
-    void Update()
+    void FixedUpdate()
     {
         if (isCorrect) {
 
@@ -55,4 +55,6 @@ public class ChildNoteScript : MonoBehaviour
     public void follow(Transform target) {
         transform.position = target.position;
     }
+
+    
 }
