@@ -91,11 +91,15 @@ public class GunAbility : MonoBehaviour
         float angleChargeOffset = m_angleCharge + 5f;
         m_accuracyLineUpUI.localRotation = Quaternion.AngleAxis(angleChargeOffset, Vector3.forward);
         m_accuracyLineDownUI.localRotation = Quaternion.AngleAxis(-1 * angleChargeOffset, Vector3.forward);
-        // Legacy Input For Debugging
+
         // TODO:
         // Problems with this implementation:
         // The cooldown time is dependent only on what is fired rather than what should be fired in order thus
         // COOLDOWN time needs to make it not possible to charge this up at all and require charging before you can fire!!
+        //
+        // (Ryan) I believe this has been done
+
+        // Legacy Input For Debugging
         // Initiate Gun
         if (Time.time >= m_cooldownTime && Input.GetMouseButtonDown(1))
         {

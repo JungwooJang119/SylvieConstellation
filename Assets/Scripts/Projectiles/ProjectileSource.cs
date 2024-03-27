@@ -1,24 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Place this on a particle system with a trigger module enabled
+/// You need to have a collider to get the projectiles to trigger 
+/// All setting of velocity and times are all dependent on the particle system settings
 /// </summary>
-[RequireComponent(typeof(ParticleSystem))]
+[RequireComponent(typeof(ParticleSystem), typeof(Collider2D))]
 public class ProjectileSource : MonoBehaviour
 {
     [Header("Source Specfications")]
     [SerializeField] private PoolerType m_projectileType;
-    ParticleSystem Ps;
-    List<ParticleSystem.Particle> Enter;
-    void Awake()
+    #region Particle System References
+    private ParticleSystem Ps;
+    private List<ParticleSystem.Particle> Enter;
+    #endregion
+    private void Awake()
     {
         Ps = GetComponent<ParticleSystem>();
         Enter = new List<ParticleSystem.Particle>();
     }
 
-    void OnValidate()
+    private void Start()
+    {
+        // Error Checking
+        if (Pooler.Instance == null)
+        {
+            Debug.LogError("Projectile Source requires Pooler in scene");
+        }
+        else if (!Pooler.Instance.HasPooledProjectile(m_projectileType))
+        {
+            Debug.LogError("Pooler does not contain specified projectile type: " + m_projectileType);
+        }
+    }
+
+    private void OnValidate()
     {
         Ps = GetComponent<ParticleSystem>();
         var trigger = Ps.trigger;
@@ -26,23 +44,32 @@ public class ProjectileSource : MonoBehaviour
         {
             trigger.enter = ParticleSystemOverlapAction.Callback;
         }
-    }
+    } 
 
-    void OnParticleTrigger()
+    private void OnParticleTrigger()
     {
-        Debug.Log("Triggered");
-        // get
         int numInside = Ps.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, Enter);
-
-        // on enter
+        Debug.Log("Triggered: " + numInside);
         for (int i = 0; i < numInside; i++)
         {
             ParticleSystem.Particle particle = Enter[i];
 
-            if (Pooler.Instance.IsParticleMaximallyPooled(m_projectileType))
+            if (!Pooler.Instance.IsParticleMaximallyPooled(m_projectileType))
             {
-                Pooler.Instance.SpawnProjectile(m_projectileType, particle.position, particle.velocity.normalized, particle.velocity.magnitude);
+                Pooler.Instance.SpawnProjectile(m_projectileType, particle.position + transform.position, particle.velocity.normalized, particle.velocity.magnitude);
             }   
         }
     }
+}
+
+
+// For Variable Projectile Spawning
+[Serializable]
+public struct ProjectileSourceObject
+{
+    [SerializeField] private PoolerType projectileType;
+    [SerializeField] private float spawnWeight;
+
+    public PoolerType ProjectileType => projectileType;
+    public float SpawnWeight => spawnWeight;
 }

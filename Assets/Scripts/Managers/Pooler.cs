@@ -116,12 +116,28 @@ public class Pooler : Singleton<Pooler>
         }
         return true;
     }
+    public bool HasPooledProjectile(PoolerType type)
+    {
+        return m_pooledObjects.ContainsKey(type);
+    }
+    // Checks if all types are in the pooledObjects
+    public bool HasPooledProjectiles(PoolerType[] types)
+    {
+        foreach (PoolerType type in types)
+        {
+            if (!m_pooledObjects.ContainsKey(type))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 public enum PoolerType
 {
     StarBullet,
-    Astroid
+    Asteroid
 }
 
 [Serializable]
