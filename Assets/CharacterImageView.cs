@@ -15,7 +15,7 @@ public class CharacterImageView : MonoBehaviour
     };
 
     [SerializeField]
-    private Image characterDialogueImage;
+    public Image characterDialogueImage;
 
     [SerializeField]
     private TextMeshProUGUI characterNameText;
