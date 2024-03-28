@@ -14,7 +14,6 @@ public class StealNotes : MonoBehaviour
     [SerializeField] private float minY;
     [SerializeField] private float maxY;
     [SerializeField] private float range;
-    private bool isFollowing = false;
     [SerializeField] private GameObject current;
     [SerializeField] private GameObject stolenNote;
 
@@ -30,7 +29,6 @@ public class StealNotes : MonoBehaviour
     void FixedUpdate() {
         if(ChildNoteScript.correctNotes.Count != 0 && stolenNote == null && current == null) {
             current = ChildNoteScript.correctNotes.Dequeue();
-            isFollowing = true;
         } 
         if (current != null && stolenNote == null) {
             chaseNote();
@@ -46,17 +44,12 @@ public class StealNotes : MonoBehaviour
 
     void randomMovement() {
         transform.position = Vector2.MoveTowards(transform.position, randomTarget.position, Time.deltaTime * moveSpeed);
-        isFollowing = true;
         if(Vector2.Distance(transform.position, randomTarget.position) < 0.2f) {
             timeLeft = 0;
-           isFollowing = false;
         }
     }
     void chaseNote() {
         transform.position = Vector2.MoveTowards(transform.position, current.transform.position, Time.deltaTime * moveSpeed);
-        if(Vector2.Distance(transform.position, current.transform.position) < 0.2f) {
-           isFollowing = false;
-        }
     }
     void updateCurrent() {
         if(stolenNote != null) {

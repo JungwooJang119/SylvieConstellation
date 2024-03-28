@@ -12,7 +12,7 @@ public class NotePlacement : MonoBehaviour
         childNote = slot.transform.GetChild(0).gameObject;
     }
 
-    void Update() {
+    void FixedUpdate() {
         //ISSUE: sometimes the game ends prematurely -> fix!!!
         if (ChildNoteScript.correctNotes.Count == 10) {
             Debug.Log("You win!");
@@ -24,6 +24,7 @@ public class NotePlacement : MonoBehaviour
             childNote.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
             childNote.GetComponent<ChildNoteScript>().setCorrect(true);
             ChildNoteScript.correctNotes.Enqueue(childNote);
+            Debug.Log(ChildNoteScript.correctNotes.Count);
         }
     }
 }
