@@ -5938,24 +5938,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &524928594 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1603967538012970769, guid: c29f1d8a49acf3f4198a10385d774474, type: 3}
-  m_PrefabInstance: {fileID: 1317571083}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &524928598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 524928594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94626e2971fdb4079b08a901c9a84aae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sparksParticleSystem: {fileID: 388055733}
 --- !u!1 &726803685
 GameObject:
   m_ObjectHideFlags: 0
@@ -6982,7 +6964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3599861841851639352, guid: c29f1d8a49acf3f4198a10385d774474, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 65.74
+      value: 52.95
       objectReference: {fileID: 0}
     - target: {fileID: 3599861841851639352, guid: c29f1d8a49acf3f4198a10385d774474, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7023,10 +7005,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1603967538012970769, guid: c29f1d8a49acf3f4198a10385d774474, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 524928598}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c29f1d8a49acf3f4198a10385d774474, type: 3}
 --- !u!1 &1468170418
 GameObject:
