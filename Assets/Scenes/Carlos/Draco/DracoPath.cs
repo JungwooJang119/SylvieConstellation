@@ -14,20 +14,21 @@ public class DracoPath : MonoBehaviour {
     public GameObject EDITOR_nodePrefab;
     public void OnDrawGizmosSelected() {
         if (path.Count < 2) return;
-        UnityEditor.Handles.color = Color.green;
         for (int i = 0; i < path.Count; i++) {
             if (path[i] == null) {
                 path.Remove(path[i]);
                 continue;
             } 
             if (path[i].GetNext() == null) continue;
-            if (i > 0) UnityEditor.Handles.color = Color.yellow;
-            UnityEditor.Handles.DrawDottedLine(path[i].transform.position, path[i].GetNext().transform.position, 5f);
-            if (path[i].next == null) {
+            if (i == 0) {
                 UnityEditor.Handles.color = Color.blue;
-            } UnityEditor.Handles.DrawSolidDisc(path[i].GetNext().transform.position, Vector3.forward, 0.2f);
-            if (path[i].next == null) {
-                UnityEditor.Handles.Label(path[i].GetNext().transform.position, "Start", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter });
+            } else if (i == 1) {
+                UnityEditor.Handles.color = Color.green;
+            } else UnityEditor.Handles.color = Color.yellow;
+            UnityEditor.Handles.DrawDottedLine(path[i].transform.position, path[i].GetNext().transform.position, 5f);
+            UnityEditor.Handles.DrawSolidDisc(path[i].transform.position, Vector3.forward, 0.2f);
+            if (i == 0) {
+                UnityEditor.Handles.Label(path[i].transform.position, "Start", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter });
             }
         }
         Gizmos.color = Color.white;

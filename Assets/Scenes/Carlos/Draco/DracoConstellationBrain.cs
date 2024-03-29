@@ -10,11 +10,9 @@ public class DracoConstellationBrain : MonoBehaviour {
     [SerializeField] private int nodeAmount;
     [SerializeField] private float nodeSpawnDelay;
 
-    void Start() {
-        StartCoroutine(DragonSpawn());
-    }
+    void Start() => StartCoroutine(_DragonSpawn());
 
-    private IEnumerator DragonSpawn() {
+    private IEnumerator _DragonSpawn() {
         int tempAmount = nodeAmount;
         while (tempAmount > 0) {
             GameObject nodeGO = tempAmount == nodeAmount ? Instantiate(headNodePrefab, transform.position, transform.rotation, transform)

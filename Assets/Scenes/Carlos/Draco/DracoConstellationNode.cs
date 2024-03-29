@@ -3,17 +3,30 @@ using UnityEngine;
 #if UNITY_EDITOR
 #endif
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class DracoConstellationNode : MonoBehaviour {
 
     [SerializeField] private float speed;
+    [SerializeField] private float weight;
     private DracoPathNode target;
+    private Rigidbody2D rb;
 
-    public void Init(DracoPathNode target) => this.target = target;
+    private Vector2 direction;
+    public Vector2 Direction => direction;
+
+    public void Init(DracoPathNode target) {
+        this.target = target;
+        rb = GetComponent<Rigidbody2D>();
+        direction = (target.position - (Vector2) transform.position).normalized;
+    }
 
     void Update() {
+        if (Vector2.Distance(transform.position, target.position) < 1) target = target.GetNext();
+    }
+
+    void FixedUpdate() {
         if (target == null) return;
-        transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
-        if (Mathf.Approximately(transform.position.x, target.position.x)
-            && Mathf.Approximately(transform.position.y, target.position.y)) target = target.GetNext();
+        rb.velocity = Vector2.one * speed * direction;
+        direction = Vector2.MoveTowards(direction, (target.position - (Vector2) transform.position).normalized, Time.deltaTime * weight);
     }
 }
