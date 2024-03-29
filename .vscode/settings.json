@@ -49,10 +49,7 @@
         "library/": true,
         "obj/": true,
         "Obj/": true,
-        "Logs/": true,
-        "logs/": true,
         "ProjectSettings/": true,
-        "UserSettings/": true,
         "temp/": true,
         "Temp/": true
     },

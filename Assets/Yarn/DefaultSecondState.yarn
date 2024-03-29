@@ -1,0 +1,22 @@
+﻿title: DefaultSecondState
+tags:
+position: -39,-61
+---
+Lyra: Oh, you're still here...
+
+Sylvie: ...
+
+Lyra: The devs forgot to put my lines...
+-> ...
+-> What was I gonna talk to you about?
+<<jump vent>>
+===
+
+title: vent
+tags:
+position: -227,156
+---
+
+Lyra: ...okie bye
+
+===

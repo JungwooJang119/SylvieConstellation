@@ -1,0 +1,20 @@
+﻿title: DefaultTaskCompletedState
+tags:
+position: -39,-61
+---
+
+Lyra: Hooray!
+
+Lyra: You deserve a medal!
+<<set $LoversNPCState to "FinalState">>
+<<jump TaskCompletePart2>>
+
+===
+title: TaskCompletePart2
+tags:
+position: -227,156
+---
+
+Lyra: ...okie bye
+
+===
