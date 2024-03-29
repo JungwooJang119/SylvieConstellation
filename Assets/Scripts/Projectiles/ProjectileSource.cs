@@ -12,19 +12,20 @@ using UnityEngine;
 public class ProjectileSource : MonoBehaviour
 {
     [Header("Source Specfications")]
-    //[SerializeField] private ProjectileSourceObject[] m_projectiles;
-    [SerializeField] private PoolerType m_projectileType;
+    [SerializeField] private ProjectileSourceObject[] m_projectiles;
+    //[SerializeField] private PoolerType m_projectileType;
     #region Particle System References
     private ParticleSystem Ps;
     private List<ParticleSystem.Particle> Enter;
     #endregion
     #region Technical
-    private float total;
+    private float totalWeight;
     #endregion
     private void Awake()
     {
         Ps = GetComponent<ParticleSystem>();
         Enter = new List<ParticleSystem.Particle>();
+        UpdateTotalWeight();
     }
 
     private void Start()
@@ -34,12 +35,18 @@ public class ProjectileSource : MonoBehaviour
         {
             Debug.LogError("Projectile Source requires Pooler in scene");
         }
-        else if (!Pooler.Instance.HasPooledProjectile(m_projectileType))
+        else 
         {
-            Debug.LogError("Pooler does not contain specified projectile type: " + m_projectileType);
+            foreach (ProjectileSourceObject pso in m_projectiles)
+            {
+                if (!Pooler.Instance.HasPooledProjectile(pso.ProjectileType))
+                {
+                    Debug.LogError("Pooler does not contain specified projectile type: " + pso.ProjectileType);
+                    break;
+                }
+            } 
         }
     }
-
     private void OnValidate()
     {
         Ps = GetComponent<ParticleSystem>();
@@ -48,25 +55,46 @@ public class ProjectileSource : MonoBehaviour
         {
             trigger.enter = ParticleSystemOverlapAction.Callback;
         }
+        UpdateTotalWeight();
     } 
-
     private void OnParticleTrigger()
     {
         int numInside = Ps.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, Enter);
-        Debug.Log("Triggered: " + numInside);
+        PoolerType randomProjectile = PickRandomProjectile();
         for (int i = 0; i < numInside; i++)
         {
             ParticleSystem.Particle particle = Enter[i];
 
-            if (!Pooler.Instance.IsParticleMaximallyPooled(m_projectileType))
+            if (!Pooler.Instance.IsParticleMaximallyPooled(randomProjectile))
             {
-                Pooler.Instance.SpawnProjectile(m_projectileType, particle.position + transform.position, particle.velocity.normalized, particle.velocity.magnitude);
+                Projectile2D projectile = Pooler.Instance.SpawnProjectile(randomProjectile, particle.position, particle.velocity.normalized, particle.velocity.magnitude);
+                projectile.RB.angularVelocity = particle.angularVelocity;
             }   
         }
     }
+    private void UpdateTotalWeight()
+    {
+        totalWeight = 0f;
+        foreach (ProjectileSourceObject pso in m_projectiles) 
+        {
+            totalWeight += pso.SpawnWeight;
+        }
+    }
+    private PoolerType PickRandomProjectile()
+    {
+        float randomWeight = UnityEngine.Random.Range(0f, totalWeight);
+        foreach (ProjectileSourceObject pso in m_projectiles)
+        {
+            randomWeight -= pso.SpawnWeight;
+            if (randomWeight <= 0)
+            {
+                return pso.ProjectileType;
+            }
+        }
+
+        return m_projectiles[0].ProjectileType;
+    }
 }
-
-
 // For Variable Projectile Spawning
 [Serializable]
 public struct ProjectileSourceObject

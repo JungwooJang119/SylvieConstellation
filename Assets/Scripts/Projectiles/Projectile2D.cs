@@ -22,6 +22,7 @@ public class Projectile2D : MonoBehaviour
 
     #region References
     private Rigidbody2D m_rb;
+    public Rigidbody2D RB => m_rb;
     #endregion
 
     #region Technical

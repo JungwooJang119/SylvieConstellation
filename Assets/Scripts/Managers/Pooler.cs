@@ -55,23 +55,25 @@ public class Pooler : Singleton<Pooler>
     /// <param name="type"></param>
     /// <param name="spawnPosition"></param>
     /// <param name="velocity"></param>
-    public void SpawnProjectile(PoolerType type, Vector2 spawnPosition, Vector2 direction, float speed)
+    public Projectile2D SpawnProjectile(PoolerType type, Vector2 spawnPosition, Vector2 direction, float speed)
     {
         // Error Checking
         if (spawnPosition == null || direction == null)
         {
             Debug.LogError("Cannot pass null values for spawnPosition or direction");
-            return;
+            return null;
         }
         if (!m_pooledObjects.ContainsKey(type))
         {
             Debug.LogWarning("Pooler does not hold projectile type " + type.ToString());
-            return;
+            return null;
         }
 
         // Logic
-        m_pooledObjects[type][m_pooledIdx[type]].Spawn(spawnPosition, direction, speed);
+        Projectile2D reference = m_pooledObjects[type][m_pooledIdx[type]];
+        reference.Spawn(spawnPosition, direction, speed);
         m_pooledIdx[type] = (m_pooledIdx[type] + 1) % m_pooledObjects[type].Length;
+        return reference;
     }
     /// <summary>
     /// Indexes active or non-active projectiles of a given type and spawns it 
@@ -81,23 +83,25 @@ public class Pooler : Singleton<Pooler>
     /// <param name="type"></param>
     /// <param name="spawnPosition"></param>
     /// <param name="velocity"></param>
-    public void SpawnProjectile(PoolerType type, Vector2 spawnPosition, Vector2 direction)
+    public Projectile2D SpawnProjectile(PoolerType type, Vector2 spawnPosition, Vector2 direction)
     {
         // Error Checking
         if (spawnPosition == null)
         {
             Debug.LogError("Cannot pass null values for spawnPosition or direction");
-            return;
+            return null;
         }
         if (!m_pooledObjects.ContainsKey(type))
         {
             Debug.LogWarning("Pooler does not hold projectile type " + type.ToString());
-            return;
+            return null;
         }
 
         // Logic
-        m_pooledObjects[type][m_pooledIdx[type]].Spawn(spawnPosition, direction);
+        Projectile2D reference = m_pooledObjects[type][m_pooledIdx[type]];
+        reference.Spawn(spawnPosition, direction);
         m_pooledIdx[type] = (m_pooledIdx[type] + 1) % m_pooledObjects[type].Length;
+        return reference;
     }
     /// <summary>
     /// O(n) checker o7
@@ -137,7 +141,10 @@ public class Pooler : Singleton<Pooler>
 public enum PoolerType
 {
     StarBullet,
-    Asteroid
+    Asteroid1,
+    Asteroid2,
+    Asteroid3,
+    Asteroid4,
 }
 
 [Serializable]

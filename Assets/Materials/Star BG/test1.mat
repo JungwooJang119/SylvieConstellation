@@ -67,7 +67,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 208.88278, g: 112.20817, b: 0, a: 0}
+    - _Offset: {r: 19.192358, g: -8.201485, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1543886290614656491
