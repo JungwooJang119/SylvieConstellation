@@ -12,10 +12,14 @@ using UnityEngine;
 public class ProjectileSource : MonoBehaviour
 {
     [Header("Source Specfications")]
+    //[SerializeField] private ProjectileSourceObject[] m_projectiles;
     [SerializeField] private PoolerType m_projectileType;
     #region Particle System References
     private ParticleSystem Ps;
     private List<ParticleSystem.Particle> Enter;
+    #endregion
+    #region Technical
+    private float total;
     #endregion
     private void Awake()
     {
