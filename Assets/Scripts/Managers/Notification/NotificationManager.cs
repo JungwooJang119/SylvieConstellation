@@ -35,24 +35,24 @@ public class NotificationManager : Singleton<NotificationManager>
     /// The text object that is animated when a notification is triggered and
     /// the <see cref="Notification.style"/> is <see cref="Style.HEADER"/>.
     /// </summary>
-    [SerializeField] private TextMeshProUGUI headerText;
+    [SerializeField] private PartialText headerText;
     /// <summary>
     /// The text object that is animated when a notification is triggered and
     /// the <see cref="Notification.style"/> is <see cref="Style.FOOTER"/>.
     /// </summary>
-    [SerializeField] private TextMeshProUGUI footerText;
+    [SerializeField] private PartialText footerText;
     /// <summary>
     /// The text object that is animated for the title of the notification
     /// when a notification is triggered and the <see cref="Notification.style"/>
     /// is <see cref="Style.SIDEBAR"/>.
     /// </summary>
-    [SerializeField] private TextMeshProUGUI sidebarText;
+    [SerializeField] private PartialText sidebarText;
     /// <summary>
     /// The text object that is animated for the description of the notification
     /// when a notification is triggered and the <see cref="Notification.style"/>
     /// is <see cref="Style.SIDEBAR"/>.
     /// </summary>
-    [SerializeField] private TextMeshProUGUI sidebarDescText;
+    [SerializeField] private PartialText sidebarDescText;
 
     /// <summary>
     /// The list of notifications currently waiting to be triggered.
