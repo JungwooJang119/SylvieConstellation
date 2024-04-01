@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacle
   - AutosaveZone
+  - BoostCircle
+  - AreaTrigger
   layers:
   - Default
   - TransparentFX
@@ -48,4 +50,6 @@ TagManager:
     locked: 0
   - name: Overlay
     uniqueID: 1758554563
+  - name: UI
+    uniqueID: 3746540665
     locked: 0

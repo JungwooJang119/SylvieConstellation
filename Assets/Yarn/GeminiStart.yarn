@@ -1,0 +1,47 @@
+﻿title: GeminiStart
+tags:
+position: -39,-61
+---
+/// State of the Gemini dialogue, used for the State Machine
+<<declare $GeminiNPCState = "Beginning">>
+Pollux: What do you want, you little pipsqueak?
+
+Sylvie: Well, you seemed lonely.
+
+Pollux: Lonely? I'm not... I'm not lonely!
+
+Sylvie: Well, who else is here?
+
+Pollux: My twin brother would be here. But we had a big fight. I haven't seen him since.
+
+Sylvie: I can help! Let's get you two back together!
+
+Pollux: You would really do that?
+
+-> Come on, let's go!
+    <<set $GeminiNPCState to "Affirmative">>
+    <<jump GeminiAffirmativeResponse>>
+-> Actually, good luck on your own!
+    <<jump GeminiNegativeResponse>>
+
+===
+
+title: GeminiAffirmativeResponse
+position: -227,156
+---
+
+Pollux: Sweet. I'll follow you! But I feel like Castor is still mad at me.
+
+Pollux: Let's try to get my brother next to me.
+
+<<changeScene 2>>
+===
+
+title: GeminiNegativeResponse
+position: 83,150
+---
+Sylvie: L BOZO GET RATIOED BYE BYE
+
+Pollux: Go away.
+
+===

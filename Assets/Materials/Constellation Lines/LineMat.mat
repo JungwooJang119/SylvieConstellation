@@ -42,16 +42,16 @@ Material:
     m_Ints: []
     m_Floats:
     - _DistClampMax: 0.74
-    - _DistMult: 4.7
-    - _FalloffFactor: 0.2
-    - _NoiseFactor: 0.86
-    - _NoiseScale: 4.21
+    - _DistMult: 4.26
+    - _FalloffFactor: -2.65
+    - _NoiseFactor: 0.67
+    - _NoiseScale: 9.48
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _TimeScale: 1
+    - _TimeScale: 1.78
     m_Colors:
-    - _InsideColor: {r: 0.12228539, g: 0.86415094, b: 0.51192987, a: 1}
-    - _OutsideColor: {r: 0.2903453, g: 0.5361716, b: 0.7433963, a: 0}
+    - _InsideColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutsideColor: {r: 0.09411712, g: 0.27356467, b: 0.4245283, a: 0}
     - _Point1: {r: 117.6, g: -14.7, b: 0, a: 0}
     - _Point2: {r: 131.4, g: -23.98, b: 0, a: 0}
   m_BuildTextureStacks: []

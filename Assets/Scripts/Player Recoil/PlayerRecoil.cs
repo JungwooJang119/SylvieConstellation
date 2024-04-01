@@ -44,17 +44,17 @@ public class PlayerRecoil : MonoBehaviour
         AddForceOverTime(deltat, forceMag * direction * velocity.magnitude * 0.5f);
 
         //cause her to stop rotating after a specific amount of time
-        Invoke("StopRotating", deltat * 0.5f);
+        // Invoke("StopRotating", deltat * 0.5f);
     }
 
     //this method adds the force to Sylvie
     private void AddForceOverTime(float time, Vector2 force) {
         float timer = 0f;
         //unfreeze rotation so that she can spin
-        rb.freezeRotation = false;
+        //rb.freezeRotation = false;
 
         //add the initial spin force
-        rb.AddTorque(rotation * velocity.magnitude * 0.5f, ForceMode2D.Impulse);
+        //rb.AddTorque(rotation * velocity.magnitude * 0.5f, ForceMode2D.Impulse);
 
         //for a specific duration of time
         while(timer < time) {
