@@ -2,13 +2,20 @@
 tags:
 position: -39,-61
 ---
+/// State of the LoversNPC dialogue, used for the State Machine
+<<declare $LoversNPCState = "Beginning">>
+
+<<show_image CharacterImageView "Assets/Art/Female_Lover.png">>
 Lyra: ~crying~
 
+<<show_image CharacterImageView "Assets/Art/Pillar ruins.png">>
 Sylvie: What's wrong?
 
+<<show_image CharacterImageView "Assets/Art/Female_Lover.png">>
 Lyra: I can't find my lover. Can you help me?
 
 -> Sure thing. Let me help!
+    <<set $LoversNPCState to "Affirmative">>
     <<jump AffirmativeResponse>>
 -> Sorry. Not right now.
     <<jump NegativeResponse>>
@@ -18,11 +25,16 @@ Lyra: I can't find my lover. Can you help me?
 title: AffirmativeResponse
 position: -227,156
 ---
+<<show_image CharacterImageView "Assets/Art/Female_Lover.png">>
 Lyra: Oh thank you! Our connection was cut by the asteroids.
+<<show_image CharacterImageView "Assets/Art/Female_Lover.png">>
 Lyra: If you can somehow reconnect them, we can contact him!
+<<show_image CharacterImageView "NO SPRITE">>
 ===
 title: NegativeResponse
 position: 83,150
 ---
+<<show_image CharacterImageView "Assets/Art/Female_Lover.png">>
 Lyra: Oh. Ok then. ~WAHHHHHHHHHHH~
+<<show_image CharacterImageView "NO SPRITE">>
 ===
