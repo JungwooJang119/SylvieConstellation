@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using Yarn.Unity;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public enum PlayerConstellationState {
@@ -42,6 +44,9 @@ public class NPCDialogue : MonoBehaviour
     [SerializeField] public string taskInProgressStateDialogueTitle;
     [SerializeField] public string taskCompleteDialogueTitle;
     [SerializeField] public string postCompletionDialogueTitle;
+
+    [SerializeField] public CharacterImageView characterImageView;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,6 +107,23 @@ public class NPCDialogue : MonoBehaviour
     {
         if (other.gameObject.tag == "Player") {
             canTalk = false;   
+        }
+    }
+
+    [YarnCommand("show_image")]
+    public void ShowImage(string filepath)
+    {
+        if (!filepath.Equals("NO SPRITE"))
+        {
+
+            characterImageView.characterDialogueImage.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(filepath);
+            Debug.Log($"SPRITE: {characterImageView.characterDialogueImage.sprite}");
+
+        }
+        else
+        {
+            characterImageView.characterDialogueImage.sprite = null;
+            Debug.Log($"SPRITE: {characterImageView.characterDialogueImage.sprite}");
         }
     }
 }
