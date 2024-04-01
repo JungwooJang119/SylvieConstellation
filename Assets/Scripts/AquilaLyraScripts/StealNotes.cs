@@ -2,31 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class StealNotes : MonoBehaviour
 {
-    //targeting a note
-    [SerializeField] private Transform randomTarget;
-    [SerializeField] private float moveSpeed = 5f;
-
-    //random patrolling
-    [SerializeField] private float minX;
-    [SerializeField] private float maxX;
-    [SerializeField] private float minY;
-    [SerializeField] private float maxY;
-    [SerializeField] private float range;
-    [SerializeField] private GameObject current;
     [SerializeField] private GameObject stolenNote;
-
-    [SerializeField] private float timeLeft;
+    [SerializeField] private StateMachine sm;
+    [SerializeField] private StateIdle idle;
+    [SerializeField] private StateSteal steal;
+    [SerializeField] private StateSwap swap;
 
     void Start() {
-        randomTarget.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-        current = null;
-        stolenNote = null;
-        timeLeft = 3f;
+        sm = new StateMachine();
+        idle = new StateIdle();
+        steal = new StateSteal();
+        swap = new StateSwap();
+
+        sm.ChangeState(idle);
     }
 
     void FixedUpdate() {
+        if (ChildNoteScript.correctNotes.Count == 0 && sm.currentState() != idle) {
+            sm.ChangeState(idle);
+        } e
+    }
+    void oldControl() {
         if(ChildNoteScript.correctNotes.Count != 0 && stolenNote == null && current == null) {
             current = ChildNoteScript.correctNotes.Dequeue();
         } 
@@ -65,6 +64,7 @@ public class StealNotes : MonoBehaviour
             stolenNote.GetComponent<ChildNoteScript>().setSelected(false);
             stolenNote.GetComponent<ChildNoteScript>().setGot(true);
             stolenNote.GetComponent<ChildNoteScript>().setCorrect(false);
+            sm.ChangeState(idle);
         }
         updateCurrent();
     }
