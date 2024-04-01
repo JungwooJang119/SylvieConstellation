@@ -6,9 +6,11 @@ using Yarn.Unity;
 public class IncompleteTaskState : State
 {
 
-    public IncompleteTaskState(DialogueRunner dialogueRunner) : base(dialogueRunner)
-    {
+    private string dialogScriptTitle;
 
+    public IncompleteTaskState(DialogueRunner dialogueRunner, string dialogScriptTitle) : base(dialogueRunner)
+    {
+        this.dialogScriptTitle = dialogScriptTitle;
     }
 
     public override void OnEnterState(NPCDialogue npcDialogue)
@@ -19,7 +21,7 @@ public class IncompleteTaskState : State
 
     public override void OnExecuteState(NPCDialogue npcDialogue)
     {
-        dialogueRunner.StartDialogue("DefaultSecondState");
+        dialogueRunner.StartDialogue(dialogScriptTitle);
         //npcDialogue.ChangeDialogueState(new IdleState(dialogueRunner));
     }
 

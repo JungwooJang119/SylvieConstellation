@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class TargetIndicator : MonoBehaviour
 {
-    public Transform target;
+    public Vector2 target;
     public GameObject pointer;
     public float HideDistance;
     private Image image;
-
-    private void Start()
-    {
+    void Start() {
+        target = TransitionManager.Instance.targetPosition;
         image = pointer.GetComponent<Image>();
     }
 
     void Update()
     {
-        var dir = target.position - transform.position;
+        target = TransitionManager.Instance.targetPosition;
+        var dir = target - (Vector2)transform.position;
 
         if (dir.magnitude <= HideDistance && image.color.a > 0.05)
         {

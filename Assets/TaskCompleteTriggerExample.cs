@@ -26,7 +26,7 @@ public class TaskCompleteTriggerExample : MonoBehaviour
             State currState = npcDialogue.CurrentState;
             if (currState is IncompleteTaskState)
             {
-                npcDialogue.dialogueRunner.VariableStorage.SetValue("$LoversNPCState", "TalkToNPCAgain");
+                npcDialogue.dialogueRunner.VariableStorage.SetValue($"${npcDialogue.statusVar}", "TalkToNPCAgain");
 
                 GetComponent<SpriteRenderer>().color = Color.green;
             }

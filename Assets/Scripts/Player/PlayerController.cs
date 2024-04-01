@@ -15,6 +15,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private PlayerInput input;
     private InputAction movement;
+    private InputAction boost;
 
     private Animator anim;
 
@@ -36,11 +37,12 @@ public class PlayerController : Singleton<PlayerController>
     public ParticleSystem starBits;
     private Vector3 lastPosition;
 
+    public int ConstellationSceneTransfer = 2;
+
     private void Awake() {
         InitializeSingleton();
         input = new PlayerInput();
-        input.Player.Boost.performed += ctx => OnBoost(3); // Adjust duration as needed
-        input.Player.Enable();
+        isBoosted = false;
     }
 
     // Start is called before the first frame update
@@ -55,7 +57,7 @@ public class PlayerController : Singleton<PlayerController>
 
         boostTime = 0;
         isBoosted = false;
-        transform.position = spawn.transform.position;
+        transform.position = TransitionManager.Instance.holdPos;
     }
 
     // Update is called once per frame
@@ -79,15 +81,18 @@ public class PlayerController : Singleton<PlayerController>
             float movementY = CalculateMovement(inputVector.y, rb.velocity.y);
             rb.AddForce(movementX * Vector2.right);
             rb.AddForce(movementY * Vector2.up);
-
             if (inputVector.magnitude > 0) {
                 Vector2 normMovement = inputVector.normalized;
                 anim.SetBool("isMoving", true);
-                if (isBoosted) {
-                    //Play Boost Star Particles
+                if (!starBits.isPlaying) {
+                    starBits.Play();
                 }
             } else {
                 anim.SetBool("isMoving", false);
+                starBits.Stop();
+                if (starBits.isPlaying) {
+                    starBits.Stop();
+                }
             }
         }
     }
@@ -109,21 +114,24 @@ public class PlayerController : Singleton<PlayerController>
     private void OnMove(InputValue movementValue) {
     }
 
-    private void OnBoost(int duration) {
+    private void DoBoost(InputAction.CallbackContext obj) {
         isBoosted = true;
         currTime = 0;
         speed = holdSpeed * 3;
-        boostTime = duration;
+        boostTime = 3;
     }
 
     private void OnEnable() {
         movement = input.Player.Move;
         movement.Enable();
+        input.Player.Boost.performed += DoBoost;
+        input.Player.Boost.Enable(); 
     }
 
     private void OnDisable() {
         movement = input.Player.Move;
         movement.Disable();
+        input.Player.Boost.Disable();
     }
     
     private float CalculateMovement(float value, float velocityVal) {
@@ -153,7 +161,10 @@ public class PlayerController : Singleton<PlayerController>
         {
             if (!isBoosted)
             {
-                OnBoost(3);
+                isBoosted = true;
+                currTime = 0;
+                speed = holdSpeed * 3;
+                boostTime = 3;
             }
             //allow Sylvie to move through the rings then destroy them
             yield return new WaitForSeconds(.2f);
@@ -170,6 +181,14 @@ public class PlayerController : Singleton<PlayerController>
         yield return new WaitForSeconds(0f);
         transform.position = spawn.transform.position;
         canMove = true;
+    }
+
+    public Vector2 GetPosition() {
+        return this.gameObject.transform.position;
+    }
+
+    public void SetPosition(Vector2 yes) {
+        this.gameObject.transform.position = yes;
     }
 
 }
