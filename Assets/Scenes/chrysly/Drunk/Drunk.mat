@@ -54,13 +54,24 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Blend: 0
+    - _DistScale: 0
+    - _DistSinScale: 0.3
+    - _DistSpeed: 0.31
+    - _Enable_Third_Vision: 1
+    - _MainAlpha: 0
     - _Offset_Scale: 0.94
-    - _Overlay_1_Frequency: 5
-    - _Overlay_1_Scale: 0.01
-    - _Overlay_2_Frequency: 10
+    - _Overlay_1_Frequency: 3
+    - _Overlay_1_Scale: 0.02
+    - _Overlay_2_Frequency: 5
     - _Overlay_2_Scale: 0.01
+    - _Overlay_3_Frequency: 1
+    - _Overlay_3_Scale: 0.01
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Scale1: 0
+    - _Scale2: 0
+    - _Scale3: 0
     m_Colors:
     - _Offset: {r: 0.06, g: -0.01, b: 0, a: 0}
   m_BuildTextureStacks: []
