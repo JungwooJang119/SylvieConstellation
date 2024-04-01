@@ -960,54 +960,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1306630144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &373153556
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 373153558}
-  - component: {fileID: 373153557}
-  m_Layer: 0
-  m_Name: DrunkViewManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &373153557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373153556}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7e53adcbd5e44740bbd4183cc298075, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feature: {fileID: -7072893958652416832, guid: 424799608f7334c24bf367e4bbfa7f9a, type: 2}
-  drunkNoise: {fileID: 11400000, guid: 11f35b801e1d49f448e11713186312f0, type: 2}
-  shader: {fileID: 2100000, guid: f78f557c75a25144d8c5aefbe2c1fd51, type: 2}
-  intensity: 0
---- !u!4 &373153558
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373153556}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.33556, y: -1.6992787, z: -3.5988135}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &381952832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3942,6 +3894,63 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1768198638}
   m_SourcePrefab: {fileID: 100100000, guid: 8aa31d23db44abf4d8a45e70050abf8d, type: 3}
+--- !u!1001 &4279893772258311497
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 125176642085467317, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 48.33556
+      objectReference: {fileID: 0}
+    - target: {fileID: 125176642085467317, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.6992787
+      objectReference: {fileID: 0}
+    - target: {fileID: 125176642085467317, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.5988135
+      objectReference: {fileID: 0}
+    - target: {fileID: 125176642085467317, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 125176642085467317, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125176642085467317, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125176642085467317, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125176642085467317, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125176642085467317, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125176642085467317, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377943818212647226, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
+      propertyPath: m_Name
+      value: DrunkViewManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 07c7584b62dcc8e4ab902756291e8425, type: 3}
 --- !u!1001 &7927002560761917585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4019,4 +4028,4 @@ SceneRoots:
   - {fileID: 854463919}
   - {fileID: 1862597589}
   - {fileID: 477001477}
-  - {fileID: 373153558}
+  - {fileID: 4279893772258311497}
