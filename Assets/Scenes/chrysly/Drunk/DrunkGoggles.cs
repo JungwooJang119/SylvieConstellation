@@ -101,7 +101,7 @@ public class DrunkGoggles : MonoBehaviour
                     shader.DOFloat(0.01f, "_Scale1", 1f);
                     shader.DOFloat(0.01f, "_Scale2", 1f);
                     shader.DOFloat(0f, "_Scale3", 1f);
-                    shader.DOFloat(0.01f, "_Blend", 1f);
+                    shader.DOFloat(0.1f, "_Blend", 1f);
                     shader.DOFloat(9.39f, "_DistScale", 1f);
                 }
                 else {
