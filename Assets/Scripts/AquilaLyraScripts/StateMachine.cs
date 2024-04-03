@@ -11,21 +11,21 @@ public class StateMachine : MonoBehaviour
 {
     IState curState;
 
-    void ChangeState(IState next) {
+    public void ChangeState(IState next) {
         if (curState != null) {
             curState.Exit();
         }
         curState = next;
-        curState.Enter():
+        curState.Enter();
     }    
     
-    void Update() {
+    public void Update() {
         if (curState != null) {
             curState.Execute();
         }
     }
 
-    IState currentState() {
+    public IState currentState() {
         return curState;
     }
 }

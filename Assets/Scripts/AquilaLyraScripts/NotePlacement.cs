@@ -23,8 +23,10 @@ public class NotePlacement : MonoBehaviour
             childNote.transform.position = new Vector3(slot.transform.position.x, slot.transform.position.y, slot.transform.position.z);
             childNote.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
             childNote.GetComponent<ChildNoteScript>().setCorrect(true);
-            ChildNoteScript.correctNotes.Enqueue(childNote);
-            Debug.Log(ChildNoteScript.correctNotes.Count);
+            childNote.GetComponent<ChildNoteScript>().setSelected(false);
+            childNote.GetComponent<ChildNoteScript>().setGot(false);
+            ChildNoteScript.correctNotes.Add(childNote);
+            Debug.Log(other.gameObject.name + " is correct");
         }
     }
 }

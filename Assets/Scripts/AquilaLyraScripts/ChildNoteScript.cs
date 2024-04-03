@@ -11,7 +11,7 @@ public class ChildNoteScript : MonoBehaviour
     [SerializeField] private Transform aquilla;
     [SerializeField] private Rigidbody2D rb;
 
-    public static Queue<GameObject> correctNotes;
+    public static List<GameObject> correctNotes;
 
     public bool getCorrect() {
         return isCorrect;
@@ -35,24 +35,35 @@ public class ChildNoteScript : MonoBehaviour
 
     public void setGot(bool b) {
         isGot = b;
+        Debug.Log(gameObject.name + " is got? " + isGot);
     }
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        correctNotes = new Queue<GameObject>();
+        correctNotes = new List<GameObject>();
     }
     void FixedUpdate()
     {
         if (isCorrect) {
 
         } else if (isSelected && !isGot) {
+            Debug.Log("following player");
             follow(player);
         } else if (isGot) {
+            Debug.Log("follwing aquilla");
             follow(aquilla);
+        } else {
+            
         } 
+        if (!isCorrect) {
+            if (correctNotes.Contains(GetComponent<GameObject>())) {
+                correctNotes.Remove(GetComponent<GameObject>());
+            }
+        }
     }
     public void follow(Transform target) {
+        Debug.Log(gameObject.name + " is following: " + target.gameObject.name);
         transform.position = target.position;
     }
 

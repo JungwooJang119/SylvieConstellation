@@ -9,8 +9,9 @@ public class StateSwap : IState
     [SerializeField] private GameObject swap2;
 
     public void Enter() {
-        swap1 = ChildNoteScript.correctNotes.Dequeue();
-        swap2 = ChildNoteScript.correctNotes.Dequeue();
+        Debug.Log("starting swap");
+        // swap1 = ChildNoteScript.correctNotes.Dequeue();
+        // swap2 = ChildNoteScript.correctNotes.Dequeue();
     }
 
     public void Execute() {
@@ -18,6 +19,7 @@ public class StateSwap : IState
     }
 
     public void Exit() {
+        Debug.Log("ending swap");
         swap1 = null;
         swap2 = null;
     }
