@@ -6,6 +6,8 @@ public interface IState{
     void Enter();
     void Execute();
     void Exit();
+    bool Finished();
+    IState getNext();
 }
 public class StateMachine : MonoBehaviour
 {
@@ -20,8 +22,10 @@ public class StateMachine : MonoBehaviour
     }    
     
     public void Update() {
-        if (curState != null) {
+        if (curState != null && !curState.Finished()) {
             curState.Execute();
+        } else if (curState != null && curState.Finished()) {
+            ChangeState(curState.getNext());
         }
     }
 

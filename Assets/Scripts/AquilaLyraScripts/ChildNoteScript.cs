@@ -55,11 +55,6 @@ public class ChildNoteScript : MonoBehaviour
             follow(aquilla);
         } else {
             
-        } 
-        if (!isCorrect) {
-            if (correctNotes.Contains(GetComponent<GameObject>())) {
-                correctNotes.Remove(GetComponent<GameObject>());
-            }
         }
     }
     public void follow(Transform target) {

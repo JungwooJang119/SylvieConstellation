@@ -14,24 +14,39 @@ public class StateIdle : IState
     [SerializeField] private float maxY = -10f;
 
     [SerializeField] private Transform transform;
-
-    
+    [SerializeField] IState next;
+    [SerializeField] private bool finished;
     public StateIdle(Transform t, Transform rt) {
         transform = t;
         randomTarget = rt;
+        finished = false;
+    }
+    public void setNext(IState n) {
+        next = n;
     }
     public void Enter() {
         randomTarget.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         startTime = Time.time;
+        finished = false;
     }
     public void Execute() {
         if (changeTarget() || transform.position == randomTarget.position) {
             Enter();
         }
         transform.position = Vector2.MoveTowards(transform.position, randomTarget.position, Time.deltaTime * moveSpeed);
+        if (ChildNoteScript.correctNotes.Count != 0) {
+            finished = true;
+        }
+    }
+    public IState getNext() {
+        return next;
     }
     public void Exit() {
         Debug.Log("switching out of Idle");
+        finished = true;
+    }
+    public bool Finished() {
+        return finished;
     }
     private bool changeTarget() {
         return Time.time >= startTime + duration;
