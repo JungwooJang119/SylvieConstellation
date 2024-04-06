@@ -82,25 +82,34 @@ public class SaveSystem : Singleton<SaveSystem>
     /// <returns>A Save if the file is found</returns>
     public static Save LoadFromFile(string filename)
     {
-        Debug.Log($"Loading from {Application.dataPath}");
+        try
+        {
+            // The size of the buffer for the save file
+            // (Shouldn't affect performance too much, as this file should
+            // remain fairly small)
+            const int BUF_SIZE = 1_000;
 
-        // The size of the buffer for the save file
-        // (Shouldn't affect performance too much, as this file should
-        // remain fairly small)
-        const int BUF_SIZE = 1_000;
+            BinaryFormatter bf = new();
+            string realPath = Path.ChangeExtension(Path.Combine(Application.dataPath, filename), ".sylvie");
+            using FileStream fs = new(
+                realPath,
+                FileMode.Open,
+                FileAccess.Read,
+                FileShare.Read,
+                bufferSize: BUF_SIZE,
+                useAsync: true);
+            Save save = (Save)bf.Deserialize(fs);
 
-        BinaryFormatter bf = new();
-        string realPath = Path.ChangeExtension(Path.Combine(Application.dataPath, filename), ".sylvie");
-        using FileStream fs = new(
-            realPath,
-            FileMode.Open,
-            FileAccess.Read,
-            FileShare.Read,
-            bufferSize: BUF_SIZE,
-            useAsync: true);
-        Save save = (Save)bf.Deserialize(fs);
+            Debug.Log($"Loaded from {Application.dataPath}");
 
-        return save;
+            return save;
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log($"Couldn't load from {Application.dataPath}: {e.Message}");
+
+            return null;
+        }
     }
 
     /// <summary>
@@ -109,6 +118,8 @@ public class SaveSystem : Singleton<SaveSystem>
     /// <param name="save">The Save file to be loaded</param>
     public static void LoadSave(Save save)
     {
+        if (save == null) return;
+
         GameObject sylvie = GameObject.FindWithTag("Player");
         sylvie.transform.position = save.sylviePosition.ToVector3();
         VisitedAreaManager.visitedAreas = save.visitedAreas;
@@ -126,7 +137,7 @@ public class SaveSystem : Singleton<SaveSystem>
     /// <summary>
     /// Loads the game from the save at the default file name.
     /// </summary>
-    /// NOTE: If the file does not exist, this will fail with an exception.
+    /// NOTE: If the file does not exist, this will do nothing.
     public static void TryLoadGame()
     {
         LoadSave(LoadFromFile(DUMMY_FILE_NAME));
