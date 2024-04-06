@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - AutosaveZone
   - BoostCircle
+  - MusicSlots
+  - MusicNote
   - AreaTrigger
   layers:
   - Default
@@ -15,8 +17,8 @@ TagManager:
   - Overlay
   - Water
   - UI
-  - 
-  - 
+  - notes
+  - noteSlots
   - 
   - 
   - 
