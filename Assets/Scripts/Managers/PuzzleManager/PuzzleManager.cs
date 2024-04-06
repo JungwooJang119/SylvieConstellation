@@ -14,8 +14,10 @@ namespace PuzzleManagement {
         Perseus = 2,
         // HotDude = 2,
         Gemini = 3,
-        DragonHotDude = 4,
-        ImMeltingDude = 5,
+        Dionysus = 4,
+        Gun = 5,
+        DragonHotDude = 6,
+        ImMeltingDude = 7,
     }
  
     /// <summary>
