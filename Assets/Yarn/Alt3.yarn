@@ -1,0 +1,9 @@
+﻿title: Alt3
+tags:
+position: -39,-61
+---
+Thing: Hooray! You actually did it!
+
+Lyra: You deserve a medal!
+<<set $ExampleStateVar to "FinalState">>
+===
