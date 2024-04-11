@@ -16,6 +16,7 @@ public class NotePlacement : MonoBehaviour
         //ISSUE: sometimes the game ends prematurely -> fix!!!
         if (ChildNoteScript.correctNotes.Count == 10) {
             Debug.Log("You win!");
+            Time.timeScale = 0f;
         }
     }
     void OnTriggerEnter2D(Collider2D other) {
@@ -26,7 +27,7 @@ public class NotePlacement : MonoBehaviour
             childNote.GetComponent<ChildNoteScript>().setSelected(false);
             childNote.GetComponent<ChildNoteScript>().setGot(false);
             ChildNoteScript.correctNotes.Add(childNote);
-            Debug.Log(other.gameObject.name + " is correct");
+            //Debug.Log(other.gameObject.name + " is correct");
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class StateIdle : IState
 {
     [SerializeField] private Transform randomTarget;
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float startTime;
     [SerializeField] private float duration = 3f;
     [SerializeField] private float minX = 114f;
@@ -14,32 +14,37 @@ public class StateIdle : IState
     [SerializeField] private float maxY = -10f;
 
     [SerializeField] private Transform transform;
-    [SerializeField] IState next;
+    [SerializeField] IState stealState;
+    [SerializeField] IState swapState;
+
     [SerializeField] private bool finished;
     public StateIdle(Transform t, Transform rt) {
         transform = t;
         randomTarget = rt;
         finished = false;
     }
-    public void setNext(IState n) {
-        next = n;
+    public void setNext(IState steal, IState swap) {
+        stealState = steal;
+        swapState = swap;
     }
     public void Enter() {
+        Debug.Log("entering idle");
         randomTarget.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         startTime = Time.time;
         finished = false;
+        StealNotes.setStolenNote(null);
     }
     public void Execute() {
         if (changeTarget() || transform.position == randomTarget.position) {
             Enter();
         }
         transform.position = Vector2.MoveTowards(transform.position, randomTarget.position, Time.deltaTime * moveSpeed);
-        if (ChildNoteScript.correctNotes.Count != 0) {
+        if (ChildNoteScript.correctNotes.Count > 0) {
             finished = true;
         }
     }
     public IState getNext() {
-        return next;
+        return stealState;
     }
     public void Exit() {
         Debug.Log("switching out of Idle");

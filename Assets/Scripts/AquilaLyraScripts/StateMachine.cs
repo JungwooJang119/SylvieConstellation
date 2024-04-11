@@ -32,4 +32,8 @@ public class StateMachine : MonoBehaviour
     public IState currentState() {
         return curState;
     }
+
+    public bool isRunning() {
+        return !curState.Finished();
+    }
 }
