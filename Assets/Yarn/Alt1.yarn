@@ -1,0 +1,30 @@
+﻿title: Alt1
+tags:
+position: -39,-61
+---
+<<declare $ExampleStateVar = "Beginning">>
+
+Thing: halp
+
+Sylvie (you): What's wrong?
+
+Thing: Can you go to that circle over there?
+
+-> uhh... sure?
+    <<set $ExampleStateVar to "Affirmative">>
+    <<jump TaskAccepted>>
+-> No!
+    <<jump TaskRejected>>
+===
+title: TaskAccepted
+position: -227,156
+---
+
+Thing: Oh thank you!
+Thing: It's down and to the left...
+===
+title: TaskRejected
+position: 83,150
+---
+Thing: You're mean. ~WAHHHHHHHHHHH~
+===
