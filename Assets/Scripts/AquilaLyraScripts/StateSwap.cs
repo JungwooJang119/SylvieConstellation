@@ -52,15 +52,16 @@ public class StateSwap : IState
             transform.position = Vector2.MoveTowards(transform.position, slot1, Time.deltaTime * moveSpeed);
             if (Vector2.Distance(transform.position, slot1) <= 1f) {
                 swapped2 = true;
-                StealNotes.getStolenNote().transform.position = new Vector3(slot1.x, slot1.y, 0);
+                swap2.transform.position = new Vector3(slot1.x, slot1.y, 0);
                 StealNotes.getStolenNote().GetComponent<ChildNoteScript>().setGot(false);
-                StealNotes.setStolenNote(null);
+                
             }
         }
     }
 
     public void Exit() {
         Debug.Log("ending swap");
+        StealNotes.setStolenNote(null);
         swap1 = null;
         swap2 = null;
         swapped1 = false;

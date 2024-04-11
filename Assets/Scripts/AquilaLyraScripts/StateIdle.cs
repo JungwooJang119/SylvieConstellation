@@ -32,16 +32,19 @@ public class StateIdle : IState
         randomTarget.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         startTime = Time.time;
         finished = false;
-        StealNotes.setStolenNote(null);
+        //StealNotes.setStolenNote(null);
     }
     public void Execute() {
         if (changeTarget() || transform.position == randomTarget.position) {
-            Enter();
+            if (ChildNoteScript.correctNotes.Count > 0) {
+                finished = true;
+            } else {
+                Enter();
+            }
+            
         }
         transform.position = Vector2.MoveTowards(transform.position, randomTarget.position, Time.deltaTime * moveSpeed);
-        if (ChildNoteScript.correctNotes.Count > 0) {
-            finished = true;
-        }
+        
     }
     public IState getNext() {
         return stealState;
@@ -49,6 +52,7 @@ public class StateIdle : IState
     public void Exit() {
         Debug.Log("switching out of Idle");
         finished = true;
+        StealNotes.setStolenNote(null);
     }
     public bool Finished() {
         return finished;

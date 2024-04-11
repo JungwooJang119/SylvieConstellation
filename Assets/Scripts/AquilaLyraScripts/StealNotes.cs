@@ -11,6 +11,7 @@ public class StealNotes : MonoBehaviour
     [SerializeField] private StateIdle idle;
     [SerializeField] private StateSteal steal;
     [SerializeField] private StateSwap swap;
+    [SerializeField] private float coolDown;
 
     void Start() {
         sm = new StateMachine();
@@ -21,6 +22,7 @@ public class StealNotes : MonoBehaviour
         steal.setNext(idle, swap);
         swap.setNext(idle);
         sm.ChangeState(idle);
+        coolDown = Time.deltaTime;
     }
 
     void FixedUpdate() {
@@ -52,8 +54,10 @@ public class StealNotes : MonoBehaviour
         if (col.gameObject.name.Contains("note") && stolenNote == null) {
             if (sm.currentState() == steal && sm.isRunning() && steal.getCurrentNote() == col.gameObject) {
                 setStolenNote(col.gameObject);
-            } else if (sm.currentState() == idle) {
+                coolDown = Time.deltaTime;
+            } else if (sm.currentState() == idle && Time.deltaTime - coolDown > 3f) {
                 setStolenNote(col.gameObject);
+                coolDown = Time.deltaTime;
             }
         } else if(sm.currentState() == swap && (swap.getSwap1() == col.gameObject || swap.getSwap2() == col.gameObject)) {
                 if (stolenNote != null) {
@@ -62,6 +66,7 @@ public class StealNotes : MonoBehaviour
                         swap.setSwapped1(true);
                     } else if (stolenNote == swap.getSwap2()) {
                         swap.setSwapped2(true);
+                        coolDown = Time.deltaTime;
                     }
                 }
                 setStolenNote(col.gameObject);
