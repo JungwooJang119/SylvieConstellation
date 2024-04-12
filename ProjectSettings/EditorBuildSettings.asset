@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Aiden/TestNotifications.unity
     guid: 660f224a63399214cb4821c3cc95d910
   - enabled: 0
+    path: Assets/Scenes/Aiden/GreenPerseus.unity
+    guid: 25d95ad97a6b73e4ca1bdc440be20791
+  - enabled: 0
     path: Assets/Scenes/Aiden/TestSavePoints.unity
     guid: 3cb97a9130694874d9cca08b394881b5
   - enabled: 0
