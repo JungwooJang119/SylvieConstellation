@@ -9,10 +9,15 @@ public interface IState{
     bool Finished();
     IState getNext();
 }
+/*
+* Flow of states: idle <-> steal -> swap -> idle
+*/
 public class StateMachine : MonoBehaviour
 {
+    //the current state
     IState curState;
 
+    //transition
     public void ChangeState(IState next) {
         if (curState != null) {
             curState.Exit();
@@ -21,6 +26,7 @@ public class StateMachine : MonoBehaviour
         curState.Enter();
     }    
     
+    //execute the current state or transition if we finished
     public void Update() {
         if (curState != null && !curState.Finished()) {
             curState.Execute();

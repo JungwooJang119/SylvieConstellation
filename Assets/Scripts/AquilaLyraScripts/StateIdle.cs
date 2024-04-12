@@ -2,40 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Default Aquilla's movement
+* just patrols the map and collects notes
+* if we run into them
+*/
 public class StateIdle : IState
 {
-    [SerializeField] private Transform randomTarget;
+    [SerializeField] private Transform randomTarget; //the random position for patrolling
     [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private float startTime;
+    [SerializeField] private float startTime; //keeps track of if we need to move elsehwere or not
     [SerializeField] private float duration = 3f;
-    [SerializeField] private float minX = 114f;
+    [SerializeField] private float minX = 114f; //bounds
     [SerializeField] private float maxX = 140f;
     [SerializeField] private float minY = -24f;
     [SerializeField] private float maxY = -10f;
 
-    [SerializeField] private Transform transform;
-    [SerializeField] IState stealState;
-    [SerializeField] IState swapState;
-
+    [SerializeField] private Transform transform; //aquilla's position
+    [SerializeField] IState stealState; //if theres a note to steal, stop patrolling
     [SerializeField] private bool finished;
+
     public StateIdle(Transform t, Transform rt) {
         transform = t;
         randomTarget = rt;
         finished = false;
     }
-    public void setNext(IState steal, IState swap) {
+    public void setNext(IState steal) {
         stealState = steal;
-        swapState = swap;
     }
+    //initiliaze the first random roaming spot
     public void Enter() {
-        Debug.Log("entering idle");
         randomTarget.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         startTime = Time.time;
         finished = false;
-        //StealNotes.setStolenNote(null);
     }
+
+    //move towards the random roaming spot, and move the spot if we need to
     public void Execute() {
-        if (changeTarget() || transform.position == randomTarget.position) {
+        if (Time.time >= startTime + duration || transform.position == randomTarget.position) {
             if (ChildNoteScript.correctNotes.Count > 0) {
                 finished = true;
             } else {
@@ -50,14 +53,10 @@ public class StateIdle : IState
         return stealState;
     }
     public void Exit() {
-        Debug.Log("switching out of Idle");
         finished = true;
         StealNotes.setStolenNote(null);
     }
     public bool Finished() {
         return finished;
-    }
-    private bool changeTarget() {
-        return Time.time >= startTime + duration;
     }
 }
