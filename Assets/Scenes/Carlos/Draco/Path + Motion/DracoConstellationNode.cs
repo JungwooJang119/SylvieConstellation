@@ -8,6 +8,7 @@ public class DracoConstellationNode : MonoBehaviour {
 
     [SerializeField] private float speed;
     [SerializeField] private float weight;
+    [SerializeField] private float targetTolerance;
     private DracoPathNode target;
     private Rigidbody2D rb;
 
@@ -21,7 +22,8 @@ public class DracoConstellationNode : MonoBehaviour {
     }
 
     void Update() {
-        if (Vector2.Distance(transform.position, target.position) < 1) target = target.GetNext();
+        if (target == null) return;
+        if (Vector2.Distance(transform.position, target.position) < targetTolerance) target = target.GetNext();
     }
 
     void FixedUpdate() {

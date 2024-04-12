@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7286288365845004191}
   - component: {fileID: 6173560744669783182}
+  - component: {fileID: 2752239778824630406}
   m_Layer: 0
   m_Name: DracoConstellationBrain
   m_TagString: Untagged
@@ -47,5 +48,17 @@ MonoBehaviour:
   headNodePrefab: {fileID: 2878679595449283481, guid: f4b04a560ab6dec4f83d1ed1386764b8, type: 3}
   constellationNodePrefab: {fileID: 8240574306855729732, guid: 75dc51ab058ff6943b88037e2678fc16, type: 3}
   dracoPath: {fileID: 0}
-  nodeAmount: 6
-  nodeSpawnDelay: 1
+  nodeAmount: 9
+  nodeSpawnDelay: 0.6
+--- !u!114 &2752239778824630406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4926947956203721814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1693a1ae5813dc54e8700866f81c2cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
