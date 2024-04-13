@@ -48,7 +48,7 @@ MonoBehaviour:
   headNodePrefab: {fileID: 2878679595449283481, guid: f4b04a560ab6dec4f83d1ed1386764b8, type: 3}
   constellationNodePrefab: {fileID: 8240574306855729732, guid: 75dc51ab058ff6943b88037e2678fc16, type: 3}
   dracoPath: {fileID: 0}
-  nodeAmount: 9
+  nodeAmount: 10
   nodeSpawnDelay: 0.6
 --- !u!114 &2752239778824630406
 MonoBehaviour:
@@ -62,3 +62,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1693a1ae5813dc54e8700866f81c2cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabLine: {fileID: 2214399493776915166, guid: 660e19f306b29114b980dd626a990974, type: 3}

@@ -972,6 +972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6c5b811a4339c4e8a4db4208b47203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleID: 6
   puzzleBrain: {fileID: 301951008191683481}
   puzzleBeginDelay: 1
 --- !u!1 &8949362476407696199
@@ -1235,10 +1236,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5732405173593334588}
     m_Modifications:
-    - target: {fileID: 2752239778824630406, guid: ad8d2f9258adf31458edf82911476bf9, type: 3}
-      propertyPath: prefabLine
-      value: 
-      objectReference: {fileID: 2214399493776915166, guid: 660e19f306b29114b980dd626a990974, type: 3}
     - target: {fileID: 4926947956203721814, guid: ad8d2f9258adf31458edf82911476bf9, type: 3}
       propertyPath: m_Name
       value: DracoConstellationBrain
@@ -1247,10 +1244,6 @@ PrefabInstance:
       propertyPath: dracoPath
       value: 
       objectReference: {fileID: 1867521964897134638}
-    - target: {fileID: 6173560744669783182, guid: ad8d2f9258adf31458edf82911476bf9, type: 3}
-      propertyPath: nodeAmount
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 7286288365845004191, guid: ad8d2f9258adf31458edf82911476bf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.0523453
