@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class StarLineRenderer : MonoBehaviour
@@ -12,6 +13,7 @@ public class StarLineRenderer : MonoBehaviour
     [SerializeField] private float scale;
     [SerializeField] private float waitTime;
     private Dictionary<int, Vector2> nodeToPos;
+    private ConstellationLines placingLine;
 
     [SerializeField] private Color regularInsideColor;
     private List<int> constellationPositions;
@@ -65,6 +67,18 @@ public class StarLineRenderer : MonoBehaviour
             currentLine.inverseSize = 6.5f;
             currentLine.color = regularInsideColor;
         }
+        if (constellationPositions.Count > 0)
+        {
+            if (placingLine == null)
+            {
+                GameObject placingLineGO = Instantiate(linePrefab, Camera.main.transform.position + Vector3.forward * 10, Quaternion.identity);
+                placingLine = placingLineGO.GetComponent<ConstellationLines>();
+            }
+            placingLine.point1 = nodeToPos[constellationPositions[^1]];
+            placingLine.point2 = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            placingLine.inverseSize = 4.2f;
+            placingLine.color = regularInsideColor;
+        }
     }
 
     private void OnSpellCast(object sender, StarDrawLogic.OnSpellCastArgs e)
@@ -87,6 +101,11 @@ public class StarLineRenderer : MonoBehaviour
             Destroy(c);
         }
         constellationLines = new List<GameObject>();
+        if (placingLine != null)
+        {
+            Destroy(placingLine.gameObject);
+        }
+        placingLine = null;
     }
 
     private void UndoLR() 
@@ -98,13 +117,26 @@ public class StarLineRenderer : MonoBehaviour
         constellationPositions.RemoveAt(constellationPositions.Count - 1);
         Destroy(constellationLines[^1]);
         constellationLines.RemoveAt(constellationLines.Count - 1);
+        if (constellationPositions.Count > 0)
+        {
+            placingLine.point1 = nodeToPos[constellationPositions[^1]];
+        }
+        else
+        {
+            Destroy(placingLine.gameObject);
+            placingLine = null;
+        }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        // if (Input.GetKeyDown(KeyCode.U))
+        // {
+        //     UndoLR();
+        // }
+        if (placingLine != null)
         {
-            UndoLR();
+            placingLine.point2 = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         }
     }
 }
