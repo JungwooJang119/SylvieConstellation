@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689af71847543b5469084380bed3d922, type: 3}
   m_Name: DrunkRenderFeature
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     Event: 500
     blitMaterial: {fileID: 2100000, guid: f78f557c75a25144d8c5aefbe2c1fd51, type: 2}

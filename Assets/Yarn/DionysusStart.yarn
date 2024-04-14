@@ -32,6 +32,7 @@ Dionysus: Oh, by the way. You need to drink some of this to get there. Trust me.
 
 Sylvie: What?!
 
+<<changeThisScene 2>>
 ===
 
 title: DionysusNegativeResponse

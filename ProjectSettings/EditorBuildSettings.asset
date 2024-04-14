@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/M2/Puzzle Scenes/Gemini.unity
     guid: 5a5eb5aee4f8d1d4c81760657e291bba
+  - enabled: 1
+    path: Assets/Scenes/M2/Puzzle Scenes/Dionysus.unity
+    guid: 16c762a685441a54a9a5d3690f6e9b02
   m_configObjects: {}
