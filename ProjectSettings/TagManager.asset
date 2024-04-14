@@ -10,6 +10,7 @@ TagManager:
   - MusicSlots
   - MusicNote
   - AreaTrigger
+  - ExplosionFX
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - UI
   - notes
   - noteSlots
-  - 
-  - 
+  - Minimap
+  - Player
   - 
   - 
   - 
@@ -52,6 +53,7 @@ TagManager:
     locked: 0
   - name: Overlay
     uniqueID: 1758554563
+    locked: 0
   - name: UI
     uniqueID: 3746540665
     locked: 0
