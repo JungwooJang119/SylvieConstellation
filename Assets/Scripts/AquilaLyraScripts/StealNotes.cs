@@ -18,7 +18,7 @@ public class StealNotes : MonoBehaviour
         idle = new StateIdle(GetComponent<Transform>(), randomTarget);
         steal = new StateSteal(GetComponent<Transform>());
         swap = new StateSwap(GetComponent<Transform>());
-        idle.setNext(steal, swap);
+        idle.setNext(steal);
         steal.setNext(idle, swap);
         swap.setNext(idle);
         sm.ChangeState(idle);
