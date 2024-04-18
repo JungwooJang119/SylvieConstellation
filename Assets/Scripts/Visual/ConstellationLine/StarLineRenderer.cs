@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class StarLineRenderer : MonoBehaviour
 {
     [SerializeField] private GameObject NodeParent;
     [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private GameObject linePrefab;
     [SerializeField] private Vector2 offset;
     [SerializeField] private float scale;
     [SerializeField] private float waitTime;
-    private Dictionary<int, Vector2> nodeToPos = new Dictionary<int, Vector2>();
+    private Dictionary<int, Vector2> nodeToPos;
+    private ConstellationLines placingLine;
+
+    [SerializeField] private Color regularInsideColor;
+    private List<int> constellationPositions;
+    private List<GameObject> constellationLines;
 
     private void Awake() {
+        constellationLines = new List<GameObject>();
         int numChildren = NodeParent.transform.childCount;
+        nodeToPos = new Dictionary<int, Vector2>();
         for(int i=0; i < numChildren; i++){
             Transform child = NodeParent.transform.GetChild(i);
             if(!child.gameObject.activeSelf) break;
@@ -47,6 +56,29 @@ public class StarLineRenderer : MonoBehaviour
     {
         lineRenderer.positionCount++;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, nodeToPos[nodeNum]);
+        constellationPositions.Add(nodeNum);
+        if (constellationPositions.Count > 1)
+        {
+            GameObject lineGameObject = Instantiate(linePrefab, Camera.main.transform.position + Vector3.forward * 10, Quaternion.identity);
+            constellationLines.Add(lineGameObject);
+            ConstellationLines currentLine = lineGameObject.GetComponent<ConstellationLines>();
+            currentLine.point1 = nodeToPos[constellationPositions[^2]];
+            currentLine.point2 = nodeToPos[constellationPositions[^1]];
+            currentLine.inverseSize = 6.5f;
+            currentLine.color = regularInsideColor;
+        }
+        if (constellationPositions.Count > 0)
+        {
+            if (placingLine == null)
+            {
+                GameObject placingLineGO = Instantiate(linePrefab, Camera.main.transform.position + Vector3.forward * 10, Quaternion.identity);
+                placingLine = placingLineGO.GetComponent<ConstellationLines>();
+            }
+            placingLine.point1 = nodeToPos[constellationPositions[^1]];
+            placingLine.point2 = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            placingLine.inverseSize = 4.2f;
+            placingLine.color = regularInsideColor;
+        }
     }
 
     private void OnSpellCast(object sender, StarDrawLogic.OnSpellCastArgs e)
@@ -63,21 +95,48 @@ public class StarLineRenderer : MonoBehaviour
     private void ResetLR()
     {
         lineRenderer.positionCount = 0;
+        constellationPositions = new List<int>();
+        foreach (GameObject c in constellationLines)
+        {
+            Destroy(c);
+        }
+        constellationLines = new List<GameObject>();
+        if (placingLine != null)
+        {
+            Destroy(placingLine.gameObject);
+        }
+        placingLine = null;
     }
 
-    // private void UndoLR() 
-    // {
-    //     if (lineRenderer.positionCount > 0)
-    //     {
-    //         lineRenderer.positionCount--;
-    //     }
-    // }
+    private void UndoLR() 
+    {
+        if (lineRenderer.positionCount > 0)
+        {
+            lineRenderer.positionCount--;
+        }
+        constellationPositions.RemoveAt(constellationPositions.Count - 1);
+        Destroy(constellationLines[^1]);
+        constellationLines.RemoveAt(constellationLines.Count - 1);
+        if (constellationPositions.Count > 0)
+        {
+            placingLine.point1 = nodeToPos[constellationPositions[^1]];
+        }
+        else
+        {
+            Destroy(placingLine.gameObject);
+            placingLine = null;
+        }
+    }
 
-    // void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.U))
-    //     {
-    //         UndoLR();
-    //     }
-    // }
+    void Update()
+    {
+        // if (Input.GetKeyDown(KeyCode.U))
+        // {
+        //     UndoLR();
+        // }
+        if (placingLine != null)
+        {
+            placingLine.point2 = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        }
+    }
 }

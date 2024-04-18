@@ -111,12 +111,14 @@ MonoBehaviour:
   acceleration: 2
   decceleration: 4
   velPower: 1.5
+  dionysus: 0
   bgClose: {fileID: 2100000, guid: 61c1b6f277b4d524bac2552cb52679b4, type: 2}
   bgFar: {fileID: 2100000, guid: c2abd179b1c05544fa199ed79a48f00b, type: 2}
   parallax: 2
   boostTime: 3
   currTime: 0
   starBits: {fileID: 0}
+  ConstellationSceneTransfer: 2
 --- !u!114 &1943561922515540041
 MonoBehaviour:
   m_ObjectHideFlags: 0

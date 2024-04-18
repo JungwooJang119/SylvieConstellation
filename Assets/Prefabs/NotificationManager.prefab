@@ -45,10 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c50d2839fb5dcf4f806421a9f62bd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleCompleteSounds: []
+  puzzleCompleteSounds:
+  - {fileID: 8300000, guid: 54cbbab2f92668446a0f5fe19fb1e4d5, type: 3}
+  miscSfx: {fileID: 8300000, guid: 3147230b8e7a6b9469bcae628b8b807f, type: 3}
   notifAudio: {fileID: 6984235591228894066}
   notifAnim: {fileID: 0}
-  notifText: {fileID: 0}
+  headerText: {fileID: 0}
+  footerText: {fileID: 0}
+  sidebarText: {fileID: 0}
+  sidebarDescText: {fileID: 0}
   queueOpen: 0
 --- !u!82 &6984235591228894066
 AudioSource:

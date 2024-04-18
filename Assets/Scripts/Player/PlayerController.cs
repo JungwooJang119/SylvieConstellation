@@ -23,6 +23,8 @@ public class PlayerController : Singleton<PlayerController>
     public float decceleration;
     public float velPower;
 
+    public bool dionysus;
+
     [SerializeField] private Material bgClose;
     [SerializeField] private Material bgFar;
     [SerializeField] private float parallax;
@@ -57,7 +59,11 @@ public class PlayerController : Singleton<PlayerController>
 
         boostTime = 0;
         isBoosted = false;
-        transform.position = TransitionManager.Instance.holdPos;
+        if (!dionysus) {
+            transform.position = TransitionManager.Instance.holdPos;
+        } else {
+            this.transform.position = spawn.position;
+        }
     }
 
     // Update is called once per frame

@@ -116,7 +116,7 @@ public class NPCDialogue : MonoBehaviour
         if (!filepath.Equals("NO SPRITE"))
         {
 
-            characterImageView.characterDialogueImage.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(filepath);
+            //characterImageView.characterDialogueImage.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(filepath);
             Debug.Log($"SPRITE: {characterImageView.characterDialogueImage.sprite}");
 
         }

@@ -23,7 +23,7 @@ public class InteractWithAreaTriggers : MonoBehaviour
             AreaTrigger at = collision.GetComponent<AreaTrigger>();
             string areaName = at.areaName;
 
-            bool areaIsNew = !VisitedAreaManager.visitedAreas.Contains(areaName);
+            bool areaIsNew = !VisitedAreaManager.AreaIsVisited(areaName);
 
             if (areaIsNew)
             {
