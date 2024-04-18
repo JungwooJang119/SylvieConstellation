@@ -37,5 +37,5 @@ Material:
     m_Colors:
     - _Layer1Color: {r: 0.29778337, g: 0.116589524, b: 0.4716981, a: 1}
     - _Layer2Color: {r: 0.015686262, g: 0.33505008, b: 0.5254902, a: 1}
-    - _SpaceColor: {r: 0.17144172, g: 0.3065184, b: 0.4566037, a: 1}
+    - _SpaceColor: {r: 0, g: 0.05490196, b: 0.11764706, a: 1}
   m_BuildTextureStacks: []

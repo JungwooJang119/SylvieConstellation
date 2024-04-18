@@ -38,12 +38,21 @@ public class AudioManager : Singleton<AudioManager> {
 				PlayMusic("WorldTheme");
 				break;
 			case 2:
-				PlayMusic("PuzzleTheme1");
+				PlayMusic("CreditsTheme");
 				break;
 			case 3:
 				PlayMusic("PuzzleTheme1");
 				break;
 			case 4:
+				PlayMusic("PuzzleTheme1");
+				break;
+			case 5:
+				PlayMusic("PuzzleTheme1");
+				break;
+			case 6:
+				PlayMusic("PuzzleTheme1");
+				break;
+			case 7:
 				PlayMusic("PuzzleTheme1");
 				break;
         }

@@ -10,7 +10,8 @@ public class SetMoveCount : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        count = 0;
+        GeminiManager.moveCount = count;
     }
 
     // Update is called once per frame

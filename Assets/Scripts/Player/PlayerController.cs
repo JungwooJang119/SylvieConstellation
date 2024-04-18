@@ -100,6 +100,8 @@ public class PlayerController : Singleton<PlayerController>
                     starBits.Stop();
                 }
             }
+        } else {
+            rb.velocity = Vector3.zero;
         }
     }
 

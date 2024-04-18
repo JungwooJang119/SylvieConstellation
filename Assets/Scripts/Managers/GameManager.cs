@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Singleton class that holds persistent data and handles transitions;
-/// </summary>
+public enum ConstellationNumRef {
+    Perseus = 0,
+    Lovers = 1,
+    Trickster = 2,
+    Dionysus = 3,
+    Draco = 4,
+    Gemini = 5
+}
 
 public class GameManager : Singleton<GameManager> {
 
-    [SerializeField] private int[] levelIndeces;
 
     /// <summary> Internal reference to the active GameManager; </summary>
     // private static GameManager _instance;
@@ -17,6 +21,11 @@ public class GameManager : Singleton<GameManager> {
     // public static GameManager Instance => _instance;
 
     public int ConstellationSceneTransfer = 2;
+    public bool isInDialogueState;
+
+    public Transform lastPosition;
+    public int playerLevel;
+    public int expAmount;
 
     void Awake() {
         // /// Initialize Singleton;
@@ -27,5 +36,15 @@ public class GameManager : Singleton<GameManager> {
         //     DontDestroyOnLoad(gameObject);
         // }
         InitializeSingleton();
+        DontDestroyOnLoad(gameObject);
+    }
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    void Start()
+    {
+        
     }
 }
