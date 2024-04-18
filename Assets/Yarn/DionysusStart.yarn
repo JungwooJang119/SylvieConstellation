@@ -1,0 +1,45 @@
+﻿title: DionysusStart
+tags:
+position: -39,-61
+---
+/// State of the Gemini dialogue, used for the State Machine
+<<declare $DionysusNPCState = "Beginning">>
+Dionysus: Hey kid? Want some wine?
+
+Sylvie: Uh, I will pass.
+
+Dionysus: You pass. Damn, what a shame...
+
+Sylvie: I was told by Perseus that you can help me find Andromeda. Do you know anything?
+
+Dionysus: Huh? Don't know. I forgot that Andromeda was taken again to be honest.
+
+Dionysus: But maybe I can help. Do me a favor and go fetch my bottles. They should be to the south of us.
+
+-> Sure, I can get them.
+    <<set $DionysusNPCState to "Affirmative">>
+    <<jump DionysusAffirmativeResponse>>
+-> Do it on your own, you bum.
+    <<jump DionysusNegativeResponse>>
+
+===
+
+title: DionysusAffirmativeResponse
+position: -227,156
+---
+
+Dionysus: Oh, by the way. You need to drink some of this to get there. Trust me.
+
+Sylvie: What?!
+
+<<changeThisScene 2>>
+===
+
+title: DionysusNegativeResponse
+position: 83,150
+---
+Sylvie: Fuck no.
+
+Dionysus: Damn. Your loss.
+
+===

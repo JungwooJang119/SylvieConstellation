@@ -55,7 +55,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Blend: 0
-    - _DistScale: 0
+    - _DistScale: 1
     - _DistSinScale: 0.3
     - _DistSpeed: 0.31
     - _Enable_Third_Vision: 1

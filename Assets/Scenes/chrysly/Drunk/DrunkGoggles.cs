@@ -7,7 +7,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-[ExecuteAlways]
+//[ExecuteAlways]
 public class DrunkGoggles : MonoBehaviour
 {
     /**

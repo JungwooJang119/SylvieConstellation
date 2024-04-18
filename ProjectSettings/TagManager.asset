@@ -7,7 +7,10 @@ TagManager:
   - Obstacle
   - AutosaveZone
   - BoostCircle
+  - MusicSlots
+  - MusicNote
   - AreaTrigger
+  - ExplosionFX
   layers:
   - Default
   - TransparentFX
@@ -15,10 +18,10 @@ TagManager:
   - Overlay
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - notes
+  - noteSlots
+  - Minimap
+  - Player
   - 
   - 
   - 
@@ -50,6 +53,7 @@ TagManager:
     locked: 0
   - name: Overlay
     uniqueID: 1758554563
+    locked: 0
   - name: UI
     uniqueID: 3746540665
     locked: 0
