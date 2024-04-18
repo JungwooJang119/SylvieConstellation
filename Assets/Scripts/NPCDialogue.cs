@@ -5,6 +5,7 @@ using UnityEditor;
 using Yarn.Unity;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Image = UnityEngine.UI.Image;
 
 
 public enum PlayerConstellationState {
@@ -34,6 +35,8 @@ public class NPCDialogue : MonoBehaviour
 
     public DialogueRunner dialogueRunner;
 
+    public GameObject gameUI;
+
     // Name of status variable to get from Dialog scripts
     [Header("Dialogue Script Status Variable")]
     [SerializeField] public string statusVar;
@@ -46,10 +49,13 @@ public class NPCDialogue : MonoBehaviour
     [SerializeField] public string postCompletionDialogueTitle;
 
     [SerializeField] public CharacterImageView characterImageView;
+    [SerializeField] public Sprite charImage;
+    private Sprite blankImage;
 
     // Start is called before the first frame update
     void Start()
     {
+        blankImage = Resources.Load<Sprite>("blank");
         currentState = new IdleState(dialogueRunner, idleStateDialogueTitle);
         currentState.OnEnterState(this);
     }
@@ -57,11 +63,15 @@ public class NPCDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canTalk && Input.GetKeyDown(KeyCode.Space))
+        if (canTalk && Input.GetKeyDown(KeyCode.Space) && !GameManager.Instance.isInDialogueState)
         {
             //dialogueRunner.StartDialogue("LoversNPC");
             string dialogueAnswer;
+            gameUI.SetActive(false);
+            PlayerController.Instance.canMove = false;
+            GameManager.Instance.isInDialogueState = true;
             dialogueRunner.VariableStorage.TryGetValue($"${statusVar}", out dialogueAnswer);
+            dialogueRunner.gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = charImage;
 
             if (dialogueAnswer.Equals("Affirmative"))
             {
@@ -80,6 +90,14 @@ public class NPCDialogue : MonoBehaviour
                 ChangeDialogueState(new IdleState(dialogueRunner, idleStateDialogueTitle));
             }
             currentState.OnExecuteState(this);
+        }
+        if (!PlayerController.Instance.canMove) {
+            if (!dialogueRunner.IsDialogueRunning) {
+                PlayerController.Instance.canMove = true;
+                GameManager.Instance.isInDialogueState = false;
+                dialogueRunner.gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = blankImage;
+                gameUI.SetActive(true);
+            }
         }
     }
 
