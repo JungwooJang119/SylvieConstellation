@@ -1893,7 +1893,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.849056601524353,"g":0.2611248791217804,"b":0.2611248791217804,"a":1.0},"time":0.0},{"color":{"r":0.25882354378700259,"g":0.9019607901573181,"b":0.2779497504234314,"a":1.0},"time":0.21765469014644624},{"color":{"r":0.31797417998313906,"g":0.5548171401023865,"b":0.8009856343269348,"a":1.0},"time":0.37294575572013857},{"color":{"r":0.7206055521965027,"g":0.7811320424079895,"b":0.2225489467382431,"a":1.0},"time":0.5941252708435059},{"color":{"r":0.4653039276599884,"g":0.30980393290519717,"b":0.6941176652908325,"a":1.0},"time":0.7870603203773499},{"color":{"r":0.6905660033226013,"g":0.33442994952201846,"b":0.14462798833847047,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.10000763088464737},{"alpha":0.800000011920929,"time":0.800000011920929},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.698113203048706,"g":0.5222497582435608,"b":0.5222497582435608,"a":1.0},"time":0.0},{"color":{"r":0.5176470875740051,"g":1.8039215803146363,"b":0.5558995008468628,"a":1.0},"time":0.21765469014644624},{"color":{"r":0.6359483599662781,"g":1.109634280204773,"b":1.6019712686538697,"a":1.0},"time":0.37294575572013857},{"color":{"r":1.4412111043930054,"g":1.562264084815979,"b":0.4450978934764862,"a":1.0},"time":0.5941252708435059},{"color":{"r":0.9306078553199768,"g":0.6196078658103943,"b":1.388235330581665,"a":1.0},"time":0.7870603203773499},{"color":{"r":0.6905660033226013,"g":0.33442994952201846,"b":0.14462798833847047,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.10000763088464737},{"alpha":0.800000011920929,"time":0.800000011920929},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -5534,7 +5534,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 10
+      m_SerializableObject: 48
     m_Space: 2147483647
   m_Property:
     name: Rate
@@ -5628,7 +5628,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.5
+      m_SerializableObject: 0.1
     m_Space: 2147483647
   m_Property:
     name: min
@@ -5662,7 +5662,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 3
+      m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
     name: max
