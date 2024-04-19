@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StarBGFront
-  m_Shader: {fileID: -6465566751694194690, guid: c55a35a045e5be742857c1143b6496c8, type: 3}
+  m_Name: Star shard
+  m_Shader: {fileID: -6465566751694194690, guid: cc864366d1e03f44c9de68bc3b38cbb2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,22 +23,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -53,24 +37,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1.47
-    - _BrightnessPower: 3.389
-    - _BrightnessVariationScale: 0.2
-    - _EnableExternalAlpha: 0
-    - _OverallScale: 3.13
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Randomness: 5
-    - _Rotation: 0
-    - _StarsScale: 20.8
-    - _Threshold: 0.9691
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 100.464935, g: 5.5191073, b: 0, a: 0}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.5773941, g: 0.7063424, b: 0.9245283, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &8970722754493895582
+--- !u!114 &5968981676559199992
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
