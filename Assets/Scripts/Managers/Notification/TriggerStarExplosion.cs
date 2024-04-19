@@ -10,6 +10,7 @@ public class TriggerStarExplosion : MonoBehaviour
     {
         foreach (ParticleSystem p in particlesBottom) {
             p.Play();
+            print("bullshit");
         }
     }
 

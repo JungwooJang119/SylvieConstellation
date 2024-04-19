@@ -13,6 +13,15 @@ public class DracoPuzzleManager : MonoBehaviour {
         puzzleBrain.OnPuzzleEnd += PuzzleBrain_OnPuzzleEnd;
     }
 
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    void Start()
+    {
+        StartPuzzle();
+    }
+
     private void PuzzleBrain_OnPuzzleEnd(bool success) {
         /// Here goes what happens after the puzzle ends;
         PuzzleManager pm;

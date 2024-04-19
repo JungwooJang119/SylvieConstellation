@@ -951,12 +951,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 0}
+  gameUI: {fileID: 0}
   statusVar: 
   idleStateDialogueTitle: 
   taskInProgressStateDialogueTitle: 
   taskCompleteDialogueTitle: 
   postCompletionDialogueTitle: 
   characterImageView: {fileID: 0}
+  charImage: {fileID: 0}
 --- !u!212 &143677996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2557,12 +2559,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 1172519675}
+  gameUI: {fileID: 0}
   statusVar: DionysusNPCState
   idleStateDialogueTitle: DionysusStart
   taskInProgressStateDialogueTitle: Alt1
   taskCompleteDialogueTitle: DionysusComplete
   postCompletionDialogueTitle: DionysusFinal
   characterImageView: {fileID: 0}
+  charImage: {fileID: 0}
 --- !u!114 &444669011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7407,12 +7411,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 1172519675}
+  gameUI: {fileID: 0}
   statusVar: 
   idleStateDialogueTitle: 
   taskInProgressStateDialogueTitle: 
   taskCompleteDialogueTitle: 
   postCompletionDialogueTitle: 
   characterImageView: {fileID: 0}
+  charImage: {fileID: 0}
 --- !u!212 &1458717109
 SpriteRenderer:
   m_ObjectHideFlags: 0
