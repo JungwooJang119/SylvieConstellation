@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/M2/MainMenuM2.unity
     guid: 11c7557ebd02a8e4caa13024f94e1caf
   - enabled: 1
-    path: Assets/Scenes/M2/WorldM2.unity
-    guid: 70d96fe01f3f67040b8cb72cae26c1cf
+    path: Assets/Scenes/M2/Cutscenes/Intro Cutscene.unity
+    guid: 2a3defb9f4f2eb942bda1c14accc8a02
   - enabled: 1
     path: Assets/Scenes/M2/Credits.unity
     guid: 9d8166c128b974745ad1a551552de966
+  - enabled: 1
+    path: Assets/Scenes/M2/WorldM2.unity
+    guid: 70d96fe01f3f67040b8cb72cae26c1cf
   - enabled: 1
     path: Assets/Scenes/M2/Puzzle Scenes/Main/Perseus.unity
     guid: 7756fbca3e02957478a42575c9ed407e

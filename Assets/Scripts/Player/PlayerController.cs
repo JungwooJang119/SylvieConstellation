@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -41,6 +42,8 @@ public class PlayerController : Singleton<PlayerController>
 
     public int ConstellationSceneTransfer = 2;
 
+    public VisualEffect implosionVFX;
+
     private void Awake() {
         InitializeSingleton();
         input = new PlayerInput();
@@ -64,6 +67,7 @@ public class PlayerController : Singleton<PlayerController>
         } else {
             this.transform.position = spawn.position;
         }
+        implosionVFX.Play();
     }
 
     // Update is called once per frame

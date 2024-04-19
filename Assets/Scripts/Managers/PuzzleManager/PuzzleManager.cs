@@ -10,13 +10,14 @@ namespace PuzzleManagement {
 
     
     public enum PuzzleID {
-        MainWorld = 1,
-        Perseus = 3,
+        MainWorld = 3,
+        Perseus = 4,
         // HotDude = 2,
-        Dionysus = 4,
-        Gemini = 5,
-        DragonHotDude = 6,
-        ImMeltingDude = 7,
+        Lovers = 5,
+        Dionysus = 6,
+        Trickster = 7,
+        DragonHotDude = 8,
+        ImMeltingDude = 9
     }
  
     /// <summary>

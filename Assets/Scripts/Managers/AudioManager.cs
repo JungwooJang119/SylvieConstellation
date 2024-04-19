@@ -35,13 +35,13 @@ public class AudioManager : Singleton<AudioManager> {
 				PlayMusic("MainTheme");
 				break;
 			case 1:
-				PlayMusic("WorldTheme");
+				PlayMusic("IntroNarration");
 				break;
 			case 2:
 				PlayMusic("CreditsTheme");
 				break;
 			case 3:
-				PlayMusic("PuzzleTheme1");
+				PlayMusic("WorldTheme");
 				break;
 			case 4:
 				PlayMusic("PuzzleTheme1");
@@ -53,6 +53,9 @@ public class AudioManager : Singleton<AudioManager> {
 				PlayMusic("PuzzleTheme1");
 				break;
 			case 7:
+				PlayMusic("PuzzleTheme1");
+				break;
+			case 8:
 				PlayMusic("PuzzleTheme1");
 				break;
         }

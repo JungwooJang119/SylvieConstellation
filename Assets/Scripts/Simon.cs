@@ -19,7 +19,7 @@ public class Simon : MonoBehaviour
     public CanvasGroup buttons;
     public GameObject startButton;
 
-    public int maxSequenceLength = 10; // Maximum number of sequences
+    public int maxSequenceLength = 20; // Maximum number of sequences
 
     // Function to slightly darken a color
     private Color DarkenColor(Color color, float amount)
@@ -36,7 +36,7 @@ public class Simon : MonoBehaviour
     void InitializePredeterminedSequence()
     {
         // Example sequence, replace with your own logic if needed
-        predeterminedTaskList = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7 };
+        predeterminedTaskList = new List<int> { 0, 1, 2, 1, 5, 7, 1, 1, 3, 6, 6, 7, 4, 0, 5, 1, 4, 3, 6, 2, 2, 5 };
         // You can also generate this randomly or through other means
     }
 
@@ -107,7 +107,7 @@ public class Simon : MonoBehaviour
     {
         var button = clickableButtons[buttonId];
         var originalColor = button.GetComponent<Image>().color;
-        var highlightedColor = DarkenColor(originalColor, 0.75f); // Darken the button color
+        var highlightedColor = DarkenColor(originalColor, 0.5f); // Darken the button color
 
         button.GetComponent<Image>().color = highlightedColor;
         audioSource.PlayOneShot(buttonSoundsList[buttonId]);
