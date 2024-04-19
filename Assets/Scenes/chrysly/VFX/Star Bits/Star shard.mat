@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: test1
-  m_Shader: {fileID: -6465566751694194690, guid: c55a35a045e5be742857c1143b6496c8, type: 3}
-  m_Parent: {fileID: 2100000, guid: 61c1b6f277b4d524bac2552cb52679b4, type: 2}
+  m_Name: Star shard
+  m_Shader: {fileID: -6465566751694194690, guid: cc864366d1e03f44c9de68bc3b38cbb2, type: 3}
+  m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -22,19 +22,27 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
-    - _BrightnessPower: 1
-    - _BrightnessVariationScale: 0.05
-    - _OverallScale: 5
-    - _StarsScale: 20
-    - _Threshold: 0.95
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
-    - _Offset: {r: 275.9062, g: -51.106434, b: 0, a: 0}
+    - _Color: {r: 0.5773941, g: 0.7063424, b: 0.9245283, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &1543886290614656491
+--- !u!114 &5968981676559199992
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
