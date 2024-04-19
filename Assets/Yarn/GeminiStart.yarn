@@ -4,24 +4,16 @@ position: -39,-61
 ---
 /// State of the Gemini dialogue, used for the State Machine
 <<declare $GeminiNPCState = "Beginning">>
-Pollux: What do you want, you little pipsqueak?
+Lyra: ~crying~
 
-Sylvie: Well, you seemed lonely.
+Sylvie: What's wrong?
 
-Pollux: Lonely? I'm not... I'm not lonely!
+Lyra: I can't find my lover. Can you help me?
 
-Sylvie: Well, who else is here?
-
-Pollux: My twin brother would be here. But we had a big fight. I haven't seen him since.
-
-Sylvie: I can help! Let's get you two back together!
-
-Pollux: You would really do that?
-
--> Come on, let's go!
+-> Sure thing. Let me help!
     <<set $GeminiNPCState to "Affirmative">>
     <<jump GeminiAffirmativeResponse>>
--> Actually, good luck on your own!
+-> Sorry. Not right now.
     <<jump GeminiNegativeResponse>>
 
 ===
@@ -30,9 +22,9 @@ title: GeminiAffirmativeResponse
 position: -227,156
 ---
 
-Pollux: Sweet. I'll follow you! But I feel like Castor is still mad at me.
+Lyra: Oh thank you! Our connection was cut by the asteroids.
 
-Pollux: Let's try to get my brother next to me.
+Lyra: Aquila is probably trying to find me too, so let's hope that we meet each other.
 
 <<changeScene 2>>
 ===
@@ -40,8 +32,6 @@ Pollux: Let's try to get my brother next to me.
 title: GeminiNegativeResponse
 position: 83,150
 ---
-Sylvie: L BOZO GET RATIOED BYE BYE
-
-Pollux: Go away.
+Lyra: Oh. Ok then. ~WAHHHHHHHHHHH~
 
 ===

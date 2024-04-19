@@ -1484,6 +1484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 2098771125}
+  gameUI: {fileID: 0}
   statusVar: 
   idleStateDialogueTitle: 
   taskInProgressStateDialogueTitle: 
@@ -1950,7 +1951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184b248510225914a90ed940046ec8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleID: 1
+  puzzleID: 10
 --- !u!1 &624395984
 GameObject:
   m_ObjectHideFlags: 0

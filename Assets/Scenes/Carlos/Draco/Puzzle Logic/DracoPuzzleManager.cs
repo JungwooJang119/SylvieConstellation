@@ -9,6 +9,9 @@ public class DracoPuzzleManager : MonoBehaviour {
     [SerializeField] private DracoConstellationBrain puzzleBrain;
     [SerializeField] private float puzzleBeginDelay;
 
+    public GameObject proc;
+
+
     private void Awake() {
         puzzleBrain.OnPuzzleEnd += PuzzleBrain_OnPuzzleEnd;
     }
@@ -26,7 +29,7 @@ public class DracoPuzzleManager : MonoBehaviour {
         /// Here goes what happens after the puzzle ends;
         PuzzleManager pm;
         if ((pm = PuzzleManager.Instance) != null) pm.CompletePuzzle(puzzleID);
-
+        StartCoroutine(Completed());
         Debug.Log("You won/lost!");
     }
 
@@ -36,4 +39,13 @@ public class DracoPuzzleManager : MonoBehaviour {
         yield return new WaitForSeconds(delay);
         puzzleBrain.BeginPuzzle();
     }
+
+    IEnumerator Completed()
+    {
+        AudioManager.Instance.FadeMusic(true, true);
+        NotificationManager.Instance.TestPuzzleCompleteNotification();
+        yield return new WaitForSeconds(4f);
+        proc.GetComponent<PuzzleProc>().PuzzleInit();
+    }
+
 }

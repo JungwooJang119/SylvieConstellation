@@ -8,6 +8,15 @@ public class DionysusManager : MonoBehaviour
 
     public GameObject proc;
     public GameObject Drunk;
+    public GameObject bottle1;
+    public GameObject bottle2;
+    public GameObject bottle3;
+
+    public bool hasCollectedBottle1;
+    public bool hasCollectedBottle2;
+    public bool hasCollectedBottle3;
+
+    private bool hasDone;
 
     /// <summary>
     /// Sent when another object enters a trigger collider attached to this
@@ -20,11 +29,25 @@ public class DionysusManager : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        Drunk.GetComponent<DrunkGoggles>().SetDrunkIntensity(3);
+        Drunk.GetComponent<DrunkGoggles>().SetDrunkIntensity(1);
     }
-    private void OnTriggerEnter2D(Collider2D other)
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
     {
-        if (other.gameObject.tag == "Player") {
+        if (bottle1 == null) {
+            hasCollectedBottle1 = true;
+        }
+        if (bottle2 == null) {
+            hasCollectedBottle2 = true;
+        }
+        if (bottle3 == null) {
+            hasCollectedBottle3 = true;
+        }
+        if (!hasDone && hasCollectedBottle1 && hasCollectedBottle2 && hasCollectedBottle3) {
+            hasDone = true;
             StartCoroutine(Completed());
         }
     }
@@ -33,8 +56,8 @@ public class DionysusManager : MonoBehaviour
     {
         AudioManager.Instance.FadeMusic(true, true);
         NotificationManager.Instance.TestPuzzleCompleteNotification();
-        yield return new WaitForSeconds(4f);
         Drunk.GetComponent<DrunkGoggles>().SetDrunkIntensity(0);
+        yield return new WaitForSeconds(4f);
         proc.GetComponent<PuzzleProc>().PuzzleInit();
     }
 }

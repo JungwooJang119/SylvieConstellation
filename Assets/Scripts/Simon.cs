@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using PuzzleManagement;
 
 public class Simon : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class Simon : MonoBehaviour
 
     public int maxSequenceLength = 20; // Maximum number of sequences
 
+    public GameObject proc;
+
+
     // Function to slightly darken a color
     private Color DarkenColor(Color color, float amount)
     {
@@ -36,7 +40,7 @@ public class Simon : MonoBehaviour
     void InitializePredeterminedSequence()
     {
         // Example sequence, replace with your own logic if needed
-        predeterminedTaskList = new List<int> { 0, 1, 2, 1, 5, 7, 1, 1, 3, 6, 6, 7, 4, 0, 5, 1, 4, 3, 6, 2, 2, 5 };
+        predeterminedTaskList = new List<int> { 0, 1, 2, 1, 6, 7, 3, 3, 5, 0, 7, 4, 2, 2, 6, 1, 2, 4, 3};
         // You can also generate this randomly or through other means
     }
 
@@ -52,6 +56,8 @@ public class Simon : MonoBehaviour
         {
             if (playerTaskList[i] != playerSequenceList[i])
             {
+                audioSource.PlayOneShot(loseSound);
+                ResetGame();
                 StartCoroutine(PlayerLost());
                 return;
             }
@@ -61,7 +67,7 @@ public class Simon : MonoBehaviour
         {
             if (playerTaskList.Count >= maxSequenceLength || playerTaskList.Count >= predeterminedTaskList.Count)
             {
-                StartCoroutine(PlayerWins()); // Player wins the game
+                StartCoroutine(Completed()); // Player wins the game
             }
             else
             {
@@ -79,8 +85,6 @@ public class Simon : MonoBehaviour
 
     public IEnumerator PlayerLost()
     {
-        audioSource.PlayOneShot(loseSound);
-        ResetGame();
         yield return new WaitForSeconds(4f);
         startButton.SetActive(true);
     }
@@ -95,12 +99,19 @@ public class Simon : MonoBehaviour
         startButton.SetActive(true); // Show start button to allow game restart
     }
 
+    IEnumerator Completed()
+    {
+        AudioManager.Instance.FadeMusic(true, true);
+        NotificationManager.Instance.TestPuzzleCompleteNotification();
+        yield return new WaitForSeconds(4f);
+        proc.GetComponent<PuzzleProc>().PuzzleInit();
+    }
+
     private void ResetGame()
     {
         playerSequenceList.Clear();
         playerTaskList.Clear();
         buttons.interactable = false;
-        startButton.SetActive(true);
     }
 
     public IEnumerator HighlightButton(int buttonId)

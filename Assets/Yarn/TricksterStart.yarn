@@ -1,0 +1,56 @@
+﻿title: TricksterStart
+tags:
+position: -39,-61
+---
+/// State of the Gemini dialogue, used for the State Machine
+<<declare $TricksterNPCState = "Beginning">>
+Vulpecula: Who are you, ya little pipsqueak?
+
+Sylvie: I'm Sylvie! I'm here to help all of you from Cassiopeia.
+
+Vulpecula: Oh, I don't need help.
+
+Sylvie: Wha-huh?
+
+Vulpecula: Yeah, that woman caused a big ruckus, but I guess she forgot about me.
+
+Vulpecula: Or maybe she was too scared heehee...
+
+Sylvie: Ok, but there are others out there that need help, so can you help me find them?
+
+Vulpecula: Hmmm...
+
+Vulpecula: No.
+
+Sylvie: But... Perseus said that you could...
+
+Vulpecula: That romantic says a lot of things. Doesn't mean that I have to listen.
+
+Vulpecula: You know what. It's been quiet and boring since Cassiopeia's tantrum. Let's have some fun!
+
+-> Go along with Vulpecula's game.
+    <<set $TricksterNPCState to "Affirmative">>
+    <<jump TricksterAffirmativeResponse>>
+-> Go somewhere else.
+    <<jump TricksterNegativeResponse>>
+
+===
+
+title: TricksterAffirmativeResponse
+position: -227,156
+---
+
+Sylvie: What game are you thinking?
+
+Vulpecula: A simple game. But can you keep up?
+
+<<goToTrickster 2>>
+===
+
+title: TricksterNegativeResponse
+position: 83,150
+---
+
+Vulpecula: See ya, pipsqueak!
+
+===

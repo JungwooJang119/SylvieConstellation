@@ -12,13 +12,14 @@ public class TransitionManager : MonoBehaviour {
     [SerializeField]  CanvasGroup canvasGroup;
     private Coroutine transition;
     public Vector2 holdPos;
-    private int counter;
+    private int counter = -1;
     public Vector2 targetPosition;
     
     public Vector2 consPos1;
     public Vector2 consPos2;
     public Vector2 consPos3;
     public Vector2 consPos4;
+    public Vector2 consPos5;
 
     void Awake() {
         if (Instance == null) {
@@ -46,7 +47,7 @@ public class TransitionManager : MonoBehaviour {
     /// </summary>
     private IEnumerator _GoToScene(int sceneIndex) {
         transition = Fade(1);
-        if (sceneIndex == 1) {
+        if (sceneIndex == 3) {
             counter++;
             if (counter == 1) {
                 targetPosition = consPos2;
@@ -57,6 +58,9 @@ public class TransitionManager : MonoBehaviour {
             } else if (counter == 3) {
                 targetPosition = consPos4;
                 holdPos = consPos3;
+            } else if (counter == 4) {
+                targetPosition = consPos5;
+                holdPos = consPos4;
             }
         }
         while (transition != null) {

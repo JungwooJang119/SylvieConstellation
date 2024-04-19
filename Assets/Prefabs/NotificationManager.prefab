@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleCompleteSounds:
   - {fileID: 8300000, guid: 54cbbab2f92668446a0f5fe19fb1e4d5, type: 3}
-  miscSfx: {fileID: 8300000, guid: 3147230b8e7a6b9469bcae628b8b807f, type: 3}
+  miscSfx: {fileID: 8300000, guid: f2270890d7f2e0944a3152feeedb91ae, type: 3}
   notifAudio: {fileID: 6984235591228894066}
   notifAnim: {fileID: 0}
   headerText: {fileID: 0}

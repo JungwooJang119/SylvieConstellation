@@ -67,7 +67,9 @@ public class PlayerController : Singleton<PlayerController>
         } else {
             this.transform.position = spawn.position;
         }
-        implosionVFX.Play();
+        if (implosionVFX != null) {
+            implosionVFX.Play();
+        }
     }
 
     // Update is called once per frame

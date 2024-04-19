@@ -263,17 +263,20 @@ public class GeminiManager : MonoBehaviour
     }
     void Update()
     {
-        if (curCastorR == targetPositionr1 && curCastorC == targetPositionc1) {
-            if (curPollusR == targetPositionr2 && curPollusC == targetPositionc2) {
-                //insert ending sequence here
-                StartCoroutine(Completed());
+        if (!hasDone) {
+            if (curCastorR == targetPositionr1 && curCastorC == targetPositionc1) {
+                if (curPollusR == targetPositionr2 && curPollusC == targetPositionc2) {
+                    //insert ending sequence here
+                    hasDone = true;
+                    StartCoroutine(Completed());
+                }
             }
-        }
-        if (curPollusR == targetPositionr1 && curPollusC == targetPositionc1 && !hasDone) {
-            if (curCastorR == targetPositionr2 && curCastorC == targetPositionc2) {
-                //insert ending sequence here
-                hasDone = true;
-                StartCoroutine(Completed());
+            if (curPollusR == targetPositionr1 && curPollusC == targetPositionc1 && !hasDone) {
+                if (curCastorR == targetPositionr2 && curCastorC == targetPositionc2) {
+                    //insert ending sequence here
+                    hasDone = true;
+                    StartCoroutine(Completed());
+                }
             }
         }
     }

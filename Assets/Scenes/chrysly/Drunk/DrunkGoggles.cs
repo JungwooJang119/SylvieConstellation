@@ -22,6 +22,8 @@ public class DrunkGoggles : MonoBehaviour
     [SerializeField] private Material shader;
     [Range(0, 4)] [SerializeField] private int intensity;
 
+    private int holdIntensity;
+
     private void Awake() {
         feature.SetActive(false);
         
@@ -39,10 +41,15 @@ public class DrunkGoggles : MonoBehaviour
         drunkNoise.OrientationNoise[0].Z.Amplitude = 0;
     }
 
+    public int GetDrunkIntensity() {
+        return holdIntensity;
+    }
+
     /**
      * CALL THIS METHOD
      */
     public void SetDrunkIntensity(int level) {
+        holdIntensity = level;
         level = level < 0 ? 0 : level;
         level = level > 4 ? 4 : level;
         

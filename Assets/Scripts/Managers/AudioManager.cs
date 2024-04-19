@@ -53,10 +53,16 @@ public class AudioManager : Singleton<AudioManager> {
 				PlayMusic("PuzzleTheme1");
 				break;
 			case 7:
-				PlayMusic("PuzzleTheme1");
+				PlayMusic("TricksterTheme");
 				break;
 			case 8:
-				PlayMusic("PuzzleTheme1");
+				PlayMusic("Perseus");
+				break;
+			case 9:
+				PlayMusic("Lovers");
+				break;
+			case 10:
+				PlayMusic("Lovers");
 				break;
         }
 	}

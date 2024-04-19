@@ -21,12 +21,21 @@ EditorBuildSettings:
     path: Assets/Scenes/M2/Puzzle Scenes/Main/Perseus.unity
     guid: 7756fbca3e02957478a42575c9ed407e
   - enabled: 1
+    path: Assets/Scenes/M2/Puzzle Scenes/Main/Lovers.unity
+    guid: 5a5eb5aee4f8d1d4c81760657e291bba
+  - enabled: 1
     path: Assets/Scenes/M2/Puzzle Scenes/Main/Dionysus.unity
     guid: 16c762a685441a54a9a5d3690f6e9b02
   - enabled: 1
-    path: Assets/Scenes/M2/Puzzle Scenes/Gemini.unity
-    guid: 5a5eb5aee4f8d1d4c81760657e291bba
+    path: Assets/Scenes/M2/Puzzle Scenes/Main/Trickster.unity
+    guid: 2a8e5e54ac853ff49b591613d6a0c3a3
   - enabled: 1
     path: Assets/Scenes/M2/Puzzle Scenes/Main/Draco.unity
     guid: a2e97bee7291b0142ab8da1d68d41027
+  - enabled: 1
+    path: Assets/Scenes/M2/Cutscenes/MovingPictures/LoversMovingPicture.unity
+    guid: bf9543893c50eeb48b36e04b9c1c03a4
+  - enabled: 1
+    path: Assets/Scenes/M2/Cutscenes/MovingPictures/CassiopeiaMovingPic.unity
+    guid: af98bb9602857e040b29aaeea17d1e7e
   m_configObjects: {}

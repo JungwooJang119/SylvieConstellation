@@ -18,7 +18,7 @@ Draco: What kind of trick do you aim to try on me?
 
 -> Help fix Draco.
     <<set $DracoNPCState to "Affirmative">>
-    <<jump DionysusAffirmativeResponse>>
+    <<jump DracoAffirmativeResponse>>
 -> Leave him alone.
     <<jump DracoNegativeResponse>>
 
@@ -32,7 +32,7 @@ Sylvie: Let me help you! Perseus says I need your help.
 
 Draco: No! Get away from me!
 
-<<changeThisScene 2>>
+<<goToDraco 2>>
 ===
 
 title: DracoNegativeResponse

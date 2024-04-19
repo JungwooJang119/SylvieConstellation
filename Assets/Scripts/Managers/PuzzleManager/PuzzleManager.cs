@@ -17,7 +17,8 @@ namespace PuzzleManagement {
         Dionysus = 6,
         Trickster = 7,
         DragonHotDude = 8,
-        ImMeltingDude = 9
+        LoversMovingPic = 9,
+        CassiopeiaMovingPic = 10
     }
  
     /// <summary>
