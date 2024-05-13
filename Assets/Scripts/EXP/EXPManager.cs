@@ -7,14 +7,25 @@ enum SYLVIE_STAGE {
 }
 public class EXPManager : MonoBehaviour
 {
+    //total EXP that the player has collected
     [SerializeField] private static int currentExp = 0;
+    //EXP that the player still needs to level up
     [SerializeField] private static int expUntilLevel = 100;
+    //the current stage that needs to be displayed
     [SerializeField] private static SYLVIE_STAGE stage = SYLVIE_STAGE.BABY;
+    //potential sprites
+    [SerializeField] public Sprite childSprite;
+    [SerializeField] public Sprite teenSprite;
+    [SerializeField] public Sprite adultSprite;
+    //reference to the player
     [SerializeField] public GameObject player;
-    [SerializeField] public static Sprite childSprite;
-    [SerializeField] public static Sprite teenSprite;
-    [SerializeField] public static Sprite adultSprite;
-
+    //reference to the puzzle manager object
+    [SerializeField] public GameObject puzzleManager;
+    //the current puzzle, is 0 in open world
+    [SerializeField] private PuzzleManagement.PuzzleID  puzzle = 0;
+    //the amount to add per level
+    [SerializeField] private int majorEXP = 25;
+    [SerializeField] private int minorEXP = 15;
     public static void addEXP(int exp) {
         if (exp > 0) {
             currentExp += exp;
@@ -57,5 +68,28 @@ public class EXPManager : MonoBehaviour
                 player.gameObject.GetComponent<SpriteRenderer>().sprite = adultSprite;
                 break;
         }
+    }
+    //fix
+    private bool isMainPuzzle(PuzzleManagement.PuzzleID p) {
+        return true;
+    }
+
+    void start() {
+        updateSprite();
+    }
+    void update() {
+        Debug.Log("hello");
+        //for testing
+        if(Input.GetKeyDown(KeyCode.Tab)) {
+            addEXP(majorEXP);
+            Debug.Log(currentExp + ", ");
+        }
+        // if (puzzleManager.gameObject.GetComponent<PuzzleManagement.PuzzleManager>().GetPuzzleStatus(puzzle)) {
+        //     if (isMainPuzzle(puzzle)) {
+        //         addEXP(majorEXP);
+        //     } else {
+        //         addEXP(minorEXP);
+        //     }
+        // }
     }
 }
