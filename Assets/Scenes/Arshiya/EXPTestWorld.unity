@@ -9112,9 +9112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711c51e6d385170448d09b4e5da3005d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childSprite: {fileID: 0}
-  teenSprite: {fileID: 0}
-  adultSprite: {fileID: 0}
+  currentExp: 0
+  expUntilLevel: 100
+  stage: 0
+  babySprite: {fileID: -2413806693520163455, guid: deea8d3e4aab74c4a9b0c3dfba8a24b9, type: 3}
+  childSprite: {fileID: 21300000, guid: 16733427fb26eb94d82843b9a1e394a5, type: 3}
+  teenSprite: {fileID: 7482667652216324306, guid: 0ffa30e0c1fffea498789a5f249bfb28, type: 3}
+  adultSprite: {fileID: 21300000, guid: 411bd461afe335e479ab810db84e078d, type: 3}
   player: {fileID: 1768198625}
   puzzleManager: {fileID: 1143922278}
   puzzle: 2
@@ -12909,6 +12913,14 @@ PrefabInstance:
     - target: {fileID: 1031535819925411885, guid: eca1290be5a3d3040be54a632e77dd73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312535864595605800, guid: eca1290be5a3d3040be54a632e77dd73, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 124.3999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357702072832146226, guid: eca1290be5a3d3040be54a632e77dd73, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 124.3999
       objectReference: {fileID: 0}
     - target: {fileID: 6897235042098825989, guid: eca1290be5a3d3040be54a632e77dd73, type: 3}
       propertyPath: m_Name
