@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1266690944757981010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2609207651009363142}
+  - component: {fileID: 5546612726027782683}
+  m_Layer: 0
+  m_Name: EXPManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2609207651009363142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266690944757981010}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44.8767, y: 3.1625056, z: 0.3638462}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5546612726027782683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266690944757981010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711c51e6d385170448d09b4e5da3005d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentExp: 0
+  expUntilLevel: 100
+  stage: 0
+  babySprite: {fileID: -2413806693520163455, guid: deea8d3e4aab74c4a9b0c3dfba8a24b9, type: 3}
+  childSprite: {fileID: 21300000, guid: 16733427fb26eb94d82843b9a1e394a5, type: 3}
+  teenSprite: {fileID: 7482667652216324306, guid: 0ffa30e0c1fffea498789a5f249bfb28, type: 3}
+  adultSprite: {fileID: 21300000, guid: 411bd461afe335e479ab810db84e078d, type: 3}
+  player: {fileID: 0}
+  puzzleManager: {fileID: 0}
+  puzzle: 2
+  majorEXP: 25
+  minorEXP: 15
