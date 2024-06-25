@@ -38,7 +38,7 @@ public class EXPManager : MonoBehaviour
     //the amount to add per level -> subject to change
     [SerializeField] private static int majorEXP = 25;
     [SerializeField] private static int minorEXP = 15;
-
+    [SerializeField] private static PuzzleManagement.PuzzleID[] mainPuzzles = {PuzzleManagement.PuzzleID.Perseus, PuzzleManagement.PuzzleID.Dionysus, PuzzleManagement.PuzzleID.DragonHotDude};
 
 
     //adds to total EXP for puzzle completion
@@ -134,20 +134,19 @@ public class EXPManager : MonoBehaviour
     }
     //determines if something is a main puzzle or not -> fix
     private bool isMainPuzzle(PuzzleManagement.PuzzleID p) {
-        switch (p) {
-            case PuzzleManagement.PuzzleID.Perseus:
-            case PuzzleManagement.PuzzleID.Dionysus:
-            case PuzzleManagement.PuzzleID.DragonHotDude:
+        foreach (PuzzleManagement.PuzzleID puzzles in mainPuzzles) {
+            if(p.Equals(puzzles)) {
                 return true;
-            default:
-                return false;
+            }
         }
+        return false;
     }
 
     //adjusts Sylvie's appearance at the start of the load
     void Start() {
         puzzle = (PuzzleManagement.PuzzleID)SceneManager.GetActiveScene().buildIndex;
         updateSprite();
+        
     }
     void Update() {
         //for testing
@@ -155,6 +154,16 @@ public class EXPManager : MonoBehaviour
             addEXP(majorEXP);
             Debug.Log(currentExp + ", " + expUntilLevel + ", " + stage);
         }
+        //puzzle transition workaround, Perseus scene won't switch scenes :(
+        // if(Input.GetKeyDown(KeyCode.K)) {
+        //     SceneManager.LoadScene("Perseus");
+        // }
+        // if(Input.GetKeyDown(KeyCode.Tab)) {
+        //     Debug.Log("L is pressed");
+        //     puzzleManager.gameObject.GetComponent<PuzzleManagement.PuzzleManager>().CompletePuzzle((PuzzleManagement.PuzzleID)2);
+        //     SceneManager.LoadScene("EXPTestWorld");
+        //     Debug.Log(currentExp + ", " + expUntilLevel + ", " + stage);
+        // }
         
         //for actual gameplay
         if (puzzle != PuzzleManagement.PuzzleID.MainWorld && puzzleManager.gameObject.GetComponent<PuzzleManagement.PuzzleManager>().GetPuzzleStatus(puzzle)) {
