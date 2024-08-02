@@ -5228,17 +5228,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: cbc6e501d937412408611e77cd5f25c4, type: 3}
+  m_PointAction: {fileID: 5955320026294217400, guid: cbc6e501d937412408611e77cd5f25c4, type: 3}
+  m_MoveAction: {fileID: 1358031983078823780, guid: cbc6e501d937412408611e77cd5f25c4, type: 3}
+  m_SubmitAction: {fileID: -5977712412099969677, guid: cbc6e501d937412408611e77cd5f25c4, type: 3}
+  m_CancelAction: {fileID: -1868191067160062125, guid: cbc6e501d937412408611e77cd5f25c4, type: 3}
+  m_LeftClickAction: {fileID: -3335601317285826174, guid: cbc6e501d937412408611e77cd5f25c4, type: 3}
+  m_MiddleClickAction: {fileID: -5057946302985179127, guid: cbc6e501d937412408611e77cd5f25c4, type: 3}
+  m_RightClickAction: {fileID: 5309353879138845515, guid: cbc6e501d937412408611e77cd5f25c4, type: 3}
+  m_ScrollWheelAction: {fileID: -1426311512960177415, guid: cbc6e501d937412408611e77cd5f25c4, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 5443991414368025321, guid: cbc6e501d937412408611e77cd5f25c4, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: -3280429833827731300, guid: cbc6e501d937412408611e77cd5f25c4, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
@@ -6951,6 +6951,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7778558434935992807, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7778558434935992808, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: m_Type
       value: 0
@@ -7172,6 +7176,9 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 1553925416}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7778558434935992802, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1172519678}
     - targetCorrespondingSourceObject: {fileID: 4540255442126730747, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1000931811}
@@ -7187,6 +7194,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bec29c0a230741bdac901dba8da47ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1172519676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7778558434935992802, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
+  m_PrefabInstance: {fileID: 1172519674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1172519677 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7778558435068644806, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
+  m_PrefabInstance: {fileID: 1172519674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddcdd604a328c4ab296f048eb7b3a925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1172519678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172519676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbddd4156404c04793cb5e6638e4f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continueDialogueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1172519677}
+        m_TargetAssemblyTypeName: Yarn.Unity.LineView, YarnSpinner.Unity
+        m_MethodName: OnContinueClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &1173812600
 GameObject:
   m_ObjectHideFlags: 0
