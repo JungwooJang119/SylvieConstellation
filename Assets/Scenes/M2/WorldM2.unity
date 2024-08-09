@@ -3887,6 +3887,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769541184}
   m_CullTransparentMesh: 1
+--- !u!1001 &772238650
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.7476453
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.23284078
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904755777824696348, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_Name
+      value: Star Shard (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
 --- !u!224 &783868884 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7084386685998634907, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
@@ -8059,7 +8116,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -10261,6 +10318,63 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.94332343}
   m_EdgeRadius: 0
+--- !u!1001 &1613640826
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9793243
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8000517
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325236862916426949, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904755777824696348, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
+      propertyPath: m_Name
+      value: Star Shard
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2de5acf3bcfa22c459a2e9eeac7a023a, type: 3}
 --- !u!1001 &1625454635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11299,6 +11413,21 @@ MonoBehaviour:
   deltat: 10
   rotation: 0.03
   centerPosition: {fileID: 1768198625}
+--- !u!114 &1768198657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768198625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511cd19f31e7ad207a30afc81c792f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 1000
+  axisScaler: 10
+  rotateAround: {fileID: 1768198632}
 --- !u!1 &1769586383
 GameObject:
   m_ObjectHideFlags: 0
@@ -14324,7 +14453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8819972925187558140, guid: 8aa31d23db44abf4d8a45e70050abf8d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8819972925187558140, guid: 8aa31d23db44abf4d8a45e70050abf8d, type: 3}
       propertyPath: m_Offset.x
@@ -14411,6 +14540,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3289613599486868265, guid: 8aa31d23db44abf4d8a45e70050abf8d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1768198647}
+    - targetCorrespondingSourceObject: {fileID: 3289613599486868265, guid: 8aa31d23db44abf4d8a45e70050abf8d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1768198657}
   m_SourcePrefab: {fileID: 100100000, guid: 8aa31d23db44abf4d8a45e70050abf8d, type: 3}
 --- !u!222 &4061207999232132849
 CanvasRenderer:
@@ -16031,3 +16163,5 @@ SceneRoots:
   - {fileID: 1948156005}
   - {fileID: 1586335227}
   - {fileID: 1599283227}
+  - {fileID: 1613640826}
+  - {fileID: 772238650}

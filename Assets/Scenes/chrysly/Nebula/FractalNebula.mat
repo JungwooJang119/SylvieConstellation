@@ -35,7 +35,7 @@ Material:
     m_Floats:
     - _Scale: 3.24
     m_Colors:
-    - _Layer1Color: {r: 0.22834918, g: 0.11596294, b: 0.335849, a: 1}
-    - _Layer2Color: {r: 0.015686262, g: 0.26899865, b: 0.5254902, a: 1}
-    - _SpaceColor: {r: 0.17144172, g: 0.3065184, b: 0.4566037, a: 1}
+    - _Layer1Color: {r: 0.4302688, g: 0.23789605, b: 0.6226415, a: 1}
+    - _Layer2Color: {r: 0.07186719, g: 0.43687698, b: 0.8018868, a: 1}
+    - _SpaceColor: {r: 0.22107512, g: 0.4374333, b: 0.6792453, a: 1}
   m_BuildTextureStacks: []
