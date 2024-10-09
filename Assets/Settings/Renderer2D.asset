@@ -1,5 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8848929604344773396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: CosmicOutline
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: CosmicOutline
+    Event: 400
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 1024
+      PassNames: []
+    overrideMaterial: {fileID: 2100000, guid: 854d450caa722464d99a761ccf83bdf8, type: 2}
+    overrideMaterialPassIndex: 0
+    overrideShader: {fileID: 0}
+    overrideShaderPassIndex: 0
+    overrideMode: 1
+    overrideDepthState: 1
+    depthCompareFunction: 4
+    enableWrite: 0
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
 --- !u!114 &-7072893958652416832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,7 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    Event: 500
+    Event: 300
     blitMaterial: {fileID: 2100000, guid: f78f557c75a25144d8c5aefbe2c1fd51, type: 2}
     blitMaterialPassIndex: 0
     setInverseViewMatrix: 0
@@ -27,6 +69,75 @@ MonoBehaviour:
     dstTextureObject: {fileID: 0}
     overrideGraphicsFormat: 0
     graphicsFormat: 4
+--- !u!114 &-6363189190516213553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: CosmicFog
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: CosmicFog
+    Event: 450
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 1024
+      PassNames: []
+    overrideMaterial: {fileID: 0}
+    overrideMaterialPassIndex: 0
+    overrideShader: {fileID: 0}
+    overrideShaderPassIndex: 0
+    overrideMode: 1
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
+--- !u!114 &-75161082739577820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a299cc821826a4408064ce580bab748, type: 3}
+  m_Name: Metaballs (2D)
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    renderPassEvent: 350
+    outlineSize: 0.17
+    gradient: {fileID: 2800000, guid: d7ed6c837eead8246a5f810d8e4177c7, type: 3}
+    noise: {fileID: 2800000, guid: 8b16137cf193bd44a9bf4b429ec37613, type: 3}
+    voronoi: {fileID: 0}
+    wavelength: 0.09
+    intensity: 0.01
+    scale: 0.86
+    scrollSpeed: 1
+    simpleScale: 3.5
+    playerPos: {x: 0, y: 0, z: 0, w: 0}
+    innerColor: {r: 0.24228546, g: 0.5670503, b: 0.7509433, a: 1}
+    outlineColor: {r: 0.10207895, g: 0.32226533, b: 0.9169811, a: 1}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,7 +155,10 @@ MonoBehaviour:
     hdrDebugViewPS: {fileID: 4800000, guid: 573620ae32aec764abd4d728906d2587, type: 3}
   m_RendererFeatures:
   - {fileID: -7072893958652416832}
-  m_RendererFeatureMap: c02c841c6b08d89d
+  - {fileID: -8848929604344773396}
+  - {fileID: -6363189190516213553}
+  - {fileID: -75161082739577820}
+  m_RendererFeatureMap: c02c841c6b08d89dec84979268493285cff8ac142569b1a724ac5fba64f9f4fe
   m_UseNativeRenderPass: 0
   m_TransparencySortMode: 0
   m_TransparencySortAxis: {x: 0, y: 1, z: 0}

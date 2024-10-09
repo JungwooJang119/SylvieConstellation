@@ -56,7 +56,7 @@ public class AudioManager : Singleton<AudioManager> {
 				PlayMusic("TricksterTheme");
 				break;
 			case 8:
-				PlayMusic("Perseus");
+				PlayMusic("Draco");
 				break;
 			case 9:
 				PlayMusic("Lovers");

@@ -424,6 +424,55 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &126347729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 126347731}
+  - component: {fileID: 126347730}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &126347730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126347729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0.77
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: ca687b76cd3737a409ff520cfd905e43, type: 2}
+--- !u!4 &126347731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126347729}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.1058464, y: -2.5741563, z: 0.8228451}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &193945869 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1867521964897134638, guid: 72c3462325d7e054e93b1980ba29b088, type: 3}
@@ -608,7 +657,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -7392,6 +7441,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1656913761}
     m_Modifications:
+    - target: {fileID: 1885820077613146808, guid: 54931ecb2be0e7745b40008f3c45bcf8, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3493413443310928568, guid: 54931ecb2be0e7745b40008f3c45bcf8, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -7435,6 +7488,18 @@ PrefabInstance:
     - target: {fileID: 8257166646740576362, guid: 54931ecb2be0e7745b40008f3c45bcf8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572427695458740086, guid: 54931ecb2be0e7745b40008f3c45bcf8, type: 3}
+      propertyPath: musicSounds.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572427695458740086, guid: 54931ecb2be0e7745b40008f3c45bcf8, type: 3}
+      propertyPath: musicSounds.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a6b264657d3fabd488c8987f59e0d236, type: 3}
+    - target: {fileID: 8572427695458740086, guid: 54931ecb2be0e7745b40008f3c45bcf8, type: 3}
+      propertyPath: musicSounds.Array.data[7].name
+      value: Draco
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7775,3 +7840,4 @@ SceneRoots:
   - {fileID: 8960258106010714077}
   - {fileID: 954967914}
   - {fileID: 1532561660}
+  - {fileID: 126347731}
